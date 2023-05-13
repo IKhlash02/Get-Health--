@@ -11,14 +11,13 @@ class KeranjangPage extends StatefulWidget {
 }
 
 class _KeranjangPageState extends State<KeranjangPage> {
-  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(10.0),
-          child: Column(
+          child: ListView(
             children: [
               Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -43,17 +42,16 @@ class _KeranjangPageState extends State<KeranjangPage> {
                 height: 20,
               ),
               Expanded(
-                child: ListView(
-                  children: [
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 4,
-                      itemBuilder: (context, index) {
-                        return const KeranjanItem();
-                      },
-                    ),
-                  ],
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    bool isChecked = true;
+                    return KeranjanItem(
+                      isChecked: isChecked,
+                    );
+                  },
                 ),
               ),
               Padding(
@@ -112,7 +110,8 @@ class _KeranjangPageState extends State<KeranjangPage> {
 }
 
 class KeranjanItem extends StatefulWidget {
-  const KeranjanItem({super.key});
+  late bool isChecked;
+  KeranjanItem({super.key, required this.isChecked});
 
   @override
   State<KeranjanItem> createState() => _KeranjanItemState();
@@ -121,7 +120,7 @@ class KeranjanItem extends StatefulWidget {
 class _KeranjanItemState extends State<KeranjanItem> {
   @override
   Widget build(BuildContext context) {
-    bool isChecked = false;
+    bool isItemCheck = false;
     return Container(
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -130,19 +129,21 @@ class _KeranjanItemState extends State<KeranjanItem> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 0),
             child: Row(
               children: [
                 Checkbox(
-                    value: isChecked,
+                    value: widget.isChecked,
                     activeColor: primerColor,
                     onChanged: (value) {
                       setState(() {
-                        isChecked = value!;
+                        widget.isChecked = value!;
+                        isItemCheck = value;
+                        print(isItemCheck.toString());
                       });
                     }),
                 const SizedBox(
-                  width: 10,
+                  width: 5,
                 ),
                 Text(
                   "GetHealth+ Dramaga Bogor",
@@ -155,169 +156,176 @@ class _KeranjanItemState extends State<KeranjanItem> {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(6.0),
-            child: Divider(
-              height: 10,
-              thickness: 2,
-              color: Color(0xffA1D1E0),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(6),
-            child: Row(
-              children: [
-                Checkbox(
-                    value: isChecked,
-                    activeColor: primerColor,
-                    onChanged: (value) {
-                      setState(() {
-                        isChecked = value!;
-                      });
-                    }),
-                Container(
-                    padding: const EdgeInsets.all(4),
-                    color: Colors.white,
-                    child: const Icon(
-                      Icons.local_shipping_outlined,
-                      size: 60,
-                    )),
-                const SizedBox(
-                  width: 15,
-                ),
-                Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.all(0),
-                    padding: const EdgeInsets.all(5),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: 4,
+            itemBuilder: (context, index) {
+              bool isRight = isItemCheck;
+              return Padding(
+                padding: const EdgeInsets.only(left: 8.0, bottom: 3.0),
+                child: Column(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.all(0.0),
+                      child: Divider(
+                        height: 10,
+                        thickness: 2,
+                        color: Color(0xffA1D1E0),
+                      ),
+                    ),
+                    Row(
                       children: [
-                        Row(
-                          children: [
-                            Text(
-                              'Paracetamol',
-                              style: GoogleFonts.plusJakartaSans(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  letterSpacing: 1.25,
-                                  color: tulisanColor),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
+                        Checkbox(
+                            value: isRight,
+                            activeColor: primerColor,
+                            onChanged: (value) {
+                              setState(() {
+                                isRight = value!;
+                                print("sss");
+                              });
+                            }),
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 4, horizontal: 8),
-                          decoration: BoxDecoration(
-                            color: aksenColor,
-                            borderRadius: BorderRadius.circular(2),
-                          ),
-                          child: Text(
-                            'Variasi: xxxx ',
-                            style: GoogleFonts.plusJakartaSans(
-                                fontSize: 10.7,
-                                fontWeight: FontWeight.w400,
-                                letterSpacing: 1.25,
-                                color: tulisanColor),
-                          ),
-                        ),
+                            padding: const EdgeInsets.all(4),
+                            color: Colors.white,
+                            child: const Icon(
+                              Icons.local_shipping_outlined,
+                              size: 60,
+                            )),
                         const SizedBox(
-                          height: 5,
+                          width: 15,
                         ),
-                        Row(
-                          children: [
-                            SizedBox(
-                              height: 11.69,
-                              width: 10.52,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    side: const BorderSide(
-                                        width: 0.5, color: primerColor),
-                                    padding: const EdgeInsets.all(0)),
-                                onPressed: () {
-                                  // if (count != 0) {
-                                  //   setState(() {
-                                  //     count--;
-                                  //   });
-                                  // }
-                                },
-                                child: const Center(
+                        Expanded(
+                          child: Container(
+                            margin: const EdgeInsets.all(0),
+                            padding: const EdgeInsets.all(5),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Paracetamol',
+                                      style: GoogleFonts.plusJakartaSans(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                          letterSpacing: 1.25,
+                                          color: tulisanColor),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 4, horizontal: 8),
+                                  decoration: BoxDecoration(
+                                    color: aksenColor,
+                                    borderRadius: BorderRadius.circular(2),
+                                  ),
                                   child: Text(
-                                    '-',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 9),
+                                    'Variasi: xxxx ',
+                                    style: GoogleFonts.plusJakartaSans(
+                                        fontSize: 10.7,
+                                        fontWeight: FontWeight.w400,
+                                        letterSpacing: 1.25,
+                                        color: tulisanColor),
                                   ),
                                 ),
-                              ),
-                            ),
-                            const Spacer(
-                              flex: 1,
-                            ),
-                            Text(
-                              "99",
-                              style: GoogleFonts.plusJakartaSans(
-                                  fontSize: 9.7,
-                                  fontWeight: FontWeight.w400,
-                                  letterSpacing: 1.25,
-                                  color: tulisanColor),
-                            ),
-                            const Spacer(
-                              flex: 1,
-                            ),
-                            SizedBox(
-                              height: 11.69,
-                              width: 10.52,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  side: const BorderSide(
-                                      width: 0.5, color: primerColor),
-                                  padding: const EdgeInsets.all(0),
+                                const SizedBox(
+                                  height: 5,
                                 ),
-                                onPressed: () {
-                                  setState(() {
-                                    " count = count + 1";
-                                  });
-                                },
-                                child: const Center(
-                                  child: Text(
-                                    '+',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 9),
-                                  ),
+                                Row(
+                                  children: [
+                                    SizedBox(
+                                      height: 11.69,
+                                      width: 10.52,
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                            side: const BorderSide(
+                                                width: 0.5, color: primerColor),
+                                            padding: const EdgeInsets.all(0)),
+                                        onPressed: () {
+                                          // if (count != 0) {
+                                          //   setState(() {
+                                          //     count--;
+                                          //   });
+                                          // }
+                                        },
+                                        child: const Center(
+                                          child: Text(
+                                            '-',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 9),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const Spacer(
+                                      flex: 1,
+                                    ),
+                                    Text(
+                                      "99",
+                                      style: GoogleFonts.plusJakartaSans(
+                                          fontSize: 9.7,
+                                          fontWeight: FontWeight.w400,
+                                          letterSpacing: 1.25,
+                                          color: tulisanColor),
+                                    ),
+                                    const Spacer(
+                                      flex: 1,
+                                    ),
+                                    SizedBox(
+                                      height: 11.69,
+                                      width: 10.52,
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          side: const BorderSide(
+                                              width: 0.5, color: primerColor),
+                                          padding: const EdgeInsets.all(0),
+                                        ),
+                                        onPressed: () {
+                                          setState(() {
+                                            " count = count + 1";
+                                          });
+                                        },
+                                        child: const Center(
+                                          child: Text(
+                                            '+',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 9),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const Spacer(
+                                      flex: 12,
+                                    ),
+                                    const Icon(
+                                      Icons.delete,
+                                      size: 16,
+                                      color: Colors.black,
+                                    ),
+                                    const Spacer(
+                                      flex: 1,
+                                    ),
+                                  ],
                                 ),
-                              ),
+                              ],
                             ),
-                            const Spacer(
-                              flex: 12,
-                            ),
-                            const Icon(
-                              Icons.delete,
-                              size: 16,
-                              color: Colors.black,
-                            ),
-                            const Spacer(
-                              flex: 1,
-                            ),
-                          ],
-                        ),
+                          ),
+                        )
                       ],
                     ),
-                  ),
-                )
-              ],
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.0),
-            child: Divider(
-              height: 10,
-              thickness: 2,
-              color: Color(0xffA1D1E0),
-            ),
+                  ],
+                ),
+              );
+            },
           ),
         ],
       ),

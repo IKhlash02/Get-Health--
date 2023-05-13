@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_healt/presentation/screen/succes_register.dart';
 import 'package:get_healt/presentation/widget/dropdown.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../util/colors.dart';
 import '../provider/id_provinsi.dart';
 import '../widget/button_input.dart';
 import '../widget/button_submit.dart';
+import '../widget/dropdown_districk.dart';
 import '../widget/dropdown_regency.dart';
 import '../widget/text_norma.dart';
 
@@ -52,7 +54,7 @@ class Register extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 5),
+                        padding: const EdgeInsets.only(bottom: 5, left: 4),
                         child: Text(
                           "Data Pribadi",
                           style: Theme.of(context)
@@ -60,6 +62,9 @@ class Register extends StatelessWidget {
                               .titleMedium
                               ?.copyWith(color: tulisanColor),
                         ),
+                      ),
+                      const SizedBox(
+                        height: 10,
                       ),
                       Row(
                         children: const [
@@ -130,6 +135,14 @@ class Register extends StatelessWidget {
                         message: "password tidak ada",
                         obscureText: true,
                       ),
+                      const SizedBox(
+                        height: 7,
+                      ),
+                      Row(
+                        children: const [
+                          TextSmall(text: "Maksimal 16 karakter")
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -138,14 +151,19 @@ class Register extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 5, top: 20),
+                        padding:
+                            const EdgeInsets.only(bottom: 5, top: 26, left: 4),
                         child: Text(
                           "Data Alamat",
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(color: tulisanColor),
+                          style: GoogleFonts.montserrat(
+                              fontSize: 16.6,
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: 0.5,
+                              color: tulisanColor),
                         ),
+                      ),
+                      const SizedBox(
+                        height: 10,
                       ),
                       Row(
                         children: const [
@@ -210,11 +228,11 @@ class Register extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const ButtonInput(
-                        hinText: "Pilih Kecamatan",
-                        message: "password tidak ada",
-                        obscureText: true,
-                      ),
+                      Obx(() => DropdownDistrict(
+                            hinText: "Pilih Kecamatan",
+                            message: "Pilih Kecamatanmu",
+                            id: idProv.idKabupaten.toString(),
+                          )),
                       const SizedBox(
                         height: 20,
                       ),
@@ -250,6 +268,16 @@ class Register extends StatelessWidget {
                         hinText: "XXXXX",
                         message: "password tidak ada",
                         obscureText: true,
+                      ),
+                      const SizedBox(
+                        height: 7,
+                      ),
+                      Row(
+                        children: const [
+                          TextSmall(
+                            text: "Nama jalan, nomor rumah, rincian tambahan",
+                          )
+                        ],
                       ),
                     ],
                   ),

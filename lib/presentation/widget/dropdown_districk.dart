@@ -9,19 +9,18 @@ import 'package:dio/dio.dart';
 
 import '../provider/id_provinsi.dart';
 
-class DropDownRegency extends StatelessWidget {
+class DropdownDistrict extends StatelessWidget {
   final String hinText;
   final String message;
   final String id;
 
-  DropDownRegency(
+  DropdownDistrict(
       {super.key,
       required this.hinText,
       required this.message,
       required this.id});
 
   @override
-  final idC = Get.find<IdProvinsi>();
   Widget build(BuildContext context) {
     return DropdownSearch<ProvinsiModel>(
         dropdownDecoratorProps: DropDownDecoratorProps(
@@ -38,16 +37,14 @@ class DropDownRegency extends StatelessWidget {
             )),
         asyncItems: (String filter) async {
           var response = await Dio().get(
-            "https://emsifa.github.io/api-wilayah-indonesia/api/regencies/$id.json",
+            "http://www.emsifa.com/api-wilayah-indonesia/api/districts/$id.json",
             queryParameters: {"filter": filter},
           );
           var models = ProvinsiModel.fromJsonList(response.data);
 
           return models;
         },
-        onChanged: (ProvinsiModel? data) {
-          idC.setIdKabupaten(data!.id);
-        },
+        onChanged: (ProvinsiModel? data) {},
         validator: (value) {
           if (value == null) {
             return message;

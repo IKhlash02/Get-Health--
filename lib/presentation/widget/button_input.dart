@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_healt/util/colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ButtonInput extends StatelessWidget {
   final bool obscureText;
@@ -19,7 +20,11 @@ class ButtonInput extends StatelessWidget {
         fillColor: kotakColor,
         filled: true,
         hintText: hinText,
-        hintStyle: const TextStyle(color: tulisanColor),
+        hintStyle: GoogleFonts.inter(
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+            letterSpacing: 0.5,
+            color: tulisanColor),
         border: OutlineInputBorder(
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.circular(12.47)),
