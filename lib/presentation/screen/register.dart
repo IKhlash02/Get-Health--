@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_healt/data/models/provinsi_cubit.dart';
+
+import 'package:get/get.dart';
 import 'package:get_healt/presentation/screen/succes_register.dart';
 import 'package:get_healt/presentation/widget/dropdown.dart';
 
 import '../../util/colors.dart';
+import '../provider/id_provinsi.dart';
 import '../widget/button_input.dart';
 import '../widget/button_submit.dart';
 import '../widget/dropdown_regency.dart';
 import '../widget/text_norma.dart';
 
 class Register extends StatelessWidget {
-  const Register({super.key});
-
+  Register({super.key});
+  final idProv = Get.put(IdProvinsi());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -174,7 +175,7 @@ class Register extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const DropDown(
+                      DropDown(
                         hinText: "Pilih Provinsi",
                         message: "Pilih Provinsimu",
                       ),
@@ -191,10 +192,11 @@ class Register extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      DropDownRegency(
-                        hinText: "Pilih Kota/Kabupaten",
-                        message: "Pilih Kabupatenmu",
-                      ),
+                      Obx(() => DropDownRegency(
+                            hinText: "Pilih Kota/Kabupaten",
+                            message: "Pilih Kabupatenmu",
+                            id: idProv.idProv.toString(),
+                          )),
                       const SizedBox(
                         height: 20,
                       ),

@@ -228,7 +228,7 @@ class _BerandaPageState extends State<BerandaPage> {
                       shrinkWrap: true,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2, childAspectRatio: 153 / 270),
+                              crossAxisCount: 2, childAspectRatio: 153 / 278),
                       itemCount: 6,
                       itemBuilder: (BuildContext context, int index) {
                         return Padding(

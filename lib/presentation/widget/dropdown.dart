@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_healt/data/models/provinsi_cubit.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 import '../../data/models/provinsi_model.dart';
 import '../../util/colors.dart';
-
+import 'package:get/get.dart';
 import 'package:dio/dio.dart';
+
+import '../provider/id_provinsi.dart';
 
 class DropDown extends StatelessWidget {
   final String hinText;
   final String message;
 
-  const DropDown({super.key, required this.hinText, required this.message});
+  DropDown({super.key, required this.hinText, required this.message});
 
-  void saveData(String data) async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    pref.setString('id_prov', data);
-    print(data);
-  }
-
+  final idC = Get.find<IdProvinsi>();
   @override
   Widget build(BuildContext context) {
     return DropdownSearch<ProvinsiModel>(
@@ -44,8 +39,7 @@ class DropDown extends StatelessWidget {
         return models;
       },
       onChanged: (ProvinsiModel? data) {
-        saveData(data!.id);
-        context.read<IdCubit>().setId(data.id);
+        idC.setId(data!.id);
       },
       validator: (value) {
         if (value == null) {
