@@ -6,7 +6,7 @@ import 'package:get_healt/presentation/widget/dropdown.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../util/colors.dart';
-import '../provider/id_provinsi.dart';
+import '../../provider/id_provinsi.dart';
 import '../widget/button_input.dart';
 import '../widget/button_submit.dart';
 import '../widget/dropdown_districk.dart';

@@ -139,7 +139,6 @@ class _KeranjanItemState extends State<KeranjanItem> {
                       setState(() {
                         widget.isChecked = value!;
                         isItemCheck = value;
-                        print(isItemCheck.toString());
                       });
                     }),
                 const SizedBox(
@@ -182,7 +181,6 @@ class _KeranjanItemState extends State<KeranjanItem> {
                             onChanged: (value) {
                               setState(() {
                                 isRight = value!;
-                                print("sss");
                               });
                             }),
                         Container(

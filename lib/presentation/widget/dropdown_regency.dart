@@ -7,7 +7,7 @@ import '../../util/colors.dart';
 
 import 'package:dio/dio.dart';
 
-import '../provider/id_provinsi.dart';
+import '../../provider/id_provinsi.dart';
 
 class DropDownRegency extends StatelessWidget {
   final String hinText;
@@ -20,8 +20,8 @@ class DropDownRegency extends StatelessWidget {
       required this.message,
       required this.id});
 
-  @override
   final idC = Get.find<IdProvinsi>();
+  @override
   Widget build(BuildContext context) {
     return DropdownSearch<ProvinsiModel>(
         dropdownDecoratorProps: DropDownDecoratorProps(
