@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import 'package:get_healt/presentation/screen/login.dart';
+import 'package:get_healt/screen/login.dart';
 import 'package:get_healt/util/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
           textTheme: TextTheme(
@@ -84,7 +85,7 @@ class MyApp extends StatelessWidget {
           ),
           colorScheme: ColorScheme.fromSwatch()
               .copyWith(primary: const Color(0xff29AAD3))),
-      home: const Login(),
+      home: Login(),
       debugShowCheckedModeBanner: false,
     );
   }

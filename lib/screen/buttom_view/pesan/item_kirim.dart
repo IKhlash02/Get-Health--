@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../util/colors.dart';
+import '../../../util/colors.dart';
 
-class UlasanPage extends StatelessWidget {
-  const UlasanPage({
+class ItemKirim extends StatelessWidget {
+  const ItemKirim({
     super.key,
   });
 
@@ -48,17 +47,67 @@ class UlasanPage extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 4,
             itemBuilder: (context, index) {
-              return const UlasanItem();
+              return const KirimItem();
             },
           ),
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Total Pesanan",
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "Rp. 100.000",
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ]),
+              ),
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  margin: const EdgeInsets.all(10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                  decoration: BoxDecoration(
+                      color: primerColor,
+                      borderRadius: BorderRadius.circular(12)),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.call,
+                        color: Colors.white,
+                      ),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text(
+                        "Hubungi\nCabang",
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelSmall
+                            ?.copyWith(color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          )
         ],
       ),
     );
   }
 }
 
-class UlasanItem extends StatelessWidget {
-  const UlasanItem({super.key});
+class KirimItem extends StatelessWidget {
+  const KirimItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +116,6 @@ class UlasanItem extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(6),
           child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                   padding: const EdgeInsets.all(4),
@@ -94,46 +142,16 @@ class UlasanItem extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             vertical: 4, horizontal: 8),
                         decoration: BoxDecoration(
-                          color: const Color(0xff6BBD44),
+                          color: aksenColor,
                           borderRadius: BorderRadius.circular(2),
                         ),
-                        child: Text('Resep Terverifikasi',
+                        child: Text('Menunggu verifikasi resep',
                             style: Theme.of(context)
                                 .textTheme
                                 .labelSmall
                                 ?.copyWith(color: Colors.white)),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            margin: const EdgeInsets.all(10),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 14, vertical: 8),
-                            decoration: BoxDecoration(
-                                color: primerColor,
-                                borderRadius: BorderRadius.circular(12)),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Beri Ulasan",
-                                  style: GoogleFonts.plusJakartaSans(
-                                      fontSize: 10.93,
-                                      fontWeight: FontWeight.w700,
-                                      letterSpacing: 1.25,
-                                      color: Colors.white),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
                   ],
                 ),
               ),

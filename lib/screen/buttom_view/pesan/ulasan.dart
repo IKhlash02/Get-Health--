@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../util/colors.dart';
+import '../../../util/colors.dart';
 
-class TolakPage extends StatelessWidget {
-  const TolakPage({
+class UlasanPage extends StatelessWidget {
+  const UlasanPage({
     super.key,
   });
 
@@ -47,7 +48,7 @@ class TolakPage extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 4,
             itemBuilder: (context, index) {
-              return const TolakItem();
+              return const UlasanItem();
             },
           ),
         ],
@@ -56,8 +57,8 @@ class TolakPage extends StatelessWidget {
   }
 }
 
-class TolakItem extends StatelessWidget {
-  const TolakItem({super.key});
+class UlasanItem extends StatelessWidget {
+  const UlasanItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -103,6 +104,36 @@ class TolakItem extends StatelessWidget {
                                 ?.copyWith(color: Colors.white)),
                       ),
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
+                          onTap: () {},
+                          child: Container(
+                            margin: const EdgeInsets.all(10),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 14, vertical: 8),
+                            decoration: BoxDecoration(
+                                color: primerColor,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Beri Ulasan",
+                                  style: GoogleFonts.plusJakartaSans(
+                                      fontSize: 10.93,
+                                      fontWeight: FontWeight.w700,
+                                      letterSpacing: 1.25,
+                                      color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),

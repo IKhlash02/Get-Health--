@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 
-import '../../data/models/provinsi_model.dart';
-import '../../util/colors.dart';
+import '../data/models/provinsi_model.dart';
+import '../util/colors.dart';
 
 import 'package:dio/dio.dart';
 

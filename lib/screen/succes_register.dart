@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get_healt/presentation/screen/login.dart';
+import 'package:get_healt/screen/login.dart';
 
-import '../../util/colors.dart';
+import '../util/colors.dart';
 import '../widget/button_submit.dart';
 
 class SuccesRegister extends StatelessWidget {
@@ -35,7 +35,7 @@ class SuccesRegister extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const ButtonSubmit(
+            ButtonSubmit(
               text: "Ke Halaman Login",
               route: Login(),
             ),

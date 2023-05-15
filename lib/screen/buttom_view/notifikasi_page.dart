@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:get_healt/presentation/widget/notifikasi_item.dart';
+import 'package:get_healt/widget/notifikasi_item.dart';
 
-import '../../../util/colors.dart';
+import '../../util/colors.dart';
 
 class NotifikasiPage extends StatefulWidget {
   const NotifikasiPage({super.key});

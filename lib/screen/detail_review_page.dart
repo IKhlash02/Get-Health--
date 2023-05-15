@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get_healt/util/colors.dart';
-import 'package:get_healt/presentation/widget/review_item.dart';
+import 'package:get_healt/widget/review_item.dart';
 
 class DetailReview extends StatelessWidget {
   const DetailReview({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../util/colors.dart';
+import '../util/colors.dart';
 
 class BuildText extends StatelessWidget {
   final String text;

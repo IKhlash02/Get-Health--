@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:get_healt/presentation/screen/detail_review_page.dart';
+import 'package:get_healt/screen/detail_review_page.dart';
 import 'package:get_healt/util/colors.dart';
 
 import '../widget/read_more.dart';

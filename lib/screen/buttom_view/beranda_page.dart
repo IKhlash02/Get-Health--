@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:get_healt/presentation/widget/search_button.dart';
+import 'package:get_healt/widget/search_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../util/colors.dart';
+import '../../util/colors.dart';
 import '../detail_page.dart';
 
 class BerandaPage extends StatefulWidget {

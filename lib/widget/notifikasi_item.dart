@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../util/colors.dart';
+import '../util/colors.dart';
 
 class NotifikasiItem extends StatelessWidget {
   const NotifikasiItem({super.key});

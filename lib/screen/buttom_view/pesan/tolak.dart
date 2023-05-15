@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../util/colors.dart';
+import '../../../util/colors.dart';
 
-class ItemKirim extends StatelessWidget {
-  const ItemKirim({
+class TolakPage extends StatelessWidget {
+  const TolakPage({
     super.key,
   });
 
@@ -47,67 +47,17 @@ class ItemKirim extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: 4,
             itemBuilder: (context, index) {
-              return const KirimItem();
+              return const TolakItem();
             },
           ),
-          Row(
-            children: [
-              Expanded(
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Total Pesanan",
-                        style: Theme.of(context).textTheme.labelMedium,
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Rp. 100.000",
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-                    ]),
-              ),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  margin: const EdgeInsets.all(10),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                  decoration: BoxDecoration(
-                      color: primerColor,
-                      borderRadius: BorderRadius.circular(12)),
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.call,
-                        color: Colors.white,
-                      ),
-                      const SizedBox(
-                        width: 6,
-                      ),
-                      Text(
-                        "Hubungi\nCabang",
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelSmall
-                            ?.copyWith(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                ),
-              )
-            ],
-          )
         ],
       ),
     );
   }
 }
 
-class KirimItem extends StatelessWidget {
-  const KirimItem({super.key});
+class TolakItem extends StatelessWidget {
+  const TolakItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -116,6 +66,7 @@ class KirimItem extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(6),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                   padding: const EdgeInsets.all(4),
@@ -142,10 +93,10 @@ class KirimItem extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             vertical: 4, horizontal: 8),
                         decoration: BoxDecoration(
-                          color: aksenColor,
+                          color: const Color(0xff6BBD44),
                           borderRadius: BorderRadius.circular(2),
                         ),
-                        child: Text('Menunggu verifikasi resep',
+                        child: Text('Resep Terverifikasi',
                             style: Theme.of(context)
                                 .textTheme
                                 .labelSmall

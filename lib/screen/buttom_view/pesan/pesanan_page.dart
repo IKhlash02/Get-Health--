@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get_healt/presentation/screen/buttom_view/pesan/tolak.dart';
-import 'package:get_healt/presentation/screen/buttom_view/pesan/ulasan.dart';
+import 'package:get_healt/screen/buttom_view/pesan/tolak.dart';
+import 'package:get_healt/screen/buttom_view/pesan/ulasan.dart';
 import 'package:get_healt/util/colors.dart';
 
 import 'item_kirim.dart';

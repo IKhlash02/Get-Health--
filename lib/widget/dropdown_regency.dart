@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:get/get.dart';
 
-import '../../data/models/provinsi_model.dart';
-import '../../util/colors.dart';
+import '../data/models/provinsi_model.dart';
+import '../util/colors.dart';
 
 import 'package:dio/dio.dart';
 
-import '../../provider/id_provinsi.dart';
+import '../controller/id_provinsi.dart';
 
 class DropDownRegency extends StatelessWidget {
   final String hinText;
