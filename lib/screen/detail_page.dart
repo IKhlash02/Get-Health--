@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get_healt/screen/detail_review_page.dart';
 import 'package:get_healt/util/colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import '../data/models/product_model.dart';
 import '../widget/read_more.dart';
 import '../widget/review_item.dart';
 import 'navbar_button.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
+  final Produk produk;
+
+  DetailPage({super.key, required this.produk});
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -49,22 +53,24 @@ class _DetailPageState extends State<DetailPage> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Text(
-                      "Panadol Paracetamol",
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(color: tulisanColor),
+                      widget.produk.namaProduk,
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 1.5,
+                      ),
                     ),
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Rp. 16.000",
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyLarge
-                            ?.copyWith(color: tulisanColor),
+                        'Rp. ${widget.produk.hargaProduk}',
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 1.5,
+                        ),
                       ),
                       RatingBar(
                         initialRating: 4.5,
@@ -91,11 +97,12 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                       Text(
                         "73 terjual",
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodySmall
-                            ?.copyWith(color: tulisanColor),
-                      ),
+                        style: GoogleFonts.plusJakartaSans(
+                          fontSize: 12.73,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 1.5,
+                        ),
+                      )
                     ],
                   )
                 ],
@@ -115,15 +122,15 @@ class _DetailPageState extends State<DetailPage> {
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Text(
                       "Deskripsi",
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium
-                          ?.copyWith(color: tulisanColor),
+                      style: GoogleFonts.montserrat(
+                          fontSize: 16.64,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 0.15,
+                          color: tulisanColor),
                     ),
                   ),
                   BuildText(
-                    text:
-                        "Panadol adalah obat yang digunakan untuk mengatasi rasa nyeri atau sakit seperti sakit kepala dan gigi. Panadol mengandung zat aktif paracetamol yang berkhasiat dalam menurunkan demam. Obat ini bekerja dengan menghambat pembentukan prostaglandin yakni senyawa yang memicu nyeri.Paracetamol umumnya digunakan sebagai kandungan obat penurun demam dan penghilang nyeri atau rasa sakit. Selain dalam sediaan tablet, bahan aktif ini juga tersedia dalam bentuk sirup, drop, atau suspensi.Tergolong obat bebas, Panadol Biru dapat diperoleh dan digunakan tanpa resep dokter.\nDetail Produk:\n• Kategori: Demam\n• Komposisi: Paracetamol 500 mg\n• Golongan: Obat bebas• Perlu resep: Tidak\n• Rute obat: Oral• Kemasan: 1 dos isi 10 blister x 10 kaplet",
+                    text: widget.produk.deskripsiProduk,
                     isReadmore: isExpanded,
                   ),
                   const SizedBox(
