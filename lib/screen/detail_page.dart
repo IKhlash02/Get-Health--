@@ -29,7 +29,10 @@ class _DetailPageState extends State<DetailPage> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(Icons.arrow_back)),
+            icon: const Icon(
+              Icons.arrow_back,
+              color: primerColor,
+            )),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -38,7 +41,12 @@ class _DetailPageState extends State<DetailPage> {
           children: [
             Container(
               height: 300,
+              width: double.infinity,
               color: Colors.white,
+              child: Image.network(
+                "http://192.168.0.105/get_healt/gethealthplus/${widget.produk.gambar}",
+                fit: BoxFit.fitWidth,
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -118,20 +126,17 @@ class _DetailPageState extends State<DetailPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Text(
-                      "Deskripsi",
-                      style: GoogleFonts.montserrat(
-                          fontSize: 16.64,
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: 0.15,
-                          color: tulisanColor),
-                    ),
-                  ),
                   BuildText(
-                    text: widget.produk.deskripsiProduk,
+                    deskripsi: widget.produk.deskripsiProduk,
+                    indikasi: widget.produk.indikasi,
                     isReadmore: isExpanded,
+                    aturanPakai: widget.produk.aturanPakai,
+                    efekSamping: widget.produk.efekSamping,
+                    komposisi: widget.produk.komposisi,
+                    kontraindikasi: widget.produk.kontraindikasi.isEmpty
+                        ? "Tidak ada kontraindikasi pada produk ini"
+                        : widget.produk.kontraindikasi,
+                    perhatian: widget.produk.peringatanPerhatian,
                   ),
                   const SizedBox(
                     height: 10,
@@ -146,10 +151,12 @@ class _DetailPageState extends State<DetailPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(
-                          Icons.change_history_sharp,
+                        Icon(
+                          (isExpanded)
+                              ? Icons.keyboard_arrow_up
+                              : Icons.keyboard_arrow_down,
                           color: aksenColor,
-                          size: 15,
+                          size: 25,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 2.0),

@@ -1,6 +1,6 @@
 class ApiEndpoint {
   static const String formLogin =
-      "http://127.0.0.1/get_healt/gethealthplus/form_login.php";
+      "http://192.168.0.105/get_healt/gethealthplus/form_login.php";
   static const String produk =
-      "http://127.0.0.1/get_healt/gethealthplus/produk.php";
+      "http://192.168.0.105/get_healt/gethealthplus/produk.php";
 }

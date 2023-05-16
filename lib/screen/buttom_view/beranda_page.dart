@@ -287,6 +287,9 @@ Widget _productBeranda(BuildContext context, Produk produk) {
                       topLeft: Radius.circular(14),
                       topRight: Radius.circular(14)),
                 ),
+                child: Image.network(
+                    "http://192.168.0.105/get_healt/gethealthplus/" +
+                        produk.gambar),
               ),
               const SizedBox(
                 height: 5,

@@ -9,11 +9,24 @@ import '../util/colors.dart';
 import '../widget/text_norma.dart';
 import 'register.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   LoginController loginController = Get.put(LoginController());
 
   var isLogin = false.obs;
+
+  bool isShow = true;
+
+  showPassword() {
+    isShow = !isShow;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -138,9 +151,29 @@ class Login extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            ButtonLogin(
-              hinText: "*******",
-              obscureText: true,
+            TextField(
+              obscureText: isShow,
+              decoration: InputDecoration(
+                fillColor: kotakColor,
+                filled: true,
+                hintText: "********8",
+                suffixIcon: IconButton(
+                  icon:
+                      Icon((isShow) ? Icons.visibility : Icons.visibility_off),
+                  onPressed: () {
+                    showPassword();
+                    setState(() {});
+                  },
+                ),
+                hintStyle: GoogleFonts.inter(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.5,
+                    color: tulisanColor),
+                border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.circular(12.47)),
+              ),
               controller: loginController.passwordController,
             ),
             const SizedBox(

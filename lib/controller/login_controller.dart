@@ -22,6 +22,7 @@ class LoginController extends GetxController {
       //     'password_user': passwordController.text,
       //   },
       // );
+
       final response = await http.post(
           Uri.parse(
             ApiEndpoint.formLogin,
@@ -30,6 +31,8 @@ class LoginController extends GetxController {
             "email_user": emailController.text.trim(),
             "password_user": passwordController.text.trim()
           });
+
+      print("sssss");
       final data = jsonDecode(response.body);
       if (response.statusCode == 200) {
         if (data['value'] == 1) {
@@ -46,9 +49,9 @@ class LoginController extends GetxController {
       } else {
         throw data["message"] ?? "uknown error";
       }
-    } catch (e) {
+    } catch (e, s) {
       // handle error message here
-
+      print(e.toString() + s.toString());
       Get.back();
       showDialog(
           context: Get.context!,
@@ -56,7 +59,7 @@ class LoginController extends GetxController {
             return SimpleDialog(
               title: const Text("Error"),
               contentPadding: const EdgeInsets.all(20),
-              children: [Text(e.toString())],
+              children: [Text(e.toString() + s.toString())],
             );
           });
     }
