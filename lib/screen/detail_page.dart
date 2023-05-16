@@ -70,7 +70,7 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
                         'Rp. ${widget.produk.hargaProduk}',
@@ -79,6 +79,20 @@ class _DetailPageState extends State<DetailPage> {
                           fontWeight: FontWeight.w400,
                           letterSpacing: 1.5,
                         ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 6.0),
+                        child: Text(
+                          '/${widget.produk.jenisSatuan}',
+                          style: GoogleFonts.plusJakartaSans(
+                            fontSize: 11.89,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 1.5,
+                          ),
+                        ),
+                      ),
+                      const Spacer(
+                        flex: 1,
                       ),
                       RatingBar(
                         initialRating: 4.5,
@@ -102,6 +116,9 @@ class _DetailPageState extends State<DetailPage> {
                             color: aksenColor,
                           ),
                         ),
+                      ),
+                      const Spacer(
+                        flex: 1,
                       ),
                       Text(
                         "73 terjual",
