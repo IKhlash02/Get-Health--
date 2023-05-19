@@ -12,7 +12,7 @@ import 'navbar_button.dart';
 class DetailPage extends StatefulWidget {
   final Produk produk;
 
-  DetailPage({super.key, required this.produk});
+  const DetailPage({super.key, required this.produk});
 
   @override
   State<DetailPage> createState() => _DetailPageState();

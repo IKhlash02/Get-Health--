@@ -241,7 +241,7 @@ class _BerandaPageState extends State<BerandaPage> {
                           } else if (snapshot.hasError) {
                             return Text('${snapshot.error}');
                           }
-                          return CircularProgressIndicator();
+                          return const CircularProgressIndicator();
                         })
                   ],
                 ),
@@ -288,8 +288,7 @@ Widget _productBeranda(BuildContext context, Produk produk) {
                       topRight: Radius.circular(14)),
                 ),
                 child: Image.network(
-                    "http://192.168.0.105/get_healt/gethealthplus/" +
-                        produk.gambar),
+                    "http://192.168.0.105/get_healt/gethealthplus/${produk.gambar}"),
               ),
               const SizedBox(
                 height: 5,
@@ -339,7 +338,7 @@ Widget _productBeranda(BuildContext context, Produk produk) {
                           fontSize: 12.7,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 0.5,
-                          color: Color(0xff6BBD44)),
+                          color: const Color(0xff6BBD44)),
                     ),
                   ],
                 ),

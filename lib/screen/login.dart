@@ -10,7 +10,7 @@ import '../widget/text_norma.dart';
 import 'register.dart';
 
 class Login extends StatefulWidget {
-  Login({super.key});
+  const Login({super.key});
 
   @override
   State<Login> createState() => _LoginState();
@@ -156,7 +156,7 @@ class _LoginState extends State<Login> {
               decoration: InputDecoration(
                 fillColor: kotakColor,
                 filled: true,
-                hintText: "********8",
+                hintText: "********",
                 suffixIcon: IconButton(
                   icon:
                       Icon((isShow) ? Icons.visibility : Icons.visibility_off),

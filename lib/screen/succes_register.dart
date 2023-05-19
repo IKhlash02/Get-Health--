@@ -35,7 +35,7 @@ class SuccesRegister extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            ButtonSubmit(
+            const ButtonSubmit(
               text: "Ke Halaman Login",
               route: Login(),
             ),

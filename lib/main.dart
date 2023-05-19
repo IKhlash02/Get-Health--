@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
           ),
           colorScheme: ColorScheme.fromSwatch()
               .copyWith(primary: const Color(0xff29AAD3))),
-      home: Login(),
+      home: const Login(),
       debugShowCheckedModeBanner: false,
     );
   }

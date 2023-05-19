@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dio/dio.dart';
+
 import 'package:get_healt/screen/navbar_button.dart';
 import 'package:get_healt/util/api_endpoint.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -15,14 +15,6 @@ class LoginController extends GetxController {
 
   Future<void> loginUser() async {
     try {
-      // final response = await Dio().post(
-      //   ApiEndpoint.formLogin,
-      //   data: {
-      //     'email_user': emailController.text.trim(),
-      //     'password_user': passwordController.text,
-      //   },
-      // );
-
       final response = await http.post(
           Uri.parse(
             ApiEndpoint.formLogin,
@@ -32,7 +24,6 @@ class LoginController extends GetxController {
             "password_user": passwordController.text.trim()
           });
 
-      print("sssss");
       final data = jsonDecode(response.body);
       if (response.statusCode == 200) {
         if (data['value'] == 1) {
@@ -51,7 +42,7 @@ class LoginController extends GetxController {
       }
     } catch (e, s) {
       // handle error message here
-      print(e.toString() + s.toString());
+
       Get.back();
       showDialog(
           context: Get.context!,
