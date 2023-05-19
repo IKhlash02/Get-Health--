@@ -1,21 +1,33 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:get_healt/controller/register_controller.dart';
 import 'package:get_healt/screen/succes_register.dart';
 import 'package:get_healt/widget/dropdown.dart';
+import 'package:get_healt/widget/submit_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../util/colors.dart';
 import '../controller/id_provinsi.dart';
 import '../widget/button_input.dart';
+import '../widget/button_login.dart';
 import '../widget/button_submit.dart';
 import '../widget/dropdown_districk.dart';
 import '../widget/dropdown_regency.dart';
+import '../widget/dropdown_village.dart';
 import '../widget/text_norma.dart';
 
-class Register extends StatelessWidget {
+class Register extends StatefulWidget {
   Register({super.key});
+
+  @override
+  State<Register> createState() => _RegisterState();
+}
+
+class _RegisterState extends State<Register> {
+  RegisterController registerController = Get.put(RegisterController());
   final idProv = Get.put(IdProvinsi());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,9 +88,9 @@ class Register extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const ButtonInput(
+                      ButtonLogin(
                         hinText: "XXXXX",
-                        message: "email tidak ada",
+                        controller: registerController.namaController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -94,9 +106,9 @@ class Register extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const ButtonInput(
+                      ButtonLogin(
                         hinText: "adsdad@email.com",
-                        message: "password tidak ada",
+                        controller: registerController.emailController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -112,9 +124,9 @@ class Register extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const ButtonInput(
+                      ButtonLogin(
                         hinText: "XXXXX",
-                        message: "email tidak ada",
+                        controller: registerController.telpUserController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -130,9 +142,9 @@ class Register extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const ButtonInput(
+                      ButtonLogin(
                         hinText: "******",
-                        message: "password tidak ada",
+                        controller: registerController.passwordController,
                         obscureText: true,
                       ),
                       const SizedBox(
@@ -168,16 +180,52 @@ class Register extends StatelessWidget {
                       Row(
                         children: const [
                           TextNormal(
-                            text: "Alamat Singkat",
+                            text: "Nama ALamat",
                           )
                         ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const ButtonInput(
-                        hinText: "Jl. XXXXX No. XX",
-                        message: "email tidak ada",
+                      ButtonLogin(
+                        hinText: "XXXXXXXX",
+                        controller: registerController.namaAlamatController,
+                        obscureText: false,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: const [
+                          TextNormal(
+                            text: "Nama Penerima",
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      ButtonLogin(
+                        hinText: "XXXXXXXX",
+                        controller: registerController.penerimaAlamatController,
+                        obscureText: false,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: const [
+                          TextNormal(
+                            text: "Nomor Telephone Penerima",
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      ButtonLogin(
+                        hinText: "XXXXXXXX",
+                        controller: registerController.telpAlamatController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -196,6 +244,9 @@ class Register extends StatelessWidget {
                       DropDown(
                         hinText: "Pilih Provinsi",
                         message: "Pilih Provinsimu",
+                        onCustomWidgetCallback: (String data) {
+                          registerController.provinsiAlamat = data;
+                        },
                       ),
                       const SizedBox(
                         height: 20,
@@ -214,6 +265,9 @@ class Register extends StatelessWidget {
                             hinText: "Pilih Kota/Kabupaten",
                             message: "Pilih Kabupatenmu",
                             id: idProv.idProv.toString(),
+                            onCustomWidgetCallback: (String data) {
+                              registerController.kabupatenAlamat = data;
+                            },
                           )),
                       const SizedBox(
                         height: 20,
@@ -232,6 +286,30 @@ class Register extends StatelessWidget {
                             hinText: "Pilih Kecamatan",
                             message: "Pilih Kecamatanmu",
                             id: idProv.idKabupaten.toString(),
+                            onCustomWidgetCallback: (String data) {
+                              registerController.kecamatanAlamat = data;
+                            },
+                          )),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: const [
+                          TextNormal(
+                            text: "Kelurahan",
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Obx(() => DropdownVillage(
+                            hinText: "Pilih Kelurahanmu",
+                            message: "Pilih Kelurahanmu",
+                            id: idProv.idKecamatan.toString(),
+                            onCustomWidgetCallback: (String data) {
+                              registerController.kelurahanAlamat = data;
+                            },
                           )),
                       const SizedBox(
                         height: 20,
@@ -246,10 +324,10 @@ class Register extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      const ButtonInput(
+                      ButtonLogin(
                         hinText: "XXXX",
-                        message: "password tidak ada",
-                        obscureText: true,
+                        controller: registerController.kodePosAlamatController,
+                        obscureText: false,
                       ),
                       const SizedBox(
                         height: 20,
@@ -257,17 +335,17 @@ class Register extends StatelessWidget {
                       Row(
                         children: const [
                           TextNormal(
-                            text: "Rincian Tambahan",
+                            text: "Detail Alamat",
                           )
                         ],
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const ButtonInput(
+                      ButtonLogin(
                         hinText: "XXXXX",
-                        message: "password tidak ada",
-                        obscureText: true,
+                        controller: registerController.detailAlamatController,
+                        obscureText: false,
                       ),
                       const SizedBox(
                         height: 7,
@@ -285,9 +363,9 @@ class Register extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const ButtonSubmit(
+                SubmitButton(
                   text: "Daftar",
-                  route: SuccesRegister(),
+                  onPressed: () => registerController.registerUser(),
                 ),
               ],
             ),

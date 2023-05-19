@@ -18,4 +18,7 @@ class ProvinsiModel {
   static List<ProvinsiModel> fromJsonList(List list) {
     return list.map((item) => ProvinsiModel.fromJson(item)).toList();
   }
+
+  @override
+  String toString() => name;
 }

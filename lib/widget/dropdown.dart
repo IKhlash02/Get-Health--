@@ -11,8 +11,12 @@ import '../controller/id_provinsi.dart';
 class DropDown extends StatelessWidget {
   final String hinText;
   final String message;
-
-  DropDown({super.key, required this.hinText, required this.message});
+  final ValueChanged<String> onCustomWidgetCallback;
+  DropDown(
+      {super.key,
+      required this.hinText,
+      required this.message,
+      required this.onCustomWidgetCallback});
 
   final idC = Get.find<IdProvinsi>();
   @override
@@ -40,6 +44,8 @@ class DropDown extends StatelessWidget {
       },
       onChanged: (ProvinsiModel? data) {
         idC.setId(data!.id);
+
+        onCustomWidgetCallback(data.name);
       },
       validator: (value) {
         if (value == null) {
