@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:get_healt/controller/register_controller.dart';
-import 'package:get_healt/screen/succes_register.dart';
+
 import 'package:get_healt/widget/dropdown.dart';
 import 'package:get_healt/widget/submit_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../util/colors.dart';
 import '../controller/id_provinsi.dart';
-import '../widget/button_input.dart';
+
 import '../widget/button_login.dart';
-import '../widget/button_submit.dart';
+
 import '../widget/dropdown_districk.dart';
 import '../widget/dropdown_regency.dart';
 import '../widget/dropdown_village.dart';
