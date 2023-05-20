@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class UserModel {
   final String idUser;
   final String namaUser;

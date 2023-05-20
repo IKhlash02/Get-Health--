@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_healt/screen/buttom_view/akun/user_edit.dart';
 import 'package:get_healt/screen/login.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../data/models/alamat_user_model.dart';
-import '../../data/models/user_model.dart';
-import '../../data/repositories/alamat_user_api.dart';
+import '../../../controller/user_controller.dart';
+import '../../../data/models/alamat_user_model.dart';
+import '../../../data/models/user_model.dart';
+import '../../../data/repositories/alamat_user_api.dart';
 
-import '../../util/colors.dart';
+import '../../../util/colors.dart';
+import 'alamat_edit.dart';
 
 class AkunPage extends StatefulWidget {
   const AkunPage({super.key});
@@ -43,6 +46,7 @@ class _AkunPageState extends State<AkunPage> {
               builder: ((context, snapshot) {
                 AlamatUserModel? alamatList = snapshot.data?[0];
                 UserModel? userlist = snapshot.data?[1];
+
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
                     child: CircularProgressIndicator(),
@@ -85,8 +89,10 @@ class _AkunPageState extends State<AkunPage> {
                                   letterSpacing: 0.25,
                                   color: tulisanColor),
                             ),
-                            GestureDetector(
-                              onTap: () {},
+                            InkWell(
+                              onTap: () {
+                                Get.to(UserEdit(userList: userlist));
+                              },
                               child: Container(
                                 margin: const EdgeInsets.all(0),
                                 padding: const EdgeInsets.symmetric(
@@ -173,7 +179,9 @@ class _AkunPageState extends State<AkunPage> {
                                   color: tulisanColor),
                             ),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                Get.to(const AlamatEdit());
+                              },
                               child: Container(
                                 margin: const EdgeInsets.all(0),
                                 padding: const EdgeInsets.symmetric(

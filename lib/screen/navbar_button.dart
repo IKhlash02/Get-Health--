@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_healt/util/colors.dart';
 
-import 'buttom_view/akun_page.dart';
+import 'buttom_view/akun/akun_page.dart';
 import 'buttom_view/beranda_page.dart';
 import 'buttom_view/keranjang_page.dart';
 import 'buttom_view/notifikasi_page.dart';
