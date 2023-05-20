@@ -222,7 +222,7 @@ class _BerandaPageState extends State<BerandaPage> {
                     FutureBuilder<List<Produk>>(
                         future: _futureProdukList,
                         builder: (context, snapshot) {
-                          List<Produk> produkList = snapshot.data!;
+                          List<Produk>? produkList = snapshot.data;
 
                           if (snapshot.hasData) {
                             return GridView.builder(
@@ -232,16 +232,22 @@ class _BerandaPageState extends State<BerandaPage> {
                                   const SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 2,
                                       childAspectRatio: 153 / 278),
-                              itemCount: produkList.length,
+                              itemCount: produkList?.length,
                               itemBuilder: (BuildContext context, int index) {
                                 return _productBeranda(
-                                    context, produkList[index]);
+                                    context, produkList![index]);
                               },
                             );
                           } else if (snapshot.hasError) {
                             return Text('${snapshot.error}');
+                          } else if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const Center(
+                                child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                            ));
                           }
-                          return const CircularProgressIndicator();
+                          return const Text("");
                         })
                   ],
                 ),

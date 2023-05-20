@@ -5,4 +5,6 @@ class ApiEndpoint {
       "http://192.168.0.105/get_healt/gethealthplus/produk.php";
   static const String formRegister =
       "http://192.168.0.105/get_healt/gethealthplus/register_api.php";
+  static const String alamatUser =
+      "http://192.168.0.105/get_healt/gethealthplus/alamat_satu.php?id=";
 }

@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_healt/screen/login.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../data/models/alamat_user_model.dart';
+import '../../data/repositories/alamat_user_api.dart';
+
+import '../../util/colors.dart';
 
 class AkunPage extends StatefulWidget {
   const AkunPage({super.key});
@@ -11,51 +17,180 @@ class AkunPage extends StatefulWidget {
 }
 
 class _AkunPageState extends State<AkunPage> {
+  late Future<AlamatUserModel> _futureAlamatList;
+  Future<void> removeId() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    prefs.remove('id_user');
+  }
+
+  @override
+  void initState() {
+    _futureAlamatList = fetchAlamatList();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Center(
-              child: Icon(
-                Icons.account_circle_outlined,
-                size: 104,
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 85),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16.29)),
-                    backgroundColor: const Color(0xffCF6847),
-                    padding: const EdgeInsets.all(12)),
-                onPressed: () {
-                  Get.offAll((const Login()));
-                },
-                child: Center(
-                  child: Text(
-                    "Logout",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.plusJakartaSans(
-                        fontSize: 16.62,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: 0.5,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
+            child: FutureBuilder<AlamatUserModel>(
+              future: _futureAlamatList,
+              builder: ((context, snapshot) {
+                AlamatUserModel? alamatList = snapshot.data;
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (snapshot.hasData) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Center(
+                        child: Icon(
+                          Icons.account_circle_outlined,
+                          size: 104,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 20),
+                        decoration: BoxDecoration(
+                            color: kotakColor,
+                            borderRadius: BorderRadius.circular(12.47)),
+                        child: Column(
+                          children: [
+                            AlamatUser(
+                              text1: "Nama Penerima",
+                              text2: alamatList!.penerimaAlamat,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            AlamatUser(
+                              text1: "Nomor Telepon Penerima",
+                              text2: alamatList.telpAlamat,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            AlamatUser(
+                              text1: "Provinsi",
+                              text2: alamatList.provinsiAlamat,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            AlamatUser(
+                              text1: "Kabupaten/Kota",
+                              text2: alamatList.kabkotAlamat,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            AlamatUser(
+                              text1: "Kecamatan",
+                              text2: alamatList.kecAlamat,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            AlamatUser(
+                              text1: "Kode Pos",
+                              text2: alamatList.kodeposAlamat,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            AlamatUser(
+                              text1: "Detail Alamat",
+                              text2: alamatList.detailAlamat,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 85),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16.29)),
+                              backgroundColor: const Color(0xffCF6847),
+                              padding: const EdgeInsets.all(12)),
+                          onPressed: () {
+                            removeId();
+                            Get.offAll((const Login()));
+                          },
+                          child: Center(
+                            child: Text(
+                              "Logout",
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.plusJakartaSans(
+                                  fontSize: 16.62,
+                                  fontWeight: FontWeight.w700,
+                                  letterSpacing: 0.5,
+                                  color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                } else if (snapshot.hasError) {
+                  return Text("${snapshot.error}");
+                }
+                return const Center(
+                  child: Icon(Icons.error_outline),
+                );
+              }),
+            )),
       ),
+    );
+  }
+}
+
+class AlamatUser extends StatelessWidget {
+  final String text1;
+  final String text2;
+  const AlamatUser({
+    super.key,
+    required this.text1,
+    required this.text2,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text(
+          text1,
+          style: GoogleFonts.plusJakartaSans(
+              fontSize: 13.76,
+              fontWeight: FontWeight.w400,
+              letterSpacing: 0.25,
+              color: tulisanColor),
+        ),
+        Text(
+          text2,
+          style: GoogleFonts.plusJakartaSans(
+              fontSize: 11.76,
+              fontWeight: FontWeight.w400,
+              letterSpacing: 0.25,
+              color: tulisanColor),
+        )
+      ],
     );
   }
 }
