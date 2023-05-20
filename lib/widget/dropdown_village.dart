@@ -11,7 +11,7 @@ class DropdownVillage extends StatelessWidget {
   final String message;
   final String id;
   final ValueChanged<String> onCustomWidgetCallback;
-  DropdownVillage(
+  const DropdownVillage(
       {super.key,
       required this.hinText,
       required this.message,
