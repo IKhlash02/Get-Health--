@@ -58,6 +58,151 @@ class _AkunPageState extends State<AkunPage> {
                       const SizedBox(
                         height: 10,
                       ),
+                      Text(
+                        "Data Diri",
+                        style: GoogleFonts.montserrat(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 0.25,
+                            color: tulisanColor),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Data Diri",
+                              style: GoogleFonts.plusJakartaSans(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  letterSpacing: 0.25,
+                                  color: tulisanColor),
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                margin: const EdgeInsets.all(0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 18, vertical: 7),
+                                decoration: BoxDecoration(
+                                    color: aksenColor,
+                                    borderRadius: BorderRadius.circular(8.47)),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Edit",
+                                      style: GoogleFonts.plusJakartaSans(
+                                          fontSize: 10.76,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 0.25,
+                                          color: tulisanColor),
+                                    ),
+                                    const Icon(
+                                      Icons.edit,
+                                      size: 12,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(0),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 20),
+                        decoration: BoxDecoration(
+                            color: kotakColor,
+                            borderRadius: BorderRadius.circular(12.47)),
+                        child: Column(
+                          children: [
+                            AlamatUser(
+                              text1: "Nama",
+                              text2: alamatList!.penerimaAlamat,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            AlamatUser(
+                              text1: "Alamat Email",
+                              text2: alamatList.telpAlamat,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            AlamatUser(
+                              text1: "Nomor Telepon",
+                              text2: alamatList.provinsiAlamat,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            AlamatUser(
+                              text1: "Kata Sandi",
+                              text2: alamatList.kabkotAlamat,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Data Alamat",
+                              style: GoogleFonts.plusJakartaSans(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  letterSpacing: 0.25,
+                                  color: tulisanColor),
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                margin: const EdgeInsets.all(0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 18, vertical: 7),
+                                decoration: BoxDecoration(
+                                    color: aksenColor,
+                                    borderRadius: BorderRadius.circular(8.47)),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Edit",
+                                      style: GoogleFonts.plusJakartaSans(
+                                          fontSize: 10.76,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 0.25,
+                                          color: tulisanColor),
+                                    ),
+                                    const Icon(
+                                      Icons.edit,
+                                      size: 12,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       Container(
                         margin: const EdgeInsets.all(0),
                         padding: const EdgeInsets.symmetric(

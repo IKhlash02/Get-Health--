@@ -7,4 +7,6 @@ class ApiEndpoint {
       "http://192.168.0.105/get_healt/gethealthplus/register_api.php";
   static const String alamatUser =
       "http://192.168.0.105/get_healt/gethealthplus/alamat_satu.php?id=";
+  static const String userSatu =
+      "http://192.168.0.105/get_healt/gethealthplus/user_satu.php?id=";
 }

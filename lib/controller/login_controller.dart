@@ -7,8 +7,6 @@ import 'package:get_healt/screen/navbar_button.dart';
 import 'package:get_healt/util/api_endpoint.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'id_provinsi.dart';
-
 class LoginController extends GetxController {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
