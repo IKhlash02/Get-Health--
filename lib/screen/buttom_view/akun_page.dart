@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../data/models/alamat_user_model.dart';
+import '../../data/models/user_model.dart';
 import '../../data/repositories/alamat_user_api.dart';
 
 import '../../util/colors.dart';
@@ -17,7 +18,7 @@ class AkunPage extends StatefulWidget {
 }
 
 class _AkunPageState extends State<AkunPage> {
-  late Future<AlamatUserModel> _futureAlamatList;
+  late Future<List<dynamic>> _futureAlamatList;
   Future<void> removeId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -37,10 +38,11 @@ class _AkunPageState extends State<AkunPage> {
         backgroundColor: Colors.white,
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
-            child: FutureBuilder<AlamatUserModel>(
+            child: FutureBuilder<List<dynamic>>(
               future: _futureAlamatList,
               builder: ((context, snapshot) {
-                AlamatUserModel? alamatList = snapshot.data;
+                AlamatUserModel? alamatList = snapshot.data?[0];
+                UserModel? userlist = snapshot.data?[1];
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
                     child: CircularProgressIndicator(),
@@ -59,7 +61,7 @@ class _AkunPageState extends State<AkunPage> {
                         height: 10,
                       ),
                       Text(
-                        "Data Diri",
+                        userlist!.namaUser,
                         style: GoogleFonts.montserrat(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
@@ -127,28 +129,28 @@ class _AkunPageState extends State<AkunPage> {
                           children: [
                             AlamatUser(
                               text1: "Nama",
-                              text2: alamatList!.penerimaAlamat,
+                              text2: userlist.namaUser,
                             ),
                             const SizedBox(
                               height: 5,
                             ),
                             AlamatUser(
                               text1: "Alamat Email",
-                              text2: alamatList.telpAlamat,
+                              text2: userlist.emailUser,
                             ),
                             const SizedBox(
                               height: 5,
                             ),
                             AlamatUser(
                               text1: "Nomor Telepon",
-                              text2: alamatList.provinsiAlamat,
+                              text2: userlist.telpUser,
                             ),
                             const SizedBox(
                               height: 5,
                             ),
-                            AlamatUser(
+                            const AlamatUser(
                               text1: "Kata Sandi",
-                              text2: alamatList.kabkotAlamat,
+                              text2: "*******",
                             ),
                           ],
                         ),
