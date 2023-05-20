@@ -65,7 +65,7 @@ class RegisterController extends GetxController {
       } else {
         throw data["message"] ?? "uknown error";
       }
-    } catch (e, s) {
+    } catch (e) {
       // handle error message here
 
       Get.back();
@@ -75,7 +75,7 @@ class RegisterController extends GetxController {
             return SimpleDialog(
               title: const Text("Error"),
               contentPadding: const EdgeInsets.all(20),
-              children: [Text(e.toString() + s.toString())],
+              children: [Text(e.toString())],
             );
           });
     }

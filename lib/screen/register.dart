@@ -18,7 +18,7 @@ import '../widget/dropdown_village.dart';
 import '../widget/text_norma.dart';
 
 class Register extends StatefulWidget {
-  Register({super.key});
+  const Register({super.key});
 
   @override
   State<Register> createState() => _RegisterState();
