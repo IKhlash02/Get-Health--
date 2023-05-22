@@ -1,15 +1,12 @@
 import 'dart:convert';
-import 'package:get_healt/screen/buttom_view/akun/akun_page.dart';
+
+import 'package:get_healt/screen/navbar_button.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:get_healt/util/api_endpoint.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../data/models/user_model.dart';
-import '../data/repositories/alamat_user_api.dart';
-import '../screen/succes_register.dart';
 
 class EditUserController extends GetxController {
   // final String userModel;
@@ -49,7 +46,9 @@ class EditUserController extends GetxController {
           passwordController.clear();
           passwordController.clear();
           telpUserController.clear();
-          Get.to(const AkunPage());
+          Get.to(NavbarButton(
+            selectedNavbar: 4,
+          ));
         } else {
           throw data["message"] ?? "uknown error";
         }

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:get_healt/controller/register_controller.dart';
 
 import 'package:get_healt/widget/dropdown.dart';
 import 'package:get_healt/widget/submit_button.dart';
-import 'package:google_fonts/google_fonts.dart';
 
+import '../../../controller/edit_alamat_controller.dart';
 import '../../../controller/id_provinsi.dart';
+import '../../../data/models/alamat_user_model.dart';
 import '../../../util/colors.dart';
 import '../../../widget/button_login.dart';
 import '../../../widget/dropdown_districk.dart';
@@ -16,18 +16,29 @@ import '../../../widget/dropdown_village.dart';
 import '../../../widget/text_norma.dart';
 
 class AlamatEdit extends StatefulWidget {
-  const AlamatEdit({super.key});
+  final AlamatUserModel alamatList;
+  const AlamatEdit({super.key, required this.alamatList});
 
   @override
   State<AlamatEdit> createState() => _AlamatEditState();
 }
 
 class _AlamatEditState extends State<AlamatEdit> {
-  RegisterController registerController = Get.put(RegisterController());
+  EditAlamatController editAlamatController = Get.put(EditAlamatController());
   final idProv = Get.put(IdProvinsi());
 
   @override
   Widget build(BuildContext context) {
+    editAlamatController.penerimaAlamatController =
+        TextEditingController(text: widget.alamatList.penerimaAlamat);
+    editAlamatController.namaAlamatController =
+        TextEditingController(text: widget.alamatList.namaAlamat);
+    editAlamatController.telpAlamatController =
+        TextEditingController(text: widget.alamatList.telpAlamat);
+    editAlamatController.kodePosAlamatController =
+        TextEditingController(text: widget.alamatList.kodeposAlamat);
+    editAlamatController.detailAlamatController =
+        TextEditingController(text: widget.alamatList.detailAlamat);
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -78,7 +89,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                       ),
                       ButtonLogin(
                         hinText: "XXXXXXXX",
-                        controller: registerController.namaAlamatController,
+                        controller: editAlamatController.namaAlamatController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -96,7 +107,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       ),
                       ButtonLogin(
                         hinText: "XXXXXXXX",
-                        controller: registerController.penerimaAlamatController,
+                        controller:
+                            editAlamatController.penerimaAlamatController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -114,7 +126,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                       ),
                       ButtonLogin(
                         hinText: "XXXXXXXX",
-                        controller: registerController.telpAlamatController,
+                        controller: editAlamatController.telpAlamatController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -134,7 +146,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                         hinText: "Pilih Provinsi",
                         message: "Pilih Provinsimu",
                         onCustomWidgetCallback: (String data) {
-                          registerController.provinsiAlamat = data;
+                          editAlamatController.provinsiAlamat = data;
                         },
                       ),
                       const SizedBox(
@@ -155,7 +167,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                             message: "Pilih Kabupatenmu",
                             id: idProv.idProv.toString(),
                             onCustomWidgetCallback: (String data) {
-                              registerController.kabupatenAlamat = data;
+                              editAlamatController.kabupatenAlamat = data;
                             },
                           )),
                       const SizedBox(
@@ -176,7 +188,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                             message: "Pilih Kecamatanmu",
                             id: idProv.idKabupaten.toString(),
                             onCustomWidgetCallback: (String data) {
-                              registerController.kecamatanAlamat = data;
+                              editAlamatController.kecamatanAlamat = data;
                             },
                           )),
                       const SizedBox(
@@ -197,7 +209,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                             message: "Pilih Kelurahanmu",
                             id: idProv.idKecamatan.toString(),
                             onCustomWidgetCallback: (String data) {
-                              registerController.kelurahanAlamat = data;
+                              editAlamatController.kelurahanAlamat = data;
                             },
                           )),
                       const SizedBox(
@@ -215,7 +227,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       ),
                       ButtonLogin(
                         hinText: "XXXX",
-                        controller: registerController.kodePosAlamatController,
+                        controller:
+                            editAlamatController.kodePosAlamatController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -233,7 +246,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                       ),
                       ButtonLogin(
                         hinText: "XXXXX",
-                        controller: registerController.detailAlamatController,
+                        controller: editAlamatController.detailAlamatController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -254,7 +267,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                 ),
                 SubmitButton(
                   text: "Simpan",
-                  onPressed: () => registerController.registerUser(),
+                  onPressed: () => editAlamatController.editAlamatUser(),
                 ),
               ],
             ),

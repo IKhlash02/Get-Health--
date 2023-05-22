@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:get_healt/controller/register_controller.dart';
 
 import 'package:get_healt/widget/submit_button.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/edit_user_controller.dart';
 import '../../../data/models/user_model.dart';

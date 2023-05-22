@@ -33,7 +33,7 @@ class LoginController extends GetxController {
           await prefs.setString('id_user', idUser);
           emailController.clear();
           passwordController.clear();
-          Get.off(const NavbarButton());
+          Get.off(NavbarButton());
         } else {
           throw data["message"] ?? "uknown error";
         }

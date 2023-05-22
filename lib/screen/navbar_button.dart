@@ -8,15 +8,14 @@ import 'buttom_view/notifikasi_page.dart';
 import 'buttom_view/pesan/pesanan_page.dart';
 
 class NavbarButton extends StatefulWidget {
-  const NavbarButton({super.key});
+  int selectedNavbar;
+  NavbarButton({super.key, this.selectedNavbar = 0});
 
   @override
   State<NavbarButton> createState() => _NavbarButtonState();
 }
 
 class _NavbarButtonState extends State<NavbarButton> {
-  int _selectedNavbar = 0;
-
   final List<Widget> _widgetOptions = <Widget>[
     const BerandaPage(),
     const NotifikasiPage(),
@@ -26,7 +25,7 @@ class _NavbarButtonState extends State<NavbarButton> {
   ];
   void _changeSelectedNavBar(int index) {
     setState(() {
-      _selectedNavbar = index;
+      widget.selectedNavbar = index;
     });
   }
 
@@ -34,7 +33,7 @@ class _NavbarButtonState extends State<NavbarButton> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _widgetOptions.elementAt(_selectedNavbar),
+        child: _widgetOptions.elementAt(widget.selectedNavbar),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -63,7 +62,7 @@ class _NavbarButtonState extends State<NavbarButton> {
         backgroundColor: primerColor,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white.withOpacity(.60),
-        currentIndex: _selectedNavbar,
+        currentIndex: widget.selectedNavbar,
         showUnselectedLabels: true,
         onTap: _changeSelectedNavBar,
       ),

@@ -1,14 +1,11 @@
 class ApiEndpoint {
-  static const String formLogin =
-      "http://192.168.0.105/get_healt/gethealthplus/form_login.php";
-  static const String produk =
-      "http://192.168.0.105/get_healt/gethealthplus/produk.php";
-  static const String formRegister =
-      "http://192.168.0.105/get_healt/gethealthplus/register_api.php";
-  static const String alamatUser =
-      "http://192.168.0.105/get_healt/gethealthplus/alamat_satu.php?id=";
-  static const String userSatu =
-      "http://192.168.0.105/get_healt/gethealthplus/user_satu.php?id=";
-  static const String editUser =
-      "http://192.168.0.105/get_healt/gethealthplus/form_editakun.php?id=";
+  static const String baseUrl =
+      "http://192.168.0.105//get_healt/gethealthplus/";
+  static const String formLogin = "${baseUrl}form_login.php";
+  static const String produk = "${baseUrl}produk.php";
+  static const String formRegister = "${baseUrl}register_api.php";
+  static const String alamatUser = "${baseUrl}alamat_satu.php?id=";
+  static const String userSatu = "${baseUrl}user_satu.php?id=";
+  static const String editUser = "${baseUrl}form_editakun.php?id=";
+  static const String editAlamat = "${baseUrl}form_editalamat.php?id=";
 }

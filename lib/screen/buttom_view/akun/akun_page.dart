@@ -5,7 +5,6 @@ import 'package:get_healt/screen/login.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../controller/user_controller.dart';
 import '../../../data/models/alamat_user_model.dart';
 import '../../../data/models/user_model.dart';
 import '../../../data/repositories/alamat_user_api.dart';
@@ -180,7 +179,9 @@ class _AkunPageState extends State<AkunPage> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Get.to(const AlamatEdit());
+                                Get.to(AlamatEdit(
+                                  alamatList: alamatList!,
+                                ));
                               },
                               child: Container(
                                 margin: const EdgeInsets.all(0),

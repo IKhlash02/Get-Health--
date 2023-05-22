@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../data/models/product_model.dart';
 import '../../data/repositories/product_api.dart';
+import '../../util/api_endpoint.dart';
 import '../../util/colors.dart';
 import '../detail_page.dart';
 
@@ -293,8 +294,7 @@ Widget _productBeranda(BuildContext context, Produk produk) {
                       topLeft: Radius.circular(14),
                       topRight: Radius.circular(14)),
                 ),
-                child: Image.network(
-                    "http://192.168.0.105/get_healt/gethealthplus/${produk.gambar}"),
+                child: Image.network("${ApiEndpoint.baseUrl}${produk.gambar}"),
               ),
               const SizedBox(
                 height: 5,

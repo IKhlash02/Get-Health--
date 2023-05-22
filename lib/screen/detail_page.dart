@@ -311,7 +311,7 @@ class _DetailPageState extends State<DetailPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const NavbarButton(),
+                            builder: (context) => NavbarButton(),
                           ));
                     },
                     child: const Center(
