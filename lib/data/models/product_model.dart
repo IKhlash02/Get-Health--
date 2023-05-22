@@ -13,6 +13,8 @@ class Produk {
   late String hargaProduk;
   late String jenisSatuan;
   late String perluResep;
+  late String jumlahStok;
+  late String avgRating;
 
   Produk({
     required this.idProduk,
@@ -29,6 +31,8 @@ class Produk {
     required this.hargaProduk,
     required this.jenisSatuan,
     required this.perluResep,
+    required this.jumlahStok,
+    required this.avgRating,
   });
 
   factory Produk.fromJson(Map<String, dynamic> json) {
@@ -47,6 +51,8 @@ class Produk {
       hargaProduk: json['harga_produk'],
       jenisSatuan: json['jenis_satuan'],
       perluResep: json['perlu_resep'],
+      jumlahStok: json['jumlah_stok'],
+      avgRating: json['avg_rating'],
     );
   }
 }

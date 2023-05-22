@@ -95,7 +95,7 @@ class _DetailPageState extends State<DetailPage> {
                         flex: 1,
                       ),
                       RatingBar(
-                        initialRating: 4.5,
+                        initialRating: double.parse(widget.produk.avgRating),
                         minRating: 0,
                         maxRating: 5,
                         itemSize: 25,
@@ -236,18 +236,20 @@ class _DetailPageState extends State<DetailPage> {
                   Row(
                     children: [
                       Text(
-                        "4.5/5",
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium
-                            ?.copyWith(color: tulisanColor),
+                        "${double.parse(widget.produk.avgRating)}/5",
+                        style: GoogleFonts.plusJakartaSans(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w700,
+                            letterSpacing: 1.5,
+                            color: tulisanColor),
                       ),
                       Text(
                         "(12 ulasan)",
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleSmall
-                            ?.copyWith(color: tulisanColor),
+                        style: GoogleFonts.plusJakartaSans(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: 1.5,
+                            color: tulisanColor),
                       ),
                     ],
                   ),
@@ -352,18 +354,21 @@ class _DetailPageState extends State<DetailPage> {
                   width: 2,
                 ),
                 Expanded(
-                  child: Container(
-                    height: 60,
-                    padding: const EdgeInsets.all(10),
-                    color: primerColor,
-                    child: const Center(
-                      child: Text(
-                        "Masukkan Ke Keranjang",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700),
+                  child: InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: 60,
+                      padding: const EdgeInsets.all(10),
+                      color: primerColor,
+                      child: const Center(
+                        child: Text(
+                          "Masukkan Ke Keranjang",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700),
+                        ),
                       ),
                     ),
                   ),

@@ -339,12 +339,16 @@ Widget _productBeranda(BuildContext context, Produk produk) {
                       height: 10,
                     ),
                     Text(
-                      "Stok tersedia",
+                      (produk.jumlahStok == "0")
+                          ? "Stok habis"
+                          : "Stok tersedia",
                       style: GoogleFonts.plusJakartaSans(
                           fontSize: 12.7,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 0.5,
-                          color: const Color(0xff6BBD44)),
+                          color: Color((produk.jumlahStok == "0")
+                              ? 0xffCF6847
+                              : 0xff6BBD44)),
                     ),
                   ],
                 ),

@@ -190,10 +190,10 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                                   letterSpacing: 1.5,
                                                 ),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 15,
                                               ),
-                                              Icon(
+                                              const Icon(
                                                 Icons.delete,
                                                 size: 18,
                                                 color: Colors.red,
