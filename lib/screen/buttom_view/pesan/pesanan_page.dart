@@ -16,8 +16,8 @@ class _PesananPageState extends State<PesananPage> {
   int _selectedIndex = 0;
 
   List<Widget> route = [
-    const ItemKirim(),
-    const ItemKirim(),
+    ItemKirim(),
+    ItemKirim(),
     const UlasanPage(),
     const TolakPage(),
   ];
