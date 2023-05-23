@@ -4,7 +4,16 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../util/colors.dart';
 
 class ReviewItem extends StatelessWidget {
-  const ReviewItem({super.key});
+  final String userName;
+  final String rating;
+  final String date;
+  final String review;
+  const ReviewItem(
+      {super.key,
+      required this.userName,
+      required this.date,
+      required this.rating,
+      required this.review});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +27,7 @@ class ReviewItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "User XXXX",
+            userName,
             style: Theme.of(context)
                 .textTheme
                 .titleMedium
@@ -31,7 +40,7 @@ class ReviewItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               RatingBar(
-                initialRating: 4.5,
+                initialRating: double.parse(rating),
                 minRating: 0,
                 maxRating: 5,
                 itemSize: 18,
@@ -54,7 +63,7 @@ class ReviewItem extends StatelessWidget {
                 ),
               ),
               Text(
-                "05/08/2023, 16:21",
+                date,
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall
@@ -66,7 +75,7 @@ class ReviewItem extends StatelessWidget {
             height: 10,
           ),
           Text(
-            "Aku ingin begini. Aku ingin begitu. Ingin ini, ingin itu, banyak sekali. Semua, semua, ...",
+            review,
             textAlign: TextAlign.justify,
             style: Theme.of(context)
                 .textTheme

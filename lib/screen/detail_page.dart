@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get_healt/screen/detail_review_page.dart';
@@ -5,9 +7,12 @@ import 'package:get_healt/util/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../data/models/product_model.dart';
+import '../data/models/ulasan_model.dart';
+import '../util/api_endpoint.dart';
 import '../widget/read_more.dart';
 import '../widget/review_item.dart';
 import 'navbar_button.dart';
+import 'package:http/http.dart' as http;
 
 class DetailPage extends StatefulWidget {
   final Produk produk;
@@ -19,6 +24,19 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  Future<List<Ulasan>> fetchUlasanList() async {
+    final response = await http
+        .get(Uri.parse(ApiEndpoint.ulasanSatu + widget.produk.idProduk));
+    if (response.statusCode == 200) {
+      List<dynamic> jsonData = json.decode(response.body);
+      List<Ulasan> ulasanList =
+          jsonData.map((data) => Ulasan.fromJson(data)).toList();
+      return ulasanList;
+    } else {
+      throw Exception('Failed to load produk list');
+    }
+  }
+
   bool isExpanded = false;
   @override
   Widget build(BuildContext context) {
@@ -194,72 +212,97 @@ class _DetailPageState extends State<DetailPage> {
             const SizedBox(
               height: 20,
             ),
-            Container(
-              padding: const EdgeInsets.all(20),
-              color: Colors.white,
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Ulasan",
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleLarge
-                            ?.copyWith(color: tulisanColor),
+            FutureBuilder(
+                future: fetchUlasanList(),
+                builder: (context, snapshot) {
+                  List<Ulasan>? ulasanList = snapshot.data;
+                  if (snapshot.hasData) {
+                    return Container(
+                      padding: const EdgeInsets.all(20),
+                      color: Colors.white,
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Ulasan",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge
+                                    ?.copyWith(color: tulisanColor),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                      context: context,
+                                      isScrollControlled: true,
+                                      builder: (BuildContext ctx) {
+                                        return DetailReview(
+                                          ulasanList: ulasanList,
+                                          averageRating: widget.produk.avgRating
+                                              .toString(),
+                                        );
+                                      });
+                                },
+                                child: Text(
+                                  "Lihat Semua Ulasan",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleSmall
+                                      ?.copyWith(color: tulisanColor),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "${double.parse(widget.produk.avgRating)}/5",
+                                style: GoogleFonts.plusJakartaSans(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w700,
+                                    letterSpacing: 1.5,
+                                    color: tulisanColor),
+                              ),
+                              Text(
+                                "(12 ulasan)",
+                                style: GoogleFonts.plusJakartaSans(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w400,
+                                    letterSpacing: 1.5,
+                                    color: tulisanColor),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          ReviewItem(
+                            date: ulasanList![0].timestampUlasan.toString(),
+                            rating: ulasanList[0].rating,
+                            review: ulasanList[0].review,
+                            userName: ulasanList[0].namaUser,
+                          ),
+                        ],
                       ),
-                      TextButton(
-                        onPressed: () {
-                          showModalBottomSheet(
-                              context: context,
-                              isScrollControlled: true,
-                              builder: (BuildContext ctx) {
-                                return const DetailReview();
-                              });
-                        },
-                        child: Text(
-                          "Lihat Semua Ulasan",
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall
-                              ?.copyWith(color: tulisanColor),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "${double.parse(widget.produk.avgRating)}/5",
-                        style: GoogleFonts.plusJakartaSans(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w700,
-                            letterSpacing: 1.5,
-                            color: tulisanColor),
-                      ),
-                      Text(
-                        "(12 ulasan)",
-                        style: GoogleFonts.plusJakartaSans(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: 1.5,
-                            color: tulisanColor),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const ReviewItem(),
-                ],
-              ),
-            ),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Text('${snapshot.error}');
+                  } else if (snapshot.connectionState ==
+                      ConnectionState.waiting) {
+                    return const Center(
+                        child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                    ));
+                  }
+                  return const Text("");
+                }),
             const SizedBox(
               height: 20,
             ),

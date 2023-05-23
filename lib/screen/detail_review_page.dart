@@ -3,8 +3,13 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get_healt/util/colors.dart';
 import 'package:get_healt/widget/review_item.dart';
 
+import '../data/models/ulasan_model.dart';
+
 class DetailReview extends StatelessWidget {
-  const DetailReview({super.key});
+  final List<Ulasan>? ulasanList;
+  final String averageRating;
+  const DetailReview(
+      {super.key, required this.ulasanList, required this.averageRating});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +56,7 @@ class DetailReview extends StatelessWidget {
                         height: 7,
                       ),
                       RatingBar(
-                        initialRating: 4.5,
+                        initialRating: double.parse(averageRating),
                         minRating: 0,
                         maxRating: 5,
                         itemSize: 25,
@@ -80,7 +85,7 @@ class DetailReview extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "4.5/5",
+                            "${double.parse(averageRating)}/5",
                             style: Theme.of(context)
                                 .textTheme
                                 .titleMedium
@@ -99,7 +104,7 @@ class DetailReview extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  width: 32,
+                  width: 40,
                 )
               ],
             ),
@@ -109,12 +114,17 @@ class DetailReview extends StatelessWidget {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
-              return const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: ReviewItem(),
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ReviewItem(
+                  date: ulasanList![index].timestampUlasan.toString(),
+                  rating: ulasanList![index].rating,
+                  userName: ulasanList![index].namaUser,
+                  review: ulasanList![index].review,
+                ),
               );
             },
-            itemCount: 10,
+            itemCount: ulasanList!.length,
           ))
         ],
       ),
