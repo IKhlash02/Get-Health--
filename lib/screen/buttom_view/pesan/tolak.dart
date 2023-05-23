@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../util/colors.dart';
 
@@ -21,15 +22,32 @@ class TolakPage extends StatelessWidget {
             child: Row(
               children: [
                 const Icon(
-                  Icons.home,
+                  Icons.list_alt,
                   color: primerColor,
                 ),
                 const SizedBox(
                   width: 10,
                 ),
-                Text(
-                  "GetHealth+ Dramaga Bogor",
-                  style: Theme.of(context).textTheme.labelLarge,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Pesanan dibuat  pada",
+                      style: GoogleFonts.plusJakartaSans(
+                          fontSize: 12.73,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.5,
+                          color: tulisanColor),
+                    ),
+                    Text(
+                      "18/05/2023 07:18",
+                      style: GoogleFonts.plusJakartaSans(
+                          fontSize: 12.73,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 0.5,
+                          color: tulisanColor),
+                    ),
+                  ],
                 ),
               ],
             ),
