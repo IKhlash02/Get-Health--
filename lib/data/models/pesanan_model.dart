@@ -2,7 +2,6 @@
 //
 //     final pesanan = pesananFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 class Pesanan {

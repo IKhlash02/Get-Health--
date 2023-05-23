@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../data/models/pesanan_model.dart';
 import '../../../data/repositories/pesanan_repo.dart';
 import '../../../util/colors.dart';
 
-class UlasanPage extends StatefulWidget {
-  const UlasanPage({
-    super.key,
-  });
+class ItemProses extends StatefulWidget {
+  const ItemProses({super.key});
 
   @override
-  State<UlasanPage> createState() => _UlasanPageState();
+  State<ItemProses> createState() => _ItemProsesState();
 }
 
-class _UlasanPageState extends State<UlasanPage> {
+class _ItemProsesState extends State<ItemProses> {
   late Future<List<Pesanan>> _futurePesanan;
 
   @override
@@ -34,7 +33,7 @@ class _UlasanPageState extends State<UlasanPage> {
             return ListView.builder(
               itemCount: pesananList?.length,
               itemBuilder: (context, index) {
-                if (pesananList?[index].statusPesanan == "Selesai") {
+                if (pesananList?[index].statusPesanan == "Diproses") {
                   return Container(
                     margin: const EdgeInsets.all(10),
                     padding: const EdgeInsets.symmetric(
@@ -236,32 +235,67 @@ class _UlasanPageState extends State<UlasanPage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          child: Row(
                             children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    "Total Pesanan:",
-                                    style: GoogleFonts.plusJakartaSans(
-                                        fontSize: 13.63,
-                                        fontWeight: FontWeight.w400,
-                                        letterSpacing: 0.5,
-                                        color: tulisanColor),
-                                  ),
-                                ],
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "Total Pesanan:",
+                                          style: GoogleFonts.plusJakartaSans(
+                                              fontSize: 13.63,
+                                              fontWeight: FontWeight.w400,
+                                              letterSpacing: 0.5,
+                                              color: tulisanColor),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "Rp${pesananList[index].total}",
+                                          style: GoogleFonts.plusJakartaSans(
+                                              fontSize: 20.93,
+                                              fontWeight: FontWeight.w700,
+                                              letterSpacing: 0.5,
+                                              color: tulisanColor),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Rp${pesananList[index].total}",
-                                    style: GoogleFonts.plusJakartaSans(
-                                        fontSize: 20.93,
-                                        fontWeight: FontWeight.w700,
-                                        letterSpacing: 0.5,
-                                        color: tulisanColor),
+                              InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  margin: const EdgeInsets.all(10),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 15),
+                                  decoration: BoxDecoration(
+                                      color: primerColor,
+                                      borderRadius: BorderRadius.circular(12)),
+                                  child: Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.call,
+                                        color: Colors.white,
+                                      ),
+                                      const SizedBox(
+                                        width: 6,
+                                      ),
+                                      Text(
+                                        "Hubungi\nStaf Kami",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .labelSmall
+                                            ?.copyWith(color: Colors.white),
+                                      ),
+                                    ],
                                   ),
-                                ],
+                                ),
                               )
                             ],
                           ),
@@ -270,7 +304,6 @@ class _UlasanPageState extends State<UlasanPage> {
                     ),
                   );
                 }
-                return null;
               },
             );
           } else if (snapshot.hasError) {

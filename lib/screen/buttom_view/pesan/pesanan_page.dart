@@ -4,6 +4,7 @@ import 'package:get_healt/screen/buttom_view/pesan/ulasan.dart';
 import 'package:get_healt/util/colors.dart';
 
 import 'item_kirim.dart';
+import 'item_proses.dart';
 
 class PesananPage extends StatefulWidget {
   const PesananPage({super.key});
@@ -16,7 +17,7 @@ class _PesananPageState extends State<PesananPage> {
   int _selectedIndex = 0;
 
   List<Widget> route = [
-    ItemKirim(),
+    const ItemProses(),
     ItemKirim(),
     const UlasanPage(),
     const TolakPage(),
@@ -45,6 +46,7 @@ class _PesananPageState extends State<PesananPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

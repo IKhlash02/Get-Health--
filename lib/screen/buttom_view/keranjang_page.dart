@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -282,7 +280,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                                                 'id_produk',
                                                                 'id_user');
                                                           },
-                                                          icon: Icon(
+                                                          icon: const Icon(
                                                             Icons.delete,
                                                             size: 18,
                                                             color: Colors.red,

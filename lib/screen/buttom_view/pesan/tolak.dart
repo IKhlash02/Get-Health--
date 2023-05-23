@@ -156,10 +156,8 @@ class _TolakPageState extends State<TolakPage> {
                                             RichText(
                                                 text: TextSpan(children: [
                                               TextSpan(
-                                                  text: pesananList[index]
-                                                      .rincianPesanan[nomor]
-                                                      .totalHarga
-                                                      .toString(),
+                                                  text:
+                                                      "Rp${pesananList[index].rincianPesanan[nomor].totalHarga}",
                                                   style: GoogleFonts
                                                       .plusJakartaSans(
                                                           fontSize: 9.72,
@@ -246,71 +244,5 @@ class _TolakPageState extends State<TolakPage> {
             child: Text("Tidak ada Pesanan yang dikirim"),
           );
         });
-  }
-}
-
-class TolakItem extends StatelessWidget {
-  const TolakItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(6),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                  padding: const EdgeInsets.all(4),
-                  color: Colors.white,
-                  child: const Icon(
-                    Icons.local_shipping_outlined,
-                    size: 60,
-                  )),
-              const SizedBox(
-                width: 15,
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Panadol Paracetamol/Panadol Biru 60gr",
-                        style: Theme.of(context).textTheme.labelMedium),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 4, horizontal: 8),
-                        decoration: BoxDecoration(
-                          color: const Color(0xff6BBD44),
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                        child: Text('Resep Terverifikasi',
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelSmall
-                                ?.copyWith(color: Colors.white)),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10.0),
-          child: Divider(
-            height: 10,
-            thickness: 2,
-            color: Color(0xffA1D1E0),
-          ),
-        ),
-      ],
-    );
   }
 }

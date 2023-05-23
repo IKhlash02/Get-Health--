@@ -20,7 +20,7 @@ Future<List<Pesanan>> fetchPesananList() async {
     if (jsonData.isNotEmpty) {
       List<Pesanan> pesananList =
           jsonData.map((data) => Pesanan.fromJson(data)).toList();
-      print(pesananList);
+
       return pesananList;
     } else {
       throw Exception('Produk Tidak ada');

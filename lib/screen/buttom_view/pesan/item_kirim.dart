@@ -132,10 +132,8 @@ class _ItemKirimState extends State<ItemKirim> {
                                             RichText(
                                                 text: TextSpan(children: [
                                               TextSpan(
-                                                  text: pesananList[index]
-                                                      .rincianPesanan[nomor]
-                                                      .totalHarga
-                                                      .toString(),
+                                                  text:
+                                                      "Rp${pesananList[index].rincianPesanan[nomor].totalHarga}",
                                                   style: GoogleFonts
                                                       .plusJakartaSans(
                                                           fontSize: 9.72,
@@ -238,7 +236,7 @@ class _ItemKirimState extends State<ItemKirim> {
                                       width: 6,
                                     ),
                                     Text(
-                                      "Hubungi\nCabang",
+                                      "Hubungi\nStaf Kami",
                                       style: Theme.of(context)
                                           .textTheme
                                           .labelSmall
