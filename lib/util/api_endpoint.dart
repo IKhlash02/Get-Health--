@@ -10,4 +10,6 @@ class ApiEndpoint {
   static const String editAlamat = "${baseUrl}form_editalamat.php?id=";
   static const String ulasanSatu = "${baseUrl}ulasan_satu.php?id_produk=";
   static const String keranjang = "${baseUrl}keranjang.php?id=";
+  static const String delete_keranjang =
+      "${baseUrl}delete_darikeranjang.php?id_produk=";
 }

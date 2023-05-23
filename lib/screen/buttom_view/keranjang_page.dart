@@ -1,9 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../data/models/keranjang_model.dart';
 import '../../data/repositories/keranjang_repo.dart';
-
+import 'package:http/http.dart' as http;
+import '../../util/api_endpoint.dart';
 import '../../util/colors.dart';
 
 class KeranjangPage extends StatefulWidget {
@@ -14,7 +18,7 @@ class KeranjangPage extends StatefulWidget {
 }
 
 class _KeranjangPageState extends State<KeranjangPage> {
-  late Future<Keranjang> _futureKeranjangList;
+  late Future<Keranjang?> _futureKeranjangList;
 
   @override
   void initState() {
@@ -28,7 +32,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
       child: Scaffold(
         body: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20),
-            child: FutureBuilder<Keranjang>(
+            child: FutureBuilder<Keranjang?>(
                 future: _futureKeranjangList,
                 builder: ((context, snapshot) {
                   if (snapshot.hasData) {
@@ -240,10 +244,49 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                                         const SizedBox(
                                                           width: 15,
                                                         ),
-                                                        const Icon(
-                                                          Icons.delete,
-                                                          size: 18,
-                                                          color: Colors.red,
+                                                        IconButton(
+                                                          onPressed: () {
+                                                            Future<void>
+                                                                deleteKeranjang(
+                                                                    String
+                                                                        idProduk,
+                                                                    String
+                                                                        idUser) async {
+                                                              Future<String>
+                                                                  getId() async {
+                                                                final prefs =
+                                                                    await SharedPreferences
+                                                                        .getInstance();
+                                                                final idUser =
+                                                                    prefs.getString(
+                                                                            'id_user') ??
+                                                                        "5";
+                                                                return idUser;
+                                                              }
+
+                                                              String myData =
+                                                                  await getId();
+                                                              final url = Uri.parse(
+                                                                  "${ApiEndpoint.delete_keranjang}${dataKeranjang[index].idProduk}&id_user=$myData");
+                                                              final response =
+                                                                  await http
+                                                                      .delete(
+                                                                          url);
+                                                              setState(() {});
+                                                              if (response
+                                                                      .statusCode ==
+                                                                  200) {}
+                                                            }
+
+                                                            deleteKeranjang(
+                                                                'id_produk',
+                                                                'id_user');
+                                                          },
+                                                          icon: Icon(
+                                                            Icons.delete,
+                                                            size: 18,
+                                                            color: Colors.red,
+                                                          ),
                                                         ),
                                                       ],
                                                     ),
@@ -334,7 +377,25 @@ class _KeranjangPageState extends State<KeranjangPage> {
                       strokeWidth: 2,
                     ));
                   }
-                  return Text("${snapshot.data}");
+                  return Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("KERANJANG SAYA",
+                            style: Theme.of(context).textTheme.titleMedium),
+                        Text(
+                          "(0)",
+                          style: GoogleFonts.montserrat(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                              letterSpacing: 0.15,
+                              color: tulisanColor),
+                        ),
+                      ],
+                    ),
+                  );
                 }))),
       ),
     );
