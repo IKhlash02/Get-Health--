@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_healt/screen/navbar_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../controller/delete_controller.dart';
 import '../../data/models/keranjang_model.dart';
 import '../../data/repositories/keranjang_repo.dart';
 import 'package:http/http.dart' as http;
@@ -86,12 +89,14 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                     Row(
                                       children: [
                                         Container(
-                                            padding: const EdgeInsets.all(4),
-                                            color: Colors.white,
-                                            child: const Icon(
-                                              Icons.local_shipping_outlined,
-                                              size: 60,
-                                            )),
+                                          height: 60,
+                                          width: 60,
+                                          color: Colors.white,
+                                          child: Image.network(
+                                            "${ApiEndpoint.baseUrl}${dataKeranjang[index].gambar}",
+                                            fit: BoxFit.fitWidth,
+                                          ),
+                                        ),
                                         const SizedBox(
                                           width: 15,
                                         ),
@@ -244,41 +249,12 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                                         ),
                                                         IconButton(
                                                           onPressed: () {
-                                                            Future<void>
-                                                                deleteKeranjang(
-                                                                    String
-                                                                        idProduk,
-                                                                    String
-                                                                        idUser) async {
-                                                              Future<String>
-                                                                  getId() async {
-                                                                final prefs =
-                                                                    await SharedPreferences
-                                                                        .getInstance();
-                                                                final idUser =
-                                                                    prefs.getString(
-                                                                            'id_user') ??
-                                                                        "5";
-                                                                return idUser;
-                                                              }
-
-                                                              String myData =
-                                                                  await getId();
-                                                              final url = Uri.parse(
-                                                                  "${ApiEndpoint.delete_keranjang}${dataKeranjang[index].idProduk}&id_user=$myData");
-                                                              final response =
-                                                                  await http
-                                                                      .delete(
-                                                                          url);
-                                                              setState(() {});
-                                                              if (response
-                                                                      .statusCode ==
-                                                                  200) {}
-                                                            }
-
-                                                            deleteKeranjang(
-                                                                'id_produk',
-                                                                'id_user');
+                                                            setState(() {
+                                                              deleteKeranjang(
+                                                                  dataKeranjang[
+                                                                          index]
+                                                                      .idProduk);
+                                                            });
                                                           },
                                                           icon: const Icon(
                                                             Icons.delete,

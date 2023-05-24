@@ -27,22 +27,6 @@ class _NotifikasiPageState extends State<NotifikasiPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 32,
-                  width: 32,
-                  margin: const EdgeInsets.all(0),
-                  padding: const EdgeInsets.all(0),
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: primerColor,
-                  ),
-                  child: IconButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    icon: const Icon(Icons.arrow_back),
-                    color: Colors.white,
-                    iconSize: 18,
-                  ),
-                ),
                 Expanded(
                   child: Column(
                     children: [

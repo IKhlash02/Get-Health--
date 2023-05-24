@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
-import '../screen/navbar_button.dart';
+
 import '../util/api_endpoint.dart';
 
 Future<void> tambahKeranjang(int count, String idProduk) async {
@@ -27,6 +27,13 @@ Future<void> tambahKeranjang(int count, String idProduk) async {
     if (response.statusCode == 200) {
       if (data['status'] == "success") {
         Get.back();
+        ScaffoldMessenger.of(Get.context!).showSnackBar(
+          const SnackBar(
+            elevation: 0.5,
+            backgroundColor: Colors.black12,
+            content: Text('Dimasukkan ke Keranjang'),
+          ),
+        );
       } else {
         throw data["message"] ?? "uknown error";
       }

@@ -36,6 +36,7 @@ class Datum {
   final String jumlah;
   final String jenisSatuan;
   final String totalHarga;
+  final String gambar;
 
   Datum({
     required this.idProduk,
@@ -43,6 +44,7 @@ class Datum {
     required this.jumlah,
     required this.jenisSatuan,
     required this.totalHarga,
+    required this.gambar,
   });
 
   factory Datum.fromRawJson(String str) => Datum.fromJson(json.decode(str));
@@ -55,6 +57,7 @@ class Datum {
         jumlah: json["jumlah"],
         jenisSatuan: json["jenis_satuan"],
         totalHarga: json["total_harga"],
+        gambar: json["gambar"],
       );
 
   Map<String, dynamic> toJson() => {

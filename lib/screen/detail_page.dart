@@ -2,12 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:get/get.dart';
+
 import 'package:get_healt/controller/tambah_keranjang.dart';
 import 'package:get_healt/screen/detail_review_page.dart';
 import 'package:get_healt/util/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/models/product_model.dart';
 import '../data/models/ulasan_model.dart';
@@ -402,7 +401,7 @@ class _DetailPageState extends State<DetailPage> {
                 Expanded(
                   child: InkWell(
                     onTap: () {
-                      int count = 0;
+                      int count = 1;
                       showDialog<void>(
                         context: context,
                         barrierDismissible: true,
@@ -428,7 +427,7 @@ class _DetailPageState extends State<DetailPage> {
                                                   BorderRadius.circular(5.25)),
                                           padding: const EdgeInsets.all(0)),
                                       onPressed: () {
-                                        if (count != 0) {
+                                        if (count != 1) {
                                           setState(() {
                                             count--;
                                           });
