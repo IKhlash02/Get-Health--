@@ -13,7 +13,7 @@ import '../data/models/ulasan_model.dart';
 import '../util/api_endpoint.dart';
 import '../widget/read_more.dart';
 import '../widget/review_item.dart';
-import 'navbar_button.dart';
+
 import 'package:http/http.dart' as http;
 
 class DetailPage extends StatefulWidget {
@@ -306,74 +306,7 @@ class _DetailPageState extends State<DetailPage> {
                   return const Text("");
                 }),
             const SizedBox(
-              height: 20,
-            ),
-            Container(
-              padding: const EdgeInsets.all(20),
-              color: Colors.white,
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(
-                    Icons.account_circle_rounded,
-                    color: aksenColor,
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 5),
-                          child: Text(
-                            "Bianca",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodySmall
-                                ?.copyWith(color: tulisanColor),
-                          ),
-                        ),
-                        Text(
-                          "Dramaga Bogor",
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall
-                              ?.copyWith(
-                                  color: tulisanColor,
-                                  fontWeight: FontWeight.normal),
-                        ),
-                      ],
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14)),
-                        backgroundColor: primerColor,
-                        padding: const EdgeInsets.all(18)),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => NavbarButton(),
-                          ));
-                    },
-                    child: const Center(
-                      child: Text(
-                        "Kunjungi Toko",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w700),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              height: 30,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

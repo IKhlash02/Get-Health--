@@ -26,4 +26,5 @@ Future<Keranjang?> fetchkeranjangList() async {
   } else {
     throw Exception('Failed to load produk list');
   }
+  return null;
 }

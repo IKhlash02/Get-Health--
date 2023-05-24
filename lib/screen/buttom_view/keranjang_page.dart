@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_healt/screen/navbar_button.dart';
+
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../controller/delete_controller.dart';
 import '../../data/models/keranjang_model.dart';
 import '../../data/repositories/keranjang_repo.dart';
-import 'package:http/http.dart' as http;
+
 import '../../util/api_endpoint.dart';
 import '../../util/colors.dart';
+import '../checkout.dart';
 
 class KeranjangPage extends StatefulWidget {
   const KeranjangPage({super.key});
@@ -317,7 +317,12 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                   ),
                                 ),
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Get.to(ChackOutPage(
+                                      keranjangList: keranjangList,
+                                      dataKeranjang: dataKeranjang,
+                                    ));
+                                  },
                                   child: Container(
                                     margin: const EdgeInsets.all(10),
                                     padding: const EdgeInsets.symmetric(

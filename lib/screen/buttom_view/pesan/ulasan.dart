@@ -182,41 +182,44 @@ class _UlasanPageState extends State<UlasanPage> {
                                             const SizedBox(
                                               height: 10,
                                             ),
-                                            Container(
+                                            SizedBox(
                                               width: 110,
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      vertical: 10,
-                                                      horizontal: 15),
-                                              decoration: BoxDecoration(
-                                                color: const Color(0xff29AAD3),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.47),
-                                              ),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  const Icon(
-                                                    Icons.star,
-                                                    color: Colors.white,
-                                                    size: 12,
-                                                  ),
-                                                  const SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Text(
-                                                    'Beri Ulasan',
-                                                    style: GoogleFonts
-                                                        .plusJakartaSans(
-                                                            fontSize: 10,
-                                                            fontWeight:
-                                                                FontWeight.w700,
-                                                            letterSpacing: 0.5,
-                                                            color:
-                                                                Colors.white),
-                                                  ),
-                                                ],
+                                              child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.47))),
+                                                onPressed: () {},
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    const Icon(
+                                                      Icons.star,
+                                                      color: Colors.white,
+                                                      size: 12,
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 5,
+                                                    ),
+                                                    Text(
+                                                      'Beri Ulasan',
+                                                      style: GoogleFonts
+                                                          .plusJakartaSans(
+                                                              fontSize: 10,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                              letterSpacing:
+                                                                  0.5,
+                                                              color:
+                                                                  Colors.white),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ],
