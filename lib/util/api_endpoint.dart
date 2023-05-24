@@ -13,4 +13,6 @@ class ApiEndpoint {
   static const String delete_keranjang =
       "${baseUrl}delete_darikeranjang.php?id_produk=";
   static const String pesanan = "${baseUrl}pesanan.php?id_user=";
+  static const String tambahKeranjang =
+      "${baseUrl}tambah_keranjang.php?id_produk=";
 }

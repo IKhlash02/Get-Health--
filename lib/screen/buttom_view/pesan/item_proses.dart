@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../data/models/pesanan_model.dart';
 import '../../../data/repositories/pesanan_repo.dart';
+import '../../../util/api_endpoint.dart';
 import '../../../util/colors.dart';
 
 class ItemProses extends StatefulWidget {
@@ -100,12 +101,14 @@ class _ItemProsesState extends State<ItemProses> {
                                   child: Row(
                                     children: [
                                       Container(
-                                          padding: const EdgeInsets.all(4),
-                                          color: Colors.white,
-                                          child: const Icon(
-                                            Icons.local_shipping_outlined,
-                                            size: 60,
-                                          )),
+                                        height: 60,
+                                        width: 60,
+                                        color: Colors.white,
+                                        child: Image.network(
+                                          "${ApiEndpoint.baseUrl}${pesananList[index].rincianPesanan[nomor].gambar}",
+                                          fit: BoxFit.fitWidth,
+                                        ),
+                                      ),
                                       const SizedBox(
                                         width: 15,
                                       ),
@@ -114,30 +117,6 @@ class _ItemProsesState extends State<ItemProses> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Container(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      vertical: 4,
-                                                      horizontal: 8),
-                                              decoration: BoxDecoration(
-                                                color: const Color(0xff74B91D),
-                                                borderRadius:
-                                                    BorderRadius.circular(2),
-                                              ),
-                                              child: Text(
-                                                'Resep Terverifikasi',
-                                                style:
-                                                    GoogleFonts.plusJakartaSans(
-                                                        fontSize: 9,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        letterSpacing: 0.5,
-                                                        color: Colors.white),
-                                              ),
-                                            ),
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
                                             Text(
                                                 pesananList[index]
                                                     .rincianPesanan[nomor]
@@ -179,40 +158,24 @@ class _ItemProsesState extends State<ItemProses> {
                                               height: 10,
                                             ),
                                             Container(
-                                              width: 110,
                                               padding:
                                                   const EdgeInsets.symmetric(
-                                                      vertical: 10,
-                                                      horizontal: 15),
+                                                      vertical: 4,
+                                                      horizontal: 8),
                                               decoration: BoxDecoration(
-                                                color: const Color(0xff29AAD3),
+                                                color: aksenColor,
                                                 borderRadius:
-                                                    BorderRadius.circular(8.47),
+                                                    BorderRadius.circular(2),
                                               ),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  const Icon(
-                                                    Icons.star,
-                                                    color: Colors.white,
-                                                    size: 12,
-                                                  ),
-                                                  const SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Text(
-                                                    'Beri Ulasan',
-                                                    style: GoogleFonts
-                                                        .plusJakartaSans(
-                                                            fontSize: 10,
-                                                            fontWeight:
-                                                                FontWeight.w700,
-                                                            letterSpacing: 0.5,
-                                                            color:
-                                                                Colors.white),
-                                                  ),
-                                                ],
+                                              child: Text(
+                                                'Menunggu verifikasi',
+                                                style:
+                                                    GoogleFonts.plusJakartaSans(
+                                                        fontSize: 9,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        letterSpacing: 0.5,
+                                                        color: Colors.white),
                                               ),
                                             ),
                                           ],
@@ -303,6 +266,8 @@ class _ItemProsesState extends State<ItemProses> {
                       ],
                     ),
                   );
+                } else {
+                  return Container();
                 }
               },
             );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_healt/util/api_endpoint.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../data/models/pesanan_model.dart';
@@ -101,12 +102,14 @@ class _ItemKirimState extends State<ItemKirim> {
                                   child: Row(
                                     children: [
                                       Container(
-                                          padding: const EdgeInsets.all(4),
-                                          color: Colors.white,
-                                          child: const Icon(
-                                            Icons.local_shipping_outlined,
-                                            size: 60,
-                                          )),
+                                        height: 60,
+                                        width: 60,
+                                        color: Colors.white,
+                                        child: Image.network(
+                                          "${ApiEndpoint.baseUrl}${pesananList[index].rincianPesanan[nomor].gambar}",
+                                          fit: BoxFit.fitWidth,
+                                        ),
+                                      ),
                                       const SizedBox(
                                         width: 15,
                                       ),
@@ -115,6 +118,30 @@ class _ItemKirimState extends State<ItemKirim> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
+                                            Container(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 4,
+                                                      horizontal: 8),
+                                              decoration: BoxDecoration(
+                                                color: const Color(0xff74B91D),
+                                                borderRadius:
+                                                    BorderRadius.circular(2),
+                                              ),
+                                              child: Text(
+                                                'Resep Terverifikasi',
+                                                style:
+                                                    GoogleFonts.plusJakartaSans(
+                                                        fontSize: 9,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        letterSpacing: 0.5,
+                                                        color: Colors.white),
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
                                             Text(
                                                 pesananList[index]
                                                     .rincianPesanan[nomor]
@@ -154,28 +181,6 @@ class _ItemKirimState extends State<ItemKirim> {
                                             ])),
                                             const SizedBox(
                                               height: 10,
-                                            ),
-                                            InkWell(
-                                              onTap: () {},
-                                              child: Container(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        vertical: 4,
-                                                        horizontal: 8),
-                                                decoration: BoxDecoration(
-                                                  color: aksenColor,
-                                                  borderRadius:
-                                                      BorderRadius.circular(2),
-                                                ),
-                                                child: Text(
-                                                    'Menunggu verifikasi resep',
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .labelSmall
-                                                        ?.copyWith(
-                                                            color:
-                                                                Colors.white)),
-                                              ),
                                             ),
                                           ],
                                         ),
@@ -251,6 +256,8 @@ class _ItemKirimState extends State<ItemKirim> {
                       ],
                     ),
                   );
+                } else {
+                  return Container();
                 }
               },
             );
