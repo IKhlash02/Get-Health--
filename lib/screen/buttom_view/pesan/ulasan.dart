@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_healt/screen/buttom_view/pesan/ulasan_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../data/models/pesanan_model.dart';
@@ -184,41 +186,75 @@ class _UlasanPageState extends State<UlasanPage> {
                                             ),
                                             SizedBox(
                                               width: 110,
-                                              child: ElevatedButton(
-                                                style: ElevatedButton.styleFrom(
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.47))),
-                                                onPressed: () {},
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    const Icon(
-                                                      Icons.star,
-                                                      color: Colors.white,
-                                                      size: 12,
-                                                    ),
-                                                    const SizedBox(
-                                                      width: 5,
-                                                    ),
-                                                    Text(
-                                                      'Beri Ulasan',
-                                                      style: GoogleFonts
-                                                          .plusJakartaSans(
-                                                              fontSize: 10,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w700,
-                                                              letterSpacing:
-                                                                  0.5,
-                                                              color:
-                                                                  Colors.white),
-                                                    ),
-                                                  ],
+                                              child: Opacity(
+                                                opacity: (pesananList[index]
+                                                        .rincianPesanan[nomor]
+                                                        .isUlasan)
+                                                    ? 1.0
+                                                    : 0.5,
+                                                child: ElevatedButton(
+                                                  style: ElevatedButton.styleFrom(
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.47))),
+                                                  onPressed: () {
+                                                    (pesananList[index]
+                                                            .rincianPesanan[
+                                                                nomor]
+                                                            .isUlasan)
+                                                        ? Get.to(UlasanItem(
+                                                            pesanan: pesananList[
+                                                                        index]
+                                                                    .rincianPesanan[
+                                                                nomor],
+                                                            idPesanan:
+                                                                pesananList[
+                                                                    index],
+                                                          ))
+                                                        : ScaffoldMessenger.of(
+                                                                Get.context!)
+                                                            .showSnackBar(
+                                                            const SnackBar(
+                                                              elevation: 0.5,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .black12,
+                                                              content: Text(
+                                                                  'Anda Sudah Membuat Ulasan'),
+                                                            ),
+                                                          );
+                                                  },
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      const Icon(
+                                                        Icons.star,
+                                                        color: Colors.white,
+                                                        size: 12,
+                                                      ),
+                                                      const SizedBox(
+                                                        width: 5,
+                                                      ),
+                                                      Text(
+                                                        'Beri Ulasan',
+                                                        style: GoogleFonts
+                                                            .plusJakartaSans(
+                                                                fontSize: 10,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                letterSpacing:
+                                                                    0.5,
+                                                                color: Colors
+                                                                    .white),
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),

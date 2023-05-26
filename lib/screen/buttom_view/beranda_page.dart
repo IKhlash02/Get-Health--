@@ -103,122 +103,18 @@ class _BerandaPageState extends State<BerandaPage> {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 5),
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              "CABANG DI DAERAHMU",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
-                                  ?.copyWith(color: tulisanColor),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {},
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Lihat Semua",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall
-                                      ?.copyWith(color: tulisanColor),
-                                ),
-                                const Icon(
-                                  Icons.navigate_next,
-                                  size: 20,
-                                  color: Colors.black,
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 65,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        shrinkWrap: true,
-                        itemCount: 4,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              height: 40,
-                              width: 150,
-                              child: InkWell(
-                                onTap: () {},
-                                child: Container(
-                                  margin: const EdgeInsets.all(0),
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 4),
-                                  decoration: BoxDecoration(
-                                      color: kotakColor,
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      const Icon(
-                                        Icons.home,
-                                        color: primerColor,
-                                        size: 20,
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Expanded(
-                                        child: Text("GetHealth+ Dramaga Bogor",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .labelSmall),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                "Terlaris",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(color: tulisanColor),
                               ),
                             ),
-                          );
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              "Kategori",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
-                                  ?.copyWith(color: tulisanColor),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {},
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Lihat Semua",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall
-                                      ?.copyWith(color: tulisanColor),
-                                ),
-                                const Icon(
-                                  Icons.navigate_next,
-                                  size: 20,
-                                  color: Colors.black,
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+                          ]),
                     ),
                     FutureBuilder<List<Produk>>(
                         future: _futureProdukList,

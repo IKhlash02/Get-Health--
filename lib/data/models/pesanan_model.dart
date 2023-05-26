@@ -49,6 +49,7 @@ class RincianPesanan {
   final String jumlahPesanan;
   final String jenisSatuan;
   final int totalHarga;
+  final bool isUlasan;
 
   RincianPesanan({
     required this.idProduk,
@@ -57,6 +58,7 @@ class RincianPesanan {
     required this.jumlahPesanan,
     required this.jenisSatuan,
     required this.totalHarga,
+    required this.isUlasan,
   });
 
   factory RincianPesanan.fromRawJson(String str) =>
@@ -71,6 +73,7 @@ class RincianPesanan {
         jumlahPesanan: json["jumlah_pesanan"],
         jenisSatuan: json["jenis_satuan"],
         totalHarga: json["total_harga"],
+        isUlasan: json["enable_tombol"],
       );
 
   Map<String, dynamic> toJson() => {

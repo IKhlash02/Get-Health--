@@ -16,4 +16,5 @@ class ApiEndpoint {
   static const String tambahKeranjang =
       "${baseUrl}tambah_keranjang.php?id_produk=";
   static const String tambahPesan = "${baseUrl}checkout.php";
+  static const String tambahUlasan = "${baseUrl}tambah_ulasan.php";
 }

@@ -12,7 +12,7 @@ class SubmitButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 5),
       child: SizedBox(
-        height: 40,
+        height: 50,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(

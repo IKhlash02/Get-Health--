@@ -12,7 +12,7 @@ Future<void> deleteKeranjang(String idProduk) async {
 
   String myData = await getId();
   final url =
-      Uri.parse("${ApiEndpoint.delete_keranjang}$idProduk&id_user=$myData");
+      Uri.parse("${ApiEndpoint.deleteKeranjang}$idProduk&id_user=$myData");
   final response = await http.delete(url);
 
   if (response.statusCode == 200) {}
