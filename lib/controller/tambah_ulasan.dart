@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:get_healt/screen/buttom_view/pesan/ulasan.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,6 +19,7 @@ class UlasanController extends GetxController {
     }
 
     String myData = await getId();
+
     try {
       final response = await http.post(
           Uri.parse(
@@ -49,9 +50,9 @@ class UlasanController extends GetxController {
       } else {
         throw data["message"] ?? "uknown error";
       }
-    } catch (e, s) {
+    } catch (e) {
       // handle error message here
-      print(s.toString());
+
       Get.back();
       showDialog(
           context: Get.context!,

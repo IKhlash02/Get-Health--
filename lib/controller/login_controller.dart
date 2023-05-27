@@ -28,9 +28,11 @@ class LoginController extends GetxController {
       if (response.statusCode == 200) {
         if (data['value'] == 1) {
           var idUser = data['id_user'];
+          var idAlamat = data['id_alamat'];
           final SharedPreferences prefs = await _prefers;
 
           await prefs.setString('id_user', idUser);
+          await prefs.setString('id_alamat', idAlamat);
           emailController.clear();
           passwordController.clear();
           Get.off(NavbarButton());

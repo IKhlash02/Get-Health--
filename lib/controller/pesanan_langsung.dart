@@ -7,17 +7,14 @@ import 'package:get_healt/screen/navbar_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
-import '../data/models/keranjang_model.dart';
 import '../util/api_endpoint.dart';
 
-Future<void> tambahPesanan(List<Datum> dataKeranjang) async {
+Future<void> pesananLangsung(String jumlah, String idProduk) async {
   List<String> produkPesanan = [];
   List<String> jumlahPesanan = [];
 
-  for (var i = 0; i < dataKeranjang.length; i++) {
-    produkPesanan.add(dataKeranjang[i].idProduk);
-    jumlahPesanan.add(dataKeranjang[i].jumlah);
-  }
+  produkPesanan.add(idProduk);
+  jumlahPesanan.add(jumlah);
 
   Future<String> getId() async {
     final prefs = await SharedPreferences.getInstance();
@@ -65,11 +62,11 @@ Future<void> tambahPesanan(List<Datum> dataKeranjang) async {
     } else {
       throw data["message"] ?? "uknown error";
     }
-  } catch (e) {
+  } catch (e, s) {
     // handle error message here
 
     Get.back();
-
+    print(e);
     showDialog(
         context: Get.context!,
         builder: (context) {

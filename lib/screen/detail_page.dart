@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'package:get_healt/controller/tambah_keranjang.dart';
+import 'package:get_healt/controller/pesanan_langsung.dart';
 import 'package:get_healt/screen/detail_review_page.dart';
 import 'package:get_healt/util/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../data/models/product_model.dart';
 import '../data/models/ulasan_model.dart';
@@ -26,16 +28,29 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  void callNumber(String phoneNumber) async {
+    String url = 'tel:$phoneNumber';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Tidak dapat memanggil nomor ini';
+    }
+  }
+
   Future<List<Ulasan>> fetchUlasanList() async {
     final response = await http
         .get(Uri.parse(ApiEndpoint.ulasanSatu + widget.produk.idProduk));
     if (response.statusCode == 200) {
       List<dynamic> jsonData = json.decode(response.body);
-      List<Ulasan> ulasanList =
-          jsonData.map((data) => Ulasan.fromJson(data)).toList();
-      return ulasanList;
+      if (jsonData.isNotEmpty) {
+        List<Ulasan> ulasanList =
+            jsonData.map((data) => Ulasan.fromJson(data)).toList();
+        return ulasanList;
+      } else {
+        throw Exception("Ulasan Tidak Ada");
+      }
     } else {
-      throw Exception('Failed to load produk list');
+      throw Exception('Failed to load ulasan');
     }
   }
 
@@ -295,7 +310,81 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                     );
                   } else if (snapshot.hasError) {
-                    return Text('${snapshot.error}');
+                    return Container(
+                      padding: const EdgeInsets.all(20),
+                      color: Colors.white,
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Ulasan",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge
+                                    ?.copyWith(color: tulisanColor),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  "Lihat Semua Ulasan",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleSmall
+                                      ?.copyWith(color: tulisanColor),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "0/5",
+                                style: GoogleFonts.plusJakartaSans(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w700,
+                                    letterSpacing: 1.5,
+                                    color: tulisanColor),
+                              ),
+                              Text(
+                                "(0 ulasan)",
+                                style: GoogleFonts.plusJakartaSans(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w400,
+                                    letterSpacing: 1.5,
+                                    color: tulisanColor),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            width: double.infinity,
+                            margin: const EdgeInsets.all(0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 20),
+                            decoration: BoxDecoration(
+                                color: kotakColor,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Center(
+                                child: Text(
+                              "Belum ada ulasan",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(color: tulisanColor),
+                            )),
+                          )
+                        ],
+                      ),
+                    );
                   } else if (snapshot.connectionState ==
                       ConnectionState.waiting) {
                     return const Center(
@@ -311,19 +400,24 @@ class _DetailPageState extends State<DetailPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Expanded(
-                  child: Container(
-                    height: 60,
-                    padding: const EdgeInsets.all(10),
-                    color: primerColor,
-                    child: const Center(
-                      child: Text(
-                        "Hubungi Penjual",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700),
+                InkWell(
+                  onTap: () {
+                    callNumber("081328173266");
+                  },
+                  child: Expanded(
+                    child: Container(
+                      height: 60,
+                      padding: const EdgeInsets.all(10),
+                      color: primerColor,
+                      child: const Center(
+                        child: Text(
+                          "Hubungi Penjual",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700),
+                        ),
                       ),
                     ),
                   ),
@@ -507,19 +601,175 @@ class _DetailPageState extends State<DetailPage> {
                 const SizedBox(
                   width: 2,
                 ),
-                Expanded(
-                  child: Container(
-                    height: 60,
-                    padding: const EdgeInsets.all(10),
-                    color: primerColor,
-                    child: const Center(
-                      child: Text(
-                        "Beli Sekarang",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700),
+                InkWell(
+                  onTap: () {
+                    int count = 1;
+                    showDialog<void>(
+                      context: context,
+                      barrierDismissible: true,
+                      builder: (BuildContext context) {
+                        return StatefulBuilder(builder: (builder, setState) {
+                          return AlertDialog(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            title: const Center(child: Text('Jumlah')),
+                            content: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  height: 26.24,
+                                  width: 23.62,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                        side: const BorderSide(
+                                            width: 0.5, color: primerColor),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.25)),
+                                        padding: const EdgeInsets.all(0)),
+                                    onPressed: () {
+                                      if (count != 1) {
+                                        setState(() {
+                                          count--;
+                                        });
+                                      }
+                                    },
+                                    child: Center(
+                                      child: Text(
+                                        '-',
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.plusJakartaSans(
+                                            fontSize: 21,
+                                            fontWeight: FontWeight.w700,
+                                            letterSpacing: 1.25,
+                                            color: tulisanColor),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  count.toString(),
+                                  style: GoogleFonts.plusJakartaSans(
+                                      fontSize: 21,
+                                      fontWeight: FontWeight.w700,
+                                      letterSpacing: 1.25,
+                                      color: tulisanColor),
+                                ),
+                                const SizedBox(
+                                  width: 25,
+                                ),
+                                Text(
+                                  widget.produk.jenisSatuan,
+                                  style: GoogleFonts.plusJakartaSans(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400,
+                                    letterSpacing: 1.5,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                SizedBox(
+                                  height: 26.24,
+                                  width: 23.62,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      side: const BorderSide(
+                                          width: 0.5, color: primerColor),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5.25)),
+                                      padding: const EdgeInsets.all(0),
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        count++;
+                                      });
+                                    },
+                                    child: Center(
+                                      child: Text(
+                                        '+',
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.plusJakartaSans(
+                                            fontSize: 21,
+                                            fontWeight: FontWeight.w700,
+                                            letterSpacing: 1.25,
+                                            color: tulisanColor),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            actions: [
+                              ButtonBar(
+                                alignment: MainAxisAlignment.center,
+                                children: [
+                                  OutlinedButton(
+                                      style: OutlinedButton.styleFrom(
+                                          side: const BorderSide(
+                                              color: kotakColor),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      13.28))),
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text(
+                                        "Batal",
+                                        style: GoogleFonts.plusJakartaSans(
+                                            fontSize: 13.55,
+                                            fontWeight: FontWeight.w700,
+                                            letterSpacing: 1.5,
+                                            color: tulisanColor),
+                                      )),
+                                  ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                          elevation: 0,
+                                          backgroundColor: aksenColor,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      13.28))),
+                                      onPressed: () {
+                                        pesananLangsung(count.toString(),
+                                            widget.produk.idProduk);
+                                      },
+                                      child: Text(
+                                        "Masukkan",
+                                        style: GoogleFonts.plusJakartaSans(
+                                            fontSize: 13.55,
+                                            fontWeight: FontWeight.w700,
+                                            letterSpacing: 1.5,
+                                            color: tulisanColor),
+                                      )),
+                                ],
+                              ),
+                            ],
+                          );
+                        });
+                      },
+                    );
+                  },
+                  child: Expanded(
+                    child: Container(
+                      height: 60,
+                      padding: const EdgeInsets.all(10),
+                      color: primerColor,
+                      child: const Center(
+                        child: Text(
+                          "Beli Sekarang",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700),
+                        ),
                       ),
                     ),
                   ),

@@ -10,11 +10,13 @@ class ApiEndpoint {
   static const String editAlamat = "${baseUrl}form_editalamat.php?id=";
   static const String ulasanSatu = "${baseUrl}ulasan_satu.php?id_produk=";
   static const String keranjang = "${baseUrl}keranjang.php?id=";
-  static const String delete_keranjang =
+  static const String deleteKeranjang =
       "${baseUrl}delete_darikeranjang.php?id_produk=";
   static const String pesanan = "${baseUrl}pesanan.php?id_user=";
   static const String tambahKeranjang =
       "${baseUrl}tambah_keranjang.php?id_produk=";
   static const String tambahPesan = "${baseUrl}checkout.php";
   static const String tambahUlasan = "${baseUrl}tambah_ulasan.php";
+  static const String produkKategori =
+      "${baseUrl}produk_kategori.php?id_kategori=";
 }

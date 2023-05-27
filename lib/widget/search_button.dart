@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_healt/util/colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SearchBar extends StatefulWidget {
   const SearchBar({super.key});
@@ -13,38 +14,37 @@ class _SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(0),
-      child: Container(
-        // Add padding around the search bar
-        padding: const EdgeInsets.symmetric(vertical: 15),
-        // Use a Material design search bar
-        child: TextField(
-          controller: _searchController,
-          decoration: InputDecoration(
-            filled: true,
+      padding: const EdgeInsets.all(15),
+      child: TextField(
+        controller: _searchController,
+        decoration: InputDecoration(
+          filled: true,
 
-            fillColor: kotakColor,
-            hintText: 'Cari...',
-            hintStyle: Theme.of(context).textTheme.bodyLarge,
-            // Add a clear button to the search bar
-            suffixIcon: IconButton(
-              icon: const Icon(Icons.clear),
-              onPressed: () => _searchController.clear(),
+          fillColor: kotakColor,
+          hintText: 'Cari  nama produk atau gejala ...',
+          hintStyle: GoogleFonts.plusJakartaSans(
+              fontSize: 15,
+              fontWeight: FontWeight.w400,
+              letterSpacing: 0.5,
+              color: tulisanColor),
+          // Add a clear button to the search bar
+          suffixIcon: IconButton(
+            icon: const Icon(Icons.clear),
+            onPressed: () => _searchController.clear(),
+          ),
+          // Add a search icon or button to the search bar
+          prefixIcon: IconButton(
+            icon: const Icon(
+              Icons.search,
+              color: aksenColor,
             ),
-            // Add a search icon or button to the search bar
-            prefixIcon: IconButton(
-              icon: const Icon(
-                Icons.search,
-                color: aksenColor,
-              ),
-              onPressed: () {
-                // Perform the search here
-              },
-            ),
-            border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(20.0),
-            ),
+            onPressed: () {
+              // Perform the search here
+            },
+          ),
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(20.0),
           ),
         ),
       ),

@@ -454,7 +454,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                       ),
                       InkWell(
                         onTap: () {
-                          tambahPesanan(idProduk, widget.dataKeranjang);
+                          tambahPesanan(widget.dataKeranjang);
                         },
                         child: Container(
                           width: 145,

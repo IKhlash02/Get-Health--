@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:get_healt/widget/search_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../data/models/kategori_obat.dart';
 import '../../data/models/product_model.dart';
 import '../../data/repositories/product_api.dart';
 import '../../util/api_endpoint.dart';
 import '../../util/colors.dart';
 import '../detail_page.dart';
+import '../kategori_page.dart';
 
 class BerandaPage extends StatefulWidget {
   const BerandaPage({super.key});
@@ -77,21 +80,41 @@ class _BerandaPageState extends State<BerandaPage> {
                       ),
                     ),
                     SizedBox(
-                      height: 85,
+                      height: 130,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         shrinkWrap: true,
-                        itemCount: 6,
+                        itemCount: kategoriList.length,
                         itemBuilder: (BuildContext context, int index) {
+                          final gambar = kategoriList[index]['gambar']!;
+                          final judul = kategoriList[index]['judul']!;
+
                           return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              height: 76,
-                              width: 76,
-                              child: InkWell(
-                                onTap: () {},
-                                child: const Placeholder(),
-                              ),
+                            padding: const EdgeInsets.all(10.0),
+                            child: InkWell(
+                              onTap: () {
+                                Get.to(KategoriPage(
+                                  nomor: index + 1,
+                                ));
+                              },
+                              child: Column(children: [
+                                SizedBox(
+                                    width: 75,
+                                    height: 78,
+                                    child: Image.asset(gambar,
+                                        fit: BoxFit.fitWidth)),
+                                Expanded(
+                                  child: Text(
+                                    judul,
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.plusJakartaSans(
+                                        fontSize: 11.87,
+                                        fontWeight: FontWeight.w700,
+                                        letterSpacing: 0.5,
+                                        color: tulisanColor),
+                                  ),
+                                )
+                              ]),
                             ),
                           );
                         },
@@ -206,17 +229,6 @@ Widget _productBeranda(BuildContext context, Produk produk) {
                       style: GoogleFonts.plusJakartaSans(
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
-                          letterSpacing: 0.5,
-                          color: tulisanColor),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Cab. Dramaga Bogor",
-                      style: GoogleFonts.plusJakartaSans(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
                           letterSpacing: 0.5,
                           color: tulisanColor),
                     ),
