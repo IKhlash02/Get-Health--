@@ -32,6 +32,7 @@ class _NavbarButtonState extends State<NavbarButton> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: _widgetOptions.elementAt(widget.selectedNavbar),
       ),

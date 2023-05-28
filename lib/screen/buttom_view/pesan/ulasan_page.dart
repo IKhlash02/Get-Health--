@@ -24,6 +24,7 @@ class _UlasanItem extends State<UlasanItem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView(

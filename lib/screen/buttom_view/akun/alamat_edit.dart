@@ -40,6 +40,7 @@ class _AlamatEditState extends State<AlamatEdit> {
     editAlamatController.detailAlamatController =
         TextEditingController(text: widget.alamatList.detailAlamat);
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
           shadowColor: Colors.transparent,

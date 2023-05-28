@@ -79,7 +79,7 @@ class RegisterController extends GetxController {
       } else {
         throw data["message"] ?? "uknown error";
       }
-    } catch (e, s) {
+    } catch (e) {
       // handle error message here
 
       Get.back();

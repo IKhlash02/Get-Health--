@@ -32,6 +32,7 @@ class _UserEditState extends State<UserEdit> {
     editUserController.telpUserController =
         TextEditingController(text: widget.userList.telpUser);
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
           shadowColor: Colors.transparent,

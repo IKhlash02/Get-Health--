@@ -26,6 +26,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
     _futureKeranjangList = fetchkeranjangList();
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20),
             child: FutureBuilder<Keranjang?>(

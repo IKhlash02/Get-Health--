@@ -21,4 +21,5 @@ class ApiEndpoint {
   static const String produkKategori =
       "${baseUrl}produk_kategori.php?id_kategori=";
   static const String search = "${baseUrl}search.php";
+  static const String notifikasi = "${baseUrl}notifikasi.php?id_user=";
 }

@@ -32,150 +32,152 @@ class _BerandaPageState extends State<BerandaPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          backgroundColor: Colors.white,
           body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SearchBar(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              "Kategori",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium
-                                  ?.copyWith(color: tulisanColor),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {},
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Lihat Semua",
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SearchBar(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  "Kategori",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .titleSmall
+                                      .titleMedium
                                       ?.copyWith(color: tulisanColor),
                                 ),
-                                const Icon(
-                                  Icons.navigate_next,
-                                  size: 20,
-                                  color: Colors.black,
+                              ),
+                              InkWell(
+                                onTap: () {},
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Lihat Semua",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall
+                                          ?.copyWith(color: tulisanColor),
+                                    ),
+                                    const Icon(
+                                      Icons.navigate_next,
+                                      size: 20,
+                                      color: Colors.black,
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 130,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        shrinkWrap: true,
-                        itemCount: kategoriList.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          final gambar = kategoriList[index]['gambar']!;
-                          final judul = kategoriList[index]['judul']!;
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 130,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemCount: kategoriList.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              final gambar = kategoriList[index]['gambar']!;
+                              final judul = kategoriList[index]['judul']!;
 
-                          return Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: InkWell(
-                              onTap: () {
-                                Get.to(KategoriPage(
-                                  nomor: index + 1,
-                                ));
-                              },
-                              child: Column(children: [
-                                SizedBox(
-                                    width: 75,
-                                    height: 78,
-                                    child: Image.asset(gambar,
-                                        fit: BoxFit.fitWidth)),
+                              return Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    Get.to(KategoriPage(
+                                      nomor: index + 1,
+                                    ));
+                                  },
+                                  child: Column(children: [
+                                    SizedBox(
+                                        width: 75,
+                                        height: 78,
+                                        child: Image.asset(gambar,
+                                            fit: BoxFit.fitWidth)),
+                                    Expanded(
+                                      child: Text(
+                                        judul,
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.plusJakartaSans(
+                                            fontSize: 11.87,
+                                            fontWeight: FontWeight.w700,
+                                            letterSpacing: 0.5,
+                                            color: tulisanColor),
+                                      ),
+                                    )
+                                  ]),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
                                 Expanded(
                                   child: Text(
-                                    judul,
-                                    textAlign: TextAlign.center,
-                                    style: GoogleFonts.plusJakartaSans(
-                                        fontSize: 11.87,
-                                        fontWeight: FontWeight.w700,
-                                        letterSpacing: 0.5,
-                                        color: tulisanColor),
+                                    "Terlaris",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(color: tulisanColor),
                                   ),
-                                )
+                                ),
                               ]),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5),
-                      child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                "Terlaris",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium
-                                    ?.copyWith(color: tulisanColor),
-                              ),
-                            ),
-                          ]),
-                    ),
-                    FutureBuilder<List<Produk>>(
-                        future: _futureProdukList,
-                        builder: (context, snapshot) {
-                          List<Produk>? produkList = snapshot.data;
+                        ),
+                        FutureBuilder<List<Produk>>(
+                            future: _futureProdukList,
+                            builder: (context, snapshot) {
+                              List<Produk>? produkList = snapshot.data;
 
-                          if (snapshot.hasData) {
-                            return GridView.builder(
-                              physics: const NeverScrollableScrollPhysics(),
-                              shrinkWrap: true,
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2,
-                                      childAspectRatio: 153 / 278),
-                              itemCount: produkList?.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return _productBeranda(
-                                    context, produkList![index]);
-                              },
-                            );
-                          } else if (snapshot.hasError) {
-                            return Text('${snapshot.error}');
-                          } else if (snapshot.connectionState ==
-                              ConnectionState.waiting) {
-                            return const Center(
-                                child: CircularProgressIndicator(
-                              strokeWidth: 2,
-                            ));
-                          }
-                          return const Text("");
-                        })
-                  ],
-                ),
+                              if (snapshot.hasData) {
+                                return GridView.builder(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 2,
+                                          childAspectRatio: 153 / 278),
+                                  itemCount: 10,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return _productBeranda(
+                                        context, produkList![index]);
+                                  },
+                                );
+                              } else if (snapshot.hasError) {
+                                return Text('${snapshot.error}');
+                              } else if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const Center(
+                                    child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                ));
+                              }
+                              return const Text("");
+                            })
+                      ],
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
-      )),
+            ),
+          )),
     );
   }
 }

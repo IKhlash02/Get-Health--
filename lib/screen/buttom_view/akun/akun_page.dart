@@ -9,6 +9,7 @@ import '../../../data/models/alamat_user_model.dart';
 import '../../../data/models/user_model.dart';
 import '../../../data/repositories/alamat_user_api.dart';
 
+import '../../../util/api_endpoint.dart';
 import '../../../util/colors.dart';
 import 'alamat_edit.dart';
 
@@ -54,17 +55,27 @@ class _AkunPageState extends State<AkunPage> {
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Center(
-                        child: Icon(
-                          Icons.account_circle_outlined,
-                          size: 104,
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Center(
+                        child: Container(
+                          width: 95,
+                          height: 95,
+                          decoration:
+                              const BoxDecoration(shape: BoxShape.circle),
+                          child: ClipOval(
+                              child: Image.network(
+                            '${ApiEndpoint.baseUrl}${userlist!.fotoUser}',
+                            fit: BoxFit.cover,
+                          )),
                         ),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Text(
-                        userlist!.namaUser,
+                        userlist.namaUser,
                         style: GoogleFonts.montserrat(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,

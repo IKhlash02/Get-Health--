@@ -71,7 +71,7 @@ class _DetailPageState extends State<DetailPage> {
               width: double.infinity,
               color: Colors.white,
               child: Image.network(
-                "http://192.168.0.105/get_healt/gethealthplus/${widget.produk.gambar}",
+                "${ApiEndpoint.baseUrl}${widget.produk.gambar}",
                 fit: BoxFit.fitWidth,
               ),
             ),
