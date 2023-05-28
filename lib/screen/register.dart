@@ -34,6 +34,7 @@ class _RegisterState extends State<Register> {
     final XFile? pickedFile = await picker.pickImage(
       source: ImageSource.gallery,
     );
+
     setState(() {
       if (pickedFile != null) {
         registerController.imageFile = File(pickedFile.path);
@@ -88,7 +89,10 @@ class _RegisterState extends State<Register> {
                               'images/profile.png',
                               fit: BoxFit.cover,
                             )
-                          : Image.file(registerController.imageFile!),
+                          : Image.file(
+                              registerController.imageFile!,
+                              fit: BoxFit.cover,
+                            ),
                     ),
                   ),
                 ),
