@@ -27,27 +27,38 @@ class RegisterController extends GetxController {
 
   Future<void> registerUser() async {
     try {
-      final response = await http.post(
+      final request = await http.MultipartRequest(
+          'POST',
           Uri.parse(
             ApiEndpoint.formRegister,
-          ),
-          body: {
-            'nama_user': namaController.text.trim(),
-            'email_user': emailController.text.trim(),
-            'password_user': passwordController.text,
-            'telp_user': telpUserController.text.trim(),
-            'nama_alamat': namaAlamatController.text,
-            'penerima_alamat': penerimaAlamatController.text,
-            'telp_alamat': telpAlamatController.text,
-            'provinsi_alamat': provinsiAlamat,
-            'kabkot_alamat': kabupatenAlamat,
-            'kec_alamat': kecamatanAlamat,
-            'kel_alamat': kelurahanAlamat,
-            'kodepos_alamat': kodePosAlamatController.text,
-            'detail_alamat': detailAlamatController.text
-          });
+          ));
+      request.fields.addAll({
+        'nama_user': namaController.text.trim(),
+        'email_user': emailController.text.trim(),
+        'password_user': passwordController.text,
+        'telp_user': telpUserController.text.trim(),
+        'nama_alamat': namaAlamatController.text,
+        'penerima_alamat': penerimaAlamatController.text,
+        'telp_alamat': telpAlamatController.text,
+        'provinsi_alamat': provinsiAlamat,
+        'kabkot_alamat': kabupatenAlamat,
+        'kec_alamat': kecamatanAlamat,
+        'kel_alamat': kelurahanAlamat,
+        'kodepos_alamat': kodePosAlamatController.text,
+        'detail_alamat': detailAlamatController.text,
+      });
 
-      final data = jsonDecode(response.body);
+      if (imageFile != null) {
+        List<int> imageBytes = await imageFile!.readAsBytes();
+        String base64Image = base64Encode(imageBytes);
+        request.fields['gambar'] = base64Image;
+      }
+
+      http.StreamedResponse response = await request.send();
+      final responseData = await response.stream.bytesToString();
+
+      final data = jsonDecode(responseData);
+
       if (response.statusCode == 200) {
         if (data['status'] == "success") {
           namaController.clear();
@@ -60,6 +71,7 @@ class RegisterController extends GetxController {
           telpAlamatController.clear();
           kodePosAlamatController.clear();
           detailAlamatController.clear();
+          imageFile = null;
           Get.to(const SuccesRegister());
         } else {
           throw data["message"] ?? "uknown error";
@@ -67,7 +79,7 @@ class RegisterController extends GetxController {
       } else {
         throw data["message"] ?? "uknown error";
       }
-    } catch (e) {
+    } catch (e, s) {
       // handle error message here
 
       Get.back();
