@@ -89,8 +89,8 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                     Row(
                                       children: [
                                         Container(
-                                          height: 60,
-                                          width: 60,
+                                          height: 70,
+                                          width: 70,
                                           color: Colors.white,
                                           child: Image.network(
                                             "${ApiEndpoint.baseUrl}${dataKeranjang[index].gambar}",
@@ -108,7 +108,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
+                                                  MainAxisAlignment.center,
                                               children: [
                                                 Row(
                                                   children: [
@@ -131,53 +131,12 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                                   ],
                                                 ),
                                                 const SizedBox(
-                                                  height: 20,
+                                                  height: 1,
                                                 ),
                                                 Row(
                                                   children: [
-                                                    SizedBox(
-                                                      height: 13,
-                                                      width: 13,
-                                                      child: ElevatedButton(
-                                                        style: ElevatedButton.styleFrom(
-                                                            side: const BorderSide(
-                                                                width: 0.5,
-                                                                color:
-                                                                    primerColor),
-                                                            shape: RoundedRectangleBorder(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            2)),
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .all(0)),
-                                                        onPressed: () {
-                                                          // if (count != 0) {
-                                                          //   setState(() {
-                                                          //     count--;
-                                                          //   });
-                                                          // }
-                                                        },
-                                                        child: const Center(
-                                                          child: Text(
-                                                            '-',
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .black,
-                                                                fontSize: 9),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    const Spacer(
-                                                      flex: 1,
-                                                    ),
                                                     Text(
-                                                      dataKeranjang[index]
-                                                          .jumlah,
+                                                      "jumlah: ${dataKeranjang[index].jumlah}",
                                                       style: GoogleFonts
                                                           .plusJakartaSans(
                                                               fontSize: 12,
@@ -191,46 +150,6 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                                     ),
                                                     const Spacer(
                                                       flex: 1,
-                                                    ),
-                                                    SizedBox(
-                                                      height: 13,
-                                                      width: 13,
-                                                      child: ElevatedButton(
-                                                        style: ElevatedButton
-                                                            .styleFrom(
-                                                          side: const BorderSide(
-                                                              width: 0.5,
-                                                              color:
-                                                                  primerColor),
-                                                          shape: RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          2)),
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .all(0),
-                                                        ),
-                                                        onPressed: () {
-                                                          setState(() {
-                                                            " count = count + 1";
-                                                          });
-                                                        },
-                                                        child: const Center(
-                                                          child: Text(
-                                                            '+',
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .black,
-                                                                fontSize: 9),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    const Spacer(
-                                                      flex: 12,
                                                     ),
                                                     Row(
                                                       children: [

@@ -2,24 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import '../controller/tambah_pesanan.dart';
+import '../controller/pesanan_langsung.dart';
+
 import '../data/models/alamat_user_model.dart';
-import '../data/models/keranjang_model.dart';
+
+import '../data/models/product_model.dart';
 import '../data/repositories/alamat_user_api.dart';
 import '../util/api_endpoint.dart';
 import '../util/colors.dart';
 
-class ChackOutPage extends StatefulWidget {
-  final Keranjang keranjangList;
-  final List<Datum> dataKeranjang;
-  const ChackOutPage(
-      {super.key, required this.dataKeranjang, required this.keranjangList});
+class CheckoutLangsungPage extends StatefulWidget {
+  final Produk produk;
+  final String jumlah;
+  const CheckoutLangsungPage(
+      {super.key, required this.produk, required this.jumlah});
 
   @override
-  State<ChackOutPage> createState() => _ChackOutPageState();
+  State<CheckoutLangsungPage> createState() => _CheckoutLangsungPageState();
 }
 
-class _ChackOutPageState extends State<ChackOutPage> {
+class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
   late Future<List<dynamic>> _futureAlamatList;
 
   @override
@@ -230,93 +232,74 @@ class _ChackOutPageState extends State<ChackOutPage> {
                         color: kotakColor,
                         borderRadius: BorderRadius.circular(12)),
                     child: Expanded(
-                        child: ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(6),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 60,
-                                    width: 60,
-                                    color: Colors.white,
-                                    child: Image.network(
-                                      "${ApiEndpoint.baseUrl}${widget.dataKeranjang[index].gambar}",
-                                      fit: BoxFit.fitWidth,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 15,
-                                  ),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                            widget.dataKeranjang[index]
-                                                .namaProduk,
-                                            style: GoogleFonts.plusJakartaSans(
-                                                fontSize: 13,
-                                                fontWeight: FontWeight.w400,
-                                                letterSpacing: 0.5,
-                                                color: tulisanColor)),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        RichText(
-                                            text: TextSpan(children: [
-                                          TextSpan(
-                                              text:
-                                                  "Rp${widget.dataKeranjang[index].totalHarga}",
-                                              style:
-                                                  GoogleFonts.plusJakartaSans(
-                                                      fontSize: 9.72,
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                      letterSpacing: 0.5,
-                                                      color: tulisanColor)),
-                                          TextSpan(
-                                              text:
-                                                  "(${widget.dataKeranjang[index].jumlah} ${widget.dataKeranjang[index].jenisSatuan} x Rp${int.parse(widget.dataKeranjang[index].totalHarga) / int.parse(widget.dataKeranjang[index].jumlah)})",
-                                              style:
-                                                  GoogleFonts.plusJakartaSans(
-                                                      fontSize: 9.72,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      letterSpacing: 0.5,
-                                                      color: tulisanColor))
-                                        ])),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
+                        child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(6),
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 60,
+                                width: 60,
+                                color: Colors.white,
+                                child: Image.network(
+                                  "${ApiEndpoint.baseUrl}${widget.produk.gambar}",
+                                  fit: BoxFit.fitWidth,
+                                ),
                               ),
-                            ),
-                            (index != widget.dataKeranjang.length - 1)
-                                ? const Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 10.0),
-                                    child: Divider(
+                              const SizedBox(
+                                width: 15,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(widget.produk.namaProduk,
+                                        style: GoogleFonts.plusJakartaSans(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w400,
+                                            letterSpacing: 0.5,
+                                            color: tulisanColor)),
+                                    const SizedBox(
                                       height: 10,
-                                      thickness: 2,
-                                      color: Color(0xffA1D1E0),
                                     ),
-                                  )
-                                : const SizedBox(
-                                    height: 0,
-                                  )
-                          ],
-                        );
-                      },
-                      itemCount: widget.dataKeranjang.length,
+                                    RichText(
+                                        text: TextSpan(children: [
+                                      TextSpan(
+                                          text:
+                                              "Rp${int.parse(widget.produk.hargaProduk) * int.parse(widget.jumlah)}",
+                                          style: GoogleFonts.plusJakartaSans(
+                                              fontSize: 9.72,
+                                              fontWeight: FontWeight.w700,
+                                              letterSpacing: 0.5,
+                                              color: tulisanColor)),
+                                      TextSpan(
+                                          text:
+                                              "(${widget.jumlah} ${widget.produk.jenisSatuan} x Rp${widget.produk.hargaProduk})",
+                                          style: GoogleFonts.plusJakartaSans(
+                                              fontSize: 9.72,
+                                              fontWeight: FontWeight.w400,
+                                              letterSpacing: 0.5,
+                                              color: tulisanColor))
+                                    ])),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 10.0),
+                          child: Divider(
+                            height: 10,
+                            thickness: 2,
+                            color: Color(0xffA1D1E0),
+                          ),
+                        )
+                      ],
                     )),
                   ),
                   const SizedBox(
@@ -357,7 +340,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                             color: tulisanColor),
                       ),
                       Text(
-                        "Rp${formatter.format(widget.keranjangList.total)}",
+                        "Rp${formatter.format(int.parse(widget.produk.hargaProduk) * int.parse(widget.jumlah))}",
                         style: GoogleFonts.plusJakartaSans(
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
@@ -440,7 +423,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                             Row(
                               children: [
                                 Text(
-                                  "Rp${widget.keranjangList.total + 10000 + 1000}",
+                                  "Rp${int.parse(widget.produk.hargaProduk) * int.parse(widget.jumlah) + 10000 + 1000}",
                                   style: GoogleFonts.plusJakartaSans(
                                       fontSize: 26.24,
                                       fontWeight: FontWeight.w700,
@@ -454,7 +437,8 @@ class _ChackOutPageState extends State<ChackOutPage> {
                       ),
                       InkWell(
                         onTap: () {
-                          tambahPesanan(widget.dataKeranjang);
+                          pesananLangsung(
+                              widget.jumlah, widget.produk.idProduk);
                         },
                         child: Container(
                           width: 145,

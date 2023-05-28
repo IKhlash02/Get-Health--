@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:get_healt/util/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../screen/search_page.dart';
-
-class SearchBar extends StatefulWidget {
-  const SearchBar({super.key});
+class SearchSecond extends StatefulWidget {
+  final ValueChanged<String> onCustomWidgetCallback;
+  const SearchSecond(
+      {super.key, required, required this.onCustomWidgetCallback});
 
   @override
-  State<SearchBar> createState() => _SearchBarState();
+  State<SearchSecond> createState() => _SearchSecondState();
 }
 
-class _SearchBarState extends State<SearchBar> {
+class _SearchSecondState extends State<SearchSecond> {
   final TextEditingController _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class _SearchBarState extends State<SearchBar> {
             ),
             onPressed: () {
               // Perform the search here
-              Get.to(SearchPage(judul: _searchController.text));
+              widget.onCustomWidgetCallback(_searchController.text);
             },
           ),
           border: OutlineInputBorder(

@@ -2,13 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
 
 import 'package:get_healt/controller/tambah_keranjang.dart';
-import 'package:get_healt/controller/pesanan_langsung.dart';
 import 'package:get_healt/screen/detail_review_page.dart';
 import 'package:get_healt/util/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../data/models/product_model.dart';
 import '../data/models/ulasan_model.dart';
@@ -17,6 +16,8 @@ import '../widget/read_more.dart';
 import '../widget/review_item.dart';
 
 import 'package:http/http.dart' as http;
+
+import 'checkout_langsung.dart';
 
 class DetailPage extends StatefulWidget {
   final Produk produk;
@@ -28,15 +29,6 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
-  void callNumber(String phoneNumber) async {
-    String url = 'tel:$phoneNumber';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Tidak dapat memanggil nomor ini';
-    }
-  }
-
   Future<List<Ulasan>> fetchUlasanList() async {
     final response = await http
         .get(Uri.parse(ApiEndpoint.ulasanSatu + widget.produk.idProduk));
@@ -401,9 +393,7 @@ class _DetailPageState extends State<DetailPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 InkWell(
-                  onTap: () {
-                    callNumber("081328173266");
-                  },
+                  onTap: () {},
                   child: Expanded(
                     child: Container(
                       height: 60,
@@ -737,8 +727,10 @@ class _DetailPageState extends State<DetailPage> {
                                                   BorderRadius.circular(
                                                       13.28))),
                                       onPressed: () {
-                                        pesananLangsung(count.toString(),
-                                            widget.produk.idProduk);
+                                        Get.to(CheckoutLangsungPage(
+                                          produk: widget.produk,
+                                          jumlah: count.toString(),
+                                        ));
                                       },
                                       child: Text(
                                         "Masukkan",

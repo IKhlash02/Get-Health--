@@ -50,9 +50,9 @@ class LoginController extends GetxController {
           context: Get.context!,
           builder: (context) {
             return SimpleDialog(
-              title: const Text("Error"),
+              title: const Center(child: Text("Message")),
               contentPadding: const EdgeInsets.all(20),
-              children: [Text(e.toString())],
+              children: [Center(child: Text(e.toString()))],
             );
           });
     }

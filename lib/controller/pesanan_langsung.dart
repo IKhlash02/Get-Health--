@@ -39,7 +39,7 @@ Future<void> pesananLangsung(String jumlah, String idProduk) async {
   try {
     final response = await http.post(
         Uri.parse(
-          ApiEndpoint.tambahPesan,
+          ApiEndpoint.tambahPesanLangsung,
         ),
         body: jsonEncode(requestData));
 
@@ -62,11 +62,11 @@ Future<void> pesananLangsung(String jumlah, String idProduk) async {
     } else {
       throw data["message"] ?? "uknown error";
     }
-  } catch (e, s) {
+  } catch (e) {
     // handle error message here
 
     Get.back();
-    print(e);
+
     showDialog(
         context: Get.context!,
         builder: (context) {
