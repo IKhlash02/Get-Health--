@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:get/get.dart';
 import 'package:get_healt/controller/register_controller.dart';
 
@@ -27,6 +29,17 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   RegisterController registerController = Get.put(RegisterController());
   final idProv = Get.put(IdProvinsi());
+  _pilihGalery() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? pickedFile = await picker.pickImage(
+      source: ImageSource.gallery,
+    );
+    setState(() {
+      if (pickedFile != null) {
+        registerController.imageFile = File(pickedFile.path);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +73,27 @@ class _RegisterState extends State<Register> {
                         .headlineMedium
                         ?.copyWith(color: primerColor),
                   ),
+                ),
+                Container(
+                  width: 120,
+                  height: 120,
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
+                  child: InkWell(
+                    onTap: () {
+                      _pilihGalery();
+                    },
+                    child: ClipOval(
+                      child: (registerController.imageFile == null)
+                          ? Image.asset(
+                              'images/profile.png',
+                              fit: BoxFit.cover,
+                            )
+                          : Image.file(registerController.imageFile!),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 SizedBox(
                   child: Column(

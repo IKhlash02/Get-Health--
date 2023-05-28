@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:get_healt/util/api_endpoint.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../screen/succes_register.dart';
 
@@ -22,6 +24,7 @@ class RegisterController extends GetxController {
   String kabupatenAlamat = 'Bogor';
   String kecamatanAlamat = 'Dramaga';
   String kelurahanAlamat = 'Dramaga';
+  File? imageFile;
 
   Future<void> registerUser() async {
     try {

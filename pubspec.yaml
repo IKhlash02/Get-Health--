@@ -39,6 +39,8 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^4.0.4
   http: ^0.13.6
+  image_picker: ^0.8.7+5
+
   intl: ^0.18.1
   shared_preferences: ^2.1.1
   url_launcher: ^6.1.11
