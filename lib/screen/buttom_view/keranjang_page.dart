@@ -22,13 +22,8 @@ class _KeranjangPageState extends State<KeranjangPage> {
   late Future<Keranjang?> _futureKeranjangList;
 
   @override
-  void initState() {
-    super.initState();
-    _futureKeranjangList = fetchkeranjangList();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    _futureKeranjangList = fetchkeranjangList();
     return SafeArea(
       child: Scaffold(
         body: Padding(

@@ -148,9 +148,10 @@ class _DetailPageState extends State<DetailPage> {
                         flex: 1,
                       ),
                       Text(
-                        "73 terjual",
+                        maxLines: 2,
+                        "stok ${widget.produk.jumlahStok}",
                         style: GoogleFonts.plusJakartaSans(
-                          fontSize: 12.73,
+                          fontSize: 10.73,
                           fontWeight: FontWeight.w400,
                           letterSpacing: 1.5,
                         ),
