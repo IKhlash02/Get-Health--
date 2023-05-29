@@ -129,7 +129,7 @@ class _ItemKirimState extends State<ItemKirim> {
                                                     BorderRadius.circular(2),
                                               ),
                                               child: Text(
-                                                'Resep Terverifikasi',
+                                                'Pesanan Terverifikasi',
                                                 style:
                                                     GoogleFonts.plusJakartaSans(
                                                         fontSize: 9,

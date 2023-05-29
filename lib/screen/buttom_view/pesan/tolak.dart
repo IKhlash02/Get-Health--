@@ -129,7 +129,7 @@ class _TolakPageState extends State<TolakPage> {
                                                     BorderRadius.circular(2),
                                               ),
                                               child: Text(
-                                                'Resep Ditolak',
+                                                'Pesanan Ditolak',
                                                 style:
                                                     GoogleFonts.plusJakartaSans(
                                                         fontSize: 9,
@@ -217,7 +217,7 @@ class _TolakPageState extends State<TolakPage> {
                               Row(
                                 children: [
                                   Text(
-                                    "Resep ditolak",
+                                    "Pesanan ditolak",
                                     style: GoogleFonts.plusJakartaSans(
                                         fontSize: 20.93,
                                         fontWeight: FontWeight.w700,

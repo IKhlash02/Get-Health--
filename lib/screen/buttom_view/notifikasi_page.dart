@@ -66,7 +66,7 @@ class _NotifikasiPageState extends State<NotifikasiPage> {
                               color: kotakColor,
                               borderRadius: BorderRadius.circular(12)),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(top: 2),

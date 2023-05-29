@@ -131,7 +131,7 @@ class _UlasanPageState extends State<UlasanPage> {
                                                     BorderRadius.circular(2),
                                               ),
                                               child: Text(
-                                                'Resep Terverifikasi',
+                                                'pesanan Terverifikasi',
                                                 style:
                                                     GoogleFonts.plusJakartaSans(
                                                         fontSize: 9,
