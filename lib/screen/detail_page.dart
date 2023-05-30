@@ -9,6 +9,7 @@ import 'package:get_healt/screen/detail_review_page.dart';
 import 'package:get_healt/util/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../controller/launc_browser.dart';
 import '../data/models/product_model.dart';
 import '../data/models/ulasan_model.dart';
 import '../util/api_endpoint.dart';
@@ -394,7 +395,9 @@ class _DetailPageState extends State<DetailPage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    launchURLBrowser();
+                  },
                   child: Expanded(
                     child: Container(
                       height: 60,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_healt/util/api_endpoint.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../controller/launc_browser.dart';
 import '../../../data/models/pesanan_model.dart';
 import '../../../data/repositories/pesanan_repo.dart';
 import '../../../util/colors.dart';
@@ -223,7 +224,9 @@ class _ItemKirimState extends State<ItemKirim> {
                                   ]),
                             ),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                launchURLBrowser();
+                              },
                               child: Container(
                                 margin: const EdgeInsets.all(10),
                                 padding: const EdgeInsets.symmetric(
