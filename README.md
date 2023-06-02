@@ -17,12 +17,12 @@ GetHealth+ merupakan aplikasi e-commerc yang dapat diakses oleh masyarakat dari 
 - Notifikasi
 # Screenshots
 <div align="center">
-  <img src="https://github.com/IKhlash02/Get-Health--/blob/main/images/Screenshot_1685198308_google-pixel4-justblack-portrait.png" style="width: 360px; height: 760px; margin-right: 10px;">
-  <img src="https://github.com/IKhlash02/Get-Health--/blob/main/images/Screenshot_1685198324_google-pixel4-justblack-portrait.png" style="width: 360px; height: 760px; margin-right: 10px;">
-  <img src="https://github.com/IKhlash02/Get-Health--/blob/main/images/Screenshot_1685198366_google-pixel4-justblack-portrait.png" style="width: 360px; height: 760px; margin-right: 10px;">
-  <img src="https://github.com/IKhlash02/Get-Health--/blob/main/images/Screenshot_1685198347_google-pixel4-justblack-portrait.png" style="width: 360px; height: 760px; margin-right: 10px;">
-  <img src="https://github.com/IKhlash02/Get-Health--/blob/main/images/Screenshot_1685198352_google-pixel4-justblack-portrait.png" style="width: 360px; height: 760px; margin-right: 10px;">
-  <img src="https://github.com/IKhlash02/Get-Health--/blob/main/images/Screenshot_1685198358_google-pixel4-justblack-portrait.png" style="width: 360px; height: 760px; margin-right: 10px;">
+  <img src="https://github.com/IKhlash02/Get-Health--/blob/main/images/Screenshot_1685198308_google-pixel4-justblack-portrait.png" style="width: 270px; height: 570px; margin-right: 20px; margin-left: 20px; ">
+  <img src="https://github.com/IKhlash02/Get-Health--/blob/main/images/Screenshot_1685198324_google-pixel4-justblack-portrait.png" style="width: 270px; height: 570px; margin-right: 20px; margin-left: 20px; ">
+  <img src="https://github.com/IKhlash02/Get-Health--/blob/main/images/Screenshot_1685198366_google-pixel4-justblack-portrait.png" style="width: 270px; height: 570px; margin-right: 20px; margin-left: 20px; ">
+  <img src="https://github.com/IKhlash02/Get-Health--/blob/main/images/Screenshot_1685198347_google-pixel4-justblack-portrait.png" style="width: 270px; height: 570px; margin-right: 20px; margin-left: 20px; ">
+  <img src="https://github.com/IKhlash02/Get-Health--/blob/main/images/Screenshot_1685198352_google-pixel4-justblack-portrait.png" style="width: 270px; height: 570px; margin-right: 20px; margin-left: 20px; ">
+  <img src="https://github.com/IKhlash02/Get-Health--/blob/main/images/Screenshot_1685198358_google-pixel4-justblack-portrait.png" style="width: 270px; height: 570px; margin-right: 20px; margin-left: 20px; ">
 </div>
 
 
