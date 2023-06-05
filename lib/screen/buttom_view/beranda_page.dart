@@ -215,7 +215,10 @@ Widget _productBeranda(BuildContext context, Produk produk) {
                       topLeft: Radius.circular(14),
                       topRight: Radius.circular(14)),
                 ),
-                child: Image.network("${ApiEndpoint.baseUrl}${produk.gambar}"),
+                child: Hero(
+                    tag: 'produk',
+                    child: Image.network(
+                        "${ApiEndpoint.baseUrl}${produk.gambar}")),
               ),
               const SizedBox(
                 height: 5,

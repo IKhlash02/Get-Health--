@@ -71,9 +71,12 @@ class _DetailPageState extends State<DetailPage> {
               height: 300,
               width: double.infinity,
               color: Colors.white,
-              child: Image.network(
-                "${ApiEndpoint.baseUrl}${widget.produk.gambar}",
-                fit: BoxFit.fitWidth,
+              child: Hero(
+                tag: 'produk',
+                child: Image.network(
+                  "${ApiEndpoint.baseUrl}${widget.produk.gambar}",
+                  fit: BoxFit.fitWidth,
+                ),
               ),
             ),
             const SizedBox(
