@@ -1,4 +1,4 @@
-class AlamatUserModel {
+class AddressModel {
   final String idAlamat;
   final String idUser;
   final String namaAlamat;
@@ -12,7 +12,7 @@ class AlamatUserModel {
   final String detailAlamat;
   final String favoritAlamat;
 
-  AlamatUserModel({
+  AddressModel({
     required this.idAlamat,
     required this.idUser,
     required this.namaAlamat,
@@ -27,8 +27,8 @@ class AlamatUserModel {
     required this.favoritAlamat,
   });
 
-  factory AlamatUserModel.fromJson(Map<String, dynamic> json) {
-    return AlamatUserModel(
+  factory AddressModel.fromJson(Map<String, dynamic> json) {
+    return AddressModel(
       idAlamat: json["id_alamat"],
       idUser: json["id_user"],
       namaAlamat: json["nama_alamat"],
@@ -41,6 +41,36 @@ class AlamatUserModel {
       kodeposAlamat: json["kodepos_alamat"],
       detailAlamat: json["detail_alamat"],
       favoritAlamat: json["favorit_alamat"],
+    );
+  }
+
+  AddressModel copyWith({
+    String? idAlamat,
+    String? idUser,
+    String? namaAlamat,
+    String? penerimaAlamat,
+    String? telpAlamat,
+    String? provinsiAlamat,
+    String? kabkotAlamat,
+    String? kecAlamat,
+    String? kelAlamat,
+    String? kodeposAlamat,
+    String? detailAlamat,
+    String? favoritAlamat,
+  }) {
+    return AddressModel(
+      idAlamat: idAlamat ?? this.idAlamat,
+      idUser: idUser ?? this.idUser,
+      namaAlamat: namaAlamat ?? this.namaAlamat,
+      penerimaAlamat: penerimaAlamat ?? this.penerimaAlamat,
+      telpAlamat: telpAlamat ?? this.telpAlamat,
+      provinsiAlamat: provinsiAlamat ?? this.provinsiAlamat,
+      kabkotAlamat: kabkotAlamat ?? this.kabkotAlamat,
+      kecAlamat: kecAlamat ?? this.kecAlamat,
+      kelAlamat: kelAlamat ?? this.kelAlamat,
+      kodeposAlamat: kodeposAlamat ?? this.kodeposAlamat,
+      detailAlamat: detailAlamat ?? this.detailAlamat,
+      favoritAlamat: favoritAlamat ?? this.favoritAlamat,
     );
   }
 }

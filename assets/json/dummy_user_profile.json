@@ -1,0 +1,24 @@
+{
+  "user": {
+    "id_user": "USR-007",
+    "nama_user": "James Bond",
+    "email_user": "james.b@mi6.gov.uk",
+    "password_user": "********",
+    "telp_user": "007-12345678",
+    "foto_user": "https://i.pinimg.com/736x/8d/16/90/8d16902ae35c1e982c2990ff85fa11fb.jpg"
+  },
+  "address": {
+    "id_alamat": "ADR-007",
+    "id_user": "USR-007",
+    "nama_alamat": "Rumah Utama",
+    "penerima_alamat": "James Bond",
+    "telp_alamat": "007-12345678",
+    "provinsi_alamat": "DKI Jakarta",
+    "kabkot_alamat": "Jakarta Pusat",
+    "kec_alamat": "Gambir",
+    "kel_alamat": "Petojo Utara",
+    "kodepos_alamat": "10130",
+    "detail_alamat": "Gedung MI6, Lantai 7, Apartemen 007",
+    "favorit_alamat": "1"
+  }
+}

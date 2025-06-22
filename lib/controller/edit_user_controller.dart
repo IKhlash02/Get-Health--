@@ -45,9 +45,7 @@ class EditUserController extends GetxController {
           passwordController.clear();
           passwordController.clear();
           telpUserController.clear();
-          Get.to(MainLayout(
-            selectedNavbar: 4,
-          ));
+          Get.to(MainLayout());
         } else {
           throw data["message"] ?? "uknown error";
         }

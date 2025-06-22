@@ -2,59 +2,39 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
+import 'package:get_healt_2/modules/profile/controllers/edit_address_controller.dart';
 
 import 'package:get_healt_2/widget/dropdown.dart';
-import 'package:get_healt_2/widget/submit_button.dart';
 
-import '../../../controller/edit_alamat_controller.dart';
-import '../../../controller/id_provinsi.dart';
-import '../../../data/models/alamat_user_model.dart';
 import '../../../widget/button_login.dart';
 import '../../../widget/dropdown_districk.dart';
 import '../../../widget/dropdown_regency.dart';
 import '../../../widget/dropdown_village.dart';
 import '../../../widget/text_norma.dart';
 
-class AlamatEdit extends StatefulWidget {
-  final AlamatUserModel alamatList;
-  const AlamatEdit({super.key, required this.alamatList});
-
-  @override
-  State<AlamatEdit> createState() => _AlamatEditState();
-}
-
-class _AlamatEditState extends State<AlamatEdit> {
-  EditAlamatController editAlamatController = Get.put(EditAlamatController());
-  final idProv = Get.put(IdProvinsi());
+class EditAddressView extends GetView<EditAddressController> {
+  const EditAddressView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    editAlamatController.penerimaAlamatController =
-        TextEditingController(text: widget.alamatList.penerimaAlamat);
-    editAlamatController.namaAlamatController =
-        TextEditingController(text: widget.alamatList.namaAlamat);
-    editAlamatController.telpAlamatController =
-        TextEditingController(text: widget.alamatList.telpAlamat);
-    editAlamatController.kodePosAlamatController =
-        TextEditingController(text: widget.alamatList.kodeposAlamat);
-    editAlamatController.detailAlamatController =
-        TextEditingController(text: widget.alamatList.detailAlamat);
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
           shadowColor: Colors.transparent,
           backgroundColor: Colors.white,
-          leading: IconButton(
-            icon: const Icon(
-              Icons.west_outlined,
-              color: AppColors.accentColor,
-              size: 25,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+          actions: [
+            Obx(() => TextButton(
+                  onPressed:
+                      controller.isSaving.value ? null : controller.saveChanges,
+                  child: controller.isSaving.value
+                      ? const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(strokeWidth: 2))
+                      : const Text("SIMPAN"),
+                )),
+          ],
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 8),
@@ -90,7 +70,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                       ),
                       ButtonLogin(
                         hinText: "XXXXXXXX",
-                        controller: editAlamatController.namaAlamatController,
+                        controller: controller.detailAddressController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -108,8 +88,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                       ),
                       ButtonLogin(
                         hinText: "XXXXXXXX",
-                        controller:
-                            editAlamatController.penerimaAlamatController,
+                        controller: controller.recipientNameController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -127,7 +106,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                       ),
                       ButtonLogin(
                         hinText: "XXXXXXXX",
-                        controller: editAlamatController.telpAlamatController,
+                        controller: controller.phoneController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -146,9 +125,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                       DropDown(
                         hinText: "Pilih Provinsi",
                         message: "Pilih Provinsimu",
-                        onCustomWidgetCallback: (String data) {
-                          editAlamatController.provinsiAlamat = data;
-                        },
+                        onCustomWidgetCallback: (String data) {},
                       ),
                       const SizedBox(
                         height: 20,
@@ -166,10 +143,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       Obx(() => DropDownRegency(
                             hinText: "Pilih Kota/Kabupaten",
                             message: "Pilih Kabupatenmu",
-                            id: idProv.idProv.toString(),
-                            onCustomWidgetCallback: (String data) {
-                              editAlamatController.kabupatenAlamat = data;
-                            },
+                            id: "",
+                            onCustomWidgetCallback: (String data) {},
                           )),
                       const SizedBox(
                         height: 20,
@@ -187,10 +162,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       Obx(() => DropdownDistrict(
                             hinText: "Pilih Kecamatan",
                             message: "Pilih Kecamatanmu",
-                            id: idProv.idKabupaten.toString(),
-                            onCustomWidgetCallback: (String data) {
-                              editAlamatController.kecamatanAlamat = data;
-                            },
+                            id: "",
+                            onCustomWidgetCallback: (String data) {},
                           )),
                       const SizedBox(
                         height: 20,
@@ -208,10 +181,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       Obx(() => DropdownVillage(
                             hinText: "Pilih Kelurahanmu",
                             message: "Pilih Kelurahanmu",
-                            id: idProv.idKecamatan.toString(),
-                            onCustomWidgetCallback: (String data) {
-                              editAlamatController.kelurahanAlamat = data;
-                            },
+                            id: "",
+                            onCustomWidgetCallback: (String data) {},
                           )),
                       const SizedBox(
                         height: 20,
@@ -228,8 +199,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                       ),
                       ButtonLogin(
                         hinText: "XXXX",
-                        controller:
-                            editAlamatController.kodePosAlamatController,
+                        controller: controller.postalCodeController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -247,7 +217,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                       ),
                       ButtonLogin(
                         hinText: "XXXXX",
-                        controller: editAlamatController.detailAlamatController,
+                        controller: controller.detailAddressController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -262,13 +232,6 @@ class _AlamatEditState extends State<AlamatEdit> {
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                SubmitButton(
-                  text: "Simpan",
-                  onPressed: () => editAlamatController.editAlamatUser(),
                 ),
               ],
             ),

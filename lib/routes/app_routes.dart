@@ -19,8 +19,10 @@ abstract class Routes {
   static const categories = '/categories';
   static const categoryProduct = '/categories/:id';
 
-  // Rute lainnya
+  // Rute Profile
   static const profile = '/profile';
+  static const editAddress = '/profile/editAlamat';
+  static const editUserAccount = '/profile/edtitProfile';
   static const orders = '/orders';
   static const checkout = '/checkout';
 }

@@ -44,9 +44,7 @@ Future<void> pesananLangsung(String jumlah, String idProduk) async {
     final data = jsonDecode(response.body);
     if (response.statusCode == 200) {
       if (data['status'] == "success") {
-        Get.to(MainLayout(
-          selectedNavbar: 3,
-        ));
+        Get.to(MainLayout());
         ScaffoldMessenger.of(Get.context!).showSnackBar(
           const SnackBar(
             elevation: 0.5,

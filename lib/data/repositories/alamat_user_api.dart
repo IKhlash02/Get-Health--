@@ -23,7 +23,7 @@ Future<List<dynamic>> fetchAlamatList() async {
     var jsonData1 = json.decode(response1.body);
     var jsonData2 = json.decode(response2.body);
 
-    AlamatUserModel alamatList = AlamatUserModel.fromJson(jsonData1);
+    AddressModel alamatList = AddressModel.fromJson(jsonData1);
     UserModel userList = UserModel.fromJson(jsonData2);
 
     return [alamatList, userList];

@@ -111,7 +111,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                   FutureBuilder(
                     future: _futureAlamatList,
                     builder: (context, snapshot) {
-                      AlamatUserModel? alamatList = snapshot.data?[0];
+                      AddressModel? alamatList = snapshot.data?[0];
                       idProduk = alamatList?.idAlamat;
                       if (snapshot.hasData) {
                         return Container(
