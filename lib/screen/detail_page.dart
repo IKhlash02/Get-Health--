@@ -5,8 +5,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 import 'package:get_healt_2/controller/tambah_keranjang.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:get_healt_2/screen/detail_review_page.dart';
-import 'package:get_healt_2/util/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/launc_browser.dart';
@@ -51,7 +51,7 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kotakColor,
+      backgroundColor: AppColors.boxColor,
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
@@ -59,7 +59,7 @@ class _DetailPageState extends State<DetailPage> {
             },
             icon: const Icon(
               Icons.arrow_back,
-              color: primerColor,
+              color: AppColors.primaryColor,
             )),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -136,15 +136,15 @@ class _DetailPageState extends State<DetailPage> {
                         ratingWidget: RatingWidget(
                           full: const Icon(
                             Icons.star,
-                            color: aksenColor,
+                            color: AppColors.accentColor,
                           ),
                           half: const Icon(
                             Icons.star_half_outlined,
-                            color: aksenColor,
+                            color: AppColors.accentColor,
                           ),
                           empty: const Icon(
                             Icons.star_outline,
-                            color: aksenColor,
+                            color: AppColors.accentColor,
                           ),
                         ),
                       ),
@@ -204,7 +204,7 @@ class _DetailPageState extends State<DetailPage> {
                           (isExpanded)
                               ? Icons.keyboard_arrow_up
                               : Icons.keyboard_arrow_down,
-                          color: aksenColor,
+                          color: AppColors.accentColor,
                           size: 25,
                         ),
                         Padding(
@@ -214,7 +214,7 @@ class _DetailPageState extends State<DetailPage> {
                             style: Theme.of(context)
                                 .textTheme
                                 .titleMedium
-                                ?.copyWith(color: tulisanColor),
+                                ?.copyWith(color: AppColors.textColor),
                           ),
                         ),
                       ],
@@ -246,7 +246,7 @@ class _DetailPageState extends State<DetailPage> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleLarge
-                                    ?.copyWith(color: tulisanColor),
+                                    ?.copyWith(color: AppColors.textColor),
                               ),
                               TextButton(
                                 onPressed: () {
@@ -266,7 +266,7 @@ class _DetailPageState extends State<DetailPage> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleSmall
-                                      ?.copyWith(color: tulisanColor),
+                                      ?.copyWith(color: AppColors.textColor),
                                 ),
                               ),
                             ],
@@ -282,7 +282,7 @@ class _DetailPageState extends State<DetailPage> {
                                     fontSize: 13,
                                     fontWeight: FontWeight.w700,
                                     letterSpacing: 1.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               Text(
                                 "(12 ulasan)",
@@ -290,7 +290,7 @@ class _DetailPageState extends State<DetailPage> {
                                     fontSize: 13,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 1.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                             ],
                           ),
@@ -322,7 +322,7 @@ class _DetailPageState extends State<DetailPage> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleLarge
-                                    ?.copyWith(color: tulisanColor),
+                                    ?.copyWith(color: AppColors.textColor),
                               ),
                               TextButton(
                                 onPressed: () {},
@@ -331,7 +331,7 @@ class _DetailPageState extends State<DetailPage> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleSmall
-                                      ?.copyWith(color: tulisanColor),
+                                      ?.copyWith(color: AppColors.textColor),
                                 ),
                               ),
                             ],
@@ -347,7 +347,7 @@ class _DetailPageState extends State<DetailPage> {
                                     fontSize: 13,
                                     fontWeight: FontWeight.w700,
                                     letterSpacing: 1.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               Text(
                                 "(0 ulasan)",
@@ -355,7 +355,7 @@ class _DetailPageState extends State<DetailPage> {
                                     fontSize: 13,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 1.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                             ],
                           ),
@@ -368,7 +368,7 @@ class _DetailPageState extends State<DetailPage> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 20, vertical: 20),
                             decoration: BoxDecoration(
-                                color: kotakColor,
+                                color: AppColors.boxColor,
                                 borderRadius: BorderRadius.circular(12)),
                             child: Center(
                                 child: Text(
@@ -376,7 +376,7 @@ class _DetailPageState extends State<DetailPage> {
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge
-                                  ?.copyWith(color: tulisanColor),
+                                  ?.copyWith(color: AppColors.textColor),
                             )),
                           )
                         ],
@@ -405,7 +405,7 @@ class _DetailPageState extends State<DetailPage> {
                     child: Container(
                       height: 60,
                       padding: const EdgeInsets.all(10),
-                      color: primerColor,
+                      color: AppColors.primaryColor,
                       child: const Center(
                         child: Text(
                           "Hubungi Penjual",
@@ -445,7 +445,8 @@ class _DetailPageState extends State<DetailPage> {
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
                                           side: const BorderSide(
-                                              width: 0.5, color: primerColor),
+                                              width: 0.5,
+                                              color: AppColors.primaryColor),
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(5.25)),
@@ -465,7 +466,7 @@ class _DetailPageState extends State<DetailPage> {
                                               fontSize: 21,
                                               fontWeight: FontWeight.w700,
                                               letterSpacing: 1.25,
-                                              color: tulisanColor),
+                                              color: AppColors.textColor),
                                         ),
                                       ),
                                     ),
@@ -479,7 +480,7 @@ class _DetailPageState extends State<DetailPage> {
                                         fontSize: 21,
                                         fontWeight: FontWeight.w700,
                                         letterSpacing: 1.25,
-                                        color: tulisanColor),
+                                        color: AppColors.textColor),
                                   ),
                                   const SizedBox(
                                     width: 25,
@@ -501,7 +502,8 @@ class _DetailPageState extends State<DetailPage> {
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
                                         side: const BorderSide(
-                                            width: 0.5, color: primerColor),
+                                            width: 0.5,
+                                            color: AppColors.primaryColor),
                                         shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(5.25)),
@@ -520,7 +522,7 @@ class _DetailPageState extends State<DetailPage> {
                                               fontSize: 21,
                                               fontWeight: FontWeight.w700,
                                               letterSpacing: 1.25,
-                                              color: tulisanColor),
+                                              color: AppColors.textColor),
                                         ),
                                       ),
                                     ),
@@ -528,13 +530,13 @@ class _DetailPageState extends State<DetailPage> {
                                 ],
                               ),
                               actions: [
-                                ButtonBar(
+                                OverflowBar(
                                   alignment: MainAxisAlignment.center,
                                   children: [
                                     OutlinedButton(
                                         style: OutlinedButton.styleFrom(
                                             side: const BorderSide(
-                                                color: kotakColor),
+                                                color: AppColors.boxColor),
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(
@@ -548,12 +550,13 @@ class _DetailPageState extends State<DetailPage> {
                                               fontSize: 13.55,
                                               fontWeight: FontWeight.w700,
                                               letterSpacing: 1.5,
-                                              color: tulisanColor),
+                                              color: AppColors.textColor),
                                         )),
                                     ElevatedButton(
                                         style: ElevatedButton.styleFrom(
                                             elevation: 0,
-                                            backgroundColor: aksenColor,
+                                            backgroundColor:
+                                                AppColors.accentColor,
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(
@@ -568,7 +571,7 @@ class _DetailPageState extends State<DetailPage> {
                                               fontSize: 13.55,
                                               fontWeight: FontWeight.w700,
                                               letterSpacing: 1.5,
-                                              color: tulisanColor),
+                                              color: AppColors.textColor),
                                         )),
                                   ],
                                 ),
@@ -581,7 +584,7 @@ class _DetailPageState extends State<DetailPage> {
                     child: Container(
                       height: 60,
                       padding: const EdgeInsets.all(10),
-                      color: primerColor,
+                      color: AppColors.primaryColor,
                       child: const Center(
                         child: Text(
                           "Masukkan Ke Keranjang",
@@ -620,7 +623,8 @@ class _DetailPageState extends State<DetailPage> {
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                         side: const BorderSide(
-                                            width: 0.5, color: primerColor),
+                                            width: 0.5,
+                                            color: AppColors.primaryColor),
                                         shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(5.25)),
@@ -640,7 +644,7 @@ class _DetailPageState extends State<DetailPage> {
                                             fontSize: 21,
                                             fontWeight: FontWeight.w700,
                                             letterSpacing: 1.25,
-                                            color: tulisanColor),
+                                            color: AppColors.textColor),
                                       ),
                                     ),
                                   ),
@@ -654,7 +658,7 @@ class _DetailPageState extends State<DetailPage> {
                                       fontSize: 21,
                                       fontWeight: FontWeight.w700,
                                       letterSpacing: 1.25,
-                                      color: tulisanColor),
+                                      color: AppColors.textColor),
                                 ),
                                 const SizedBox(
                                   width: 25,
@@ -676,7 +680,8 @@ class _DetailPageState extends State<DetailPage> {
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       side: const BorderSide(
-                                          width: 0.5, color: primerColor),
+                                          width: 0.5,
+                                          color: AppColors.primaryColor),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(5.25)),
@@ -695,7 +700,7 @@ class _DetailPageState extends State<DetailPage> {
                                             fontSize: 21,
                                             fontWeight: FontWeight.w700,
                                             letterSpacing: 1.25,
-                                            color: tulisanColor),
+                                            color: AppColors.textColor),
                                       ),
                                     ),
                                   ),
@@ -703,13 +708,13 @@ class _DetailPageState extends State<DetailPage> {
                               ],
                             ),
                             actions: [
-                              ButtonBar(
+                              OverflowBar(
                                 alignment: MainAxisAlignment.center,
                                 children: [
                                   OutlinedButton(
                                       style: OutlinedButton.styleFrom(
                                           side: const BorderSide(
-                                              color: kotakColor),
+                                              color: AppColors.boxColor),
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(
@@ -723,12 +728,13 @@ class _DetailPageState extends State<DetailPage> {
                                             fontSize: 13.55,
                                             fontWeight: FontWeight.w700,
                                             letterSpacing: 1.5,
-                                            color: tulisanColor),
+                                            color: AppColors.textColor),
                                       )),
                                   ElevatedButton(
                                       style: ElevatedButton.styleFrom(
                                           elevation: 0,
-                                          backgroundColor: aksenColor,
+                                          backgroundColor:
+                                              AppColors.accentColor,
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(
@@ -745,7 +751,7 @@ class _DetailPageState extends State<DetailPage> {
                                             fontSize: 13.55,
                                             fontWeight: FontWeight.w700,
                                             letterSpacing: 1.5,
-                                            color: tulisanColor),
+                                            color: AppColors.textColor),
                                       )),
                                 ],
                               ),
@@ -759,7 +765,7 @@ class _DetailPageState extends State<DetailPage> {
                     child: Container(
                       height: 60,
                       padding: const EdgeInsets.all(10),
-                      color: primerColor,
+                      color: AppColors.primaryColor,
                       child: const Center(
                         child: Text(
                           "Beli Sekarang",

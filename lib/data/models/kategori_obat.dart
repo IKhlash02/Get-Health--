@@ -1,38 +1,38 @@
 List<Map<String, String>> kategoriList = [
   {
-    'gambar': 'images/obat.png',
+    'gambar': 'assets/obat.png',
     'judul': 'Obat',
   },
   {
-    'gambar': 'images/herbal.png',
+    'gambar': 'assets/herbal.png',
     'judul': 'Herbal',
   },
   {
-    'gambar': 'images/vitamin.png',
+    'gambar': 'assets/vitamin.png',
     'judul': 'Suplemen\ndan Vitamin',
   },
   {
-    'gambar': 'images/kebersihan.png',
+    'gambar': 'assets/kebersihan.png',
     'judul': 'Kebersihan',
   },
   {
-    'gambar': 'images/kecantikan.png',
+    'gambar': 'assets/kecantikan.png',
     'judul': 'Perawatan\nKecantikan',
   },
   {
-    'gambar': 'images/kosmetik.png',
+    'gambar': 'assets/kosmetik.png',
     'judul': 'Kosmetik',
   },
   {
-    'gambar': 'images/nutrisi.png',
+    'gambar': 'assets/nutrisi.png',
     'judul': 'Nutrisi',
   },
   {
-    'gambar': 'images/ibu.png',
+    'gambar': 'assets/ibu.png',
     'judul': 'Ibu dan\n Anak',
   },
   {
-    'gambar': 'images/kesehatan.png',
+    'gambar': 'assets/kesehatan.png',
     'judul': 'Alat\nKesehatan',
   },
 ];

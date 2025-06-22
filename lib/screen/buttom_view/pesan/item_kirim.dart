@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:get_healt_2/util/api_endpoint.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/launc_browser.dart';
 import '../../../data/models/pesanan_model.dart';
 import '../../../data/repositories/pesanan_repo.dart';
-import '../../../util/colors.dart';
 
 class ItemKirim extends StatefulWidget {
   ItemKirim({
@@ -42,7 +42,7 @@ class _ItemKirimState extends State<ItemKirim> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 10),
                     decoration: BoxDecoration(
-                        color: kotakColor,
+                        color: AppColors.boxColor,
                         borderRadius: BorderRadius.circular(12)),
                     child: Column(
                       children: [
@@ -52,7 +52,7 @@ class _ItemKirimState extends State<ItemKirim> {
                             children: [
                               const Icon(
                                 Icons.list_alt,
-                                color: primerColor,
+                                color: AppColors.primaryColor,
                               ),
                               const SizedBox(
                                 width: 10,
@@ -66,7 +66,7 @@ class _ItemKirimState extends State<ItemKirim> {
                                         fontSize: 12.73,
                                         fontWeight: FontWeight.w400,
                                         letterSpacing: 0.5,
-                                        color: tulisanColor),
+                                        color: AppColors.textColor),
                                   ),
                                   Text(
                                     pesananList![index]
@@ -76,7 +76,7 @@ class _ItemKirimState extends State<ItemKirim> {
                                         fontSize: 12.73,
                                         fontWeight: FontWeight.w700,
                                         letterSpacing: 0.5,
-                                        color: tulisanColor),
+                                        color: AppColors.textColor),
                                   ),
                                 ],
                               ),
@@ -153,7 +153,8 @@ class _ItemKirimState extends State<ItemKirim> {
                                                         fontWeight:
                                                             FontWeight.w400,
                                                         letterSpacing: 0.5,
-                                                        color: tulisanColor)),
+                                                        color: AppColors
+                                                            .textColor)),
                                             const SizedBox(
                                               height: 10,
                                             ),
@@ -168,7 +169,8 @@ class _ItemKirimState extends State<ItemKirim> {
                                                           fontWeight:
                                                               FontWeight.w700,
                                                           letterSpacing: 0.5,
-                                                          color: tulisanColor)),
+                                                          color: AppColors
+                                                              .textColor)),
                                               TextSpan(
                                                   text:
                                                       "(${pesananList[index].rincianPesanan[nomor].jumlahPesanan} ${pesananList[index].rincianPesanan[nomor].jenisSatuan} x ${pesananList[index].rincianPesanan[nomor].totalHarga / int.parse(pesananList[index].rincianPesanan[nomor].jumlahPesanan)})",
@@ -178,7 +180,8 @@ class _ItemKirimState extends State<ItemKirim> {
                                                           fontWeight:
                                                               FontWeight.w400,
                                                           letterSpacing: 0.5,
-                                                          color: tulisanColor))
+                                                          color: AppColors
+                                                              .textColor))
                                             ])),
                                             const SizedBox(
                                               height: 10,
@@ -232,7 +235,7 @@ class _ItemKirimState extends State<ItemKirim> {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 15),
                                 decoration: BoxDecoration(
-                                    color: primerColor,
+                                    color: AppColors.primaryColor,
                                     borderRadius: BorderRadius.circular(12)),
                                 child: Row(
                                   children: [

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../data/models/pesanan_model.dart';
 import '../../../data/repositories/pesanan_repo.dart';
 import '../../../util/api_endpoint.dart';
-import '../../../util/colors.dart';
 
 class TolakPage extends StatefulWidget {
   const TolakPage({
@@ -41,7 +41,7 @@ class _TolakPageState extends State<TolakPage> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 10),
                     decoration: BoxDecoration(
-                        color: kotakColor,
+                        color: AppColors.boxColor,
                         borderRadius: BorderRadius.circular(12)),
                     child: Column(
                       children: [
@@ -51,7 +51,7 @@ class _TolakPageState extends State<TolakPage> {
                             children: [
                               const Icon(
                                 Icons.list_alt,
-                                color: primerColor,
+                                color: AppColors.primaryColor,
                               ),
                               const SizedBox(
                                 width: 10,
@@ -65,7 +65,7 @@ class _TolakPageState extends State<TolakPage> {
                                         fontSize: 12.73,
                                         fontWeight: FontWeight.w400,
                                         letterSpacing: 0.5,
-                                        color: tulisanColor),
+                                        color: AppColors.textColor),
                                   ),
                                   Text(
                                     pesananList![index]
@@ -75,7 +75,7 @@ class _TolakPageState extends State<TolakPage> {
                                         fontSize: 12.73,
                                         fontWeight: FontWeight.w700,
                                         letterSpacing: 0.5,
-                                        color: tulisanColor),
+                                        color: AppColors.textColor),
                                   ),
                                 ],
                               ),
@@ -152,7 +152,8 @@ class _TolakPageState extends State<TolakPage> {
                                                         fontWeight:
                                                             FontWeight.w400,
                                                         letterSpacing: 0.5,
-                                                        color: tulisanColor)),
+                                                        color: AppColors
+                                                            .textColor)),
                                             const SizedBox(
                                               height: 10,
                                             ),
@@ -167,7 +168,8 @@ class _TolakPageState extends State<TolakPage> {
                                                           fontWeight:
                                                               FontWeight.w700,
                                                           letterSpacing: 0.5,
-                                                          color: tulisanColor)),
+                                                          color: AppColors
+                                                              .textColor)),
                                               TextSpan(
                                                   text:
                                                       "(${pesananList[index].rincianPesanan[nomor].jumlahPesanan} ${pesananList[index].rincianPesanan[nomor].jenisSatuan} x ${pesananList[index].rincianPesanan[nomor].totalHarga / int.parse(pesananList[index].rincianPesanan[nomor].jumlahPesanan)})",
@@ -177,7 +179,8 @@ class _TolakPageState extends State<TolakPage> {
                                                           fontWeight:
                                                               FontWeight.w400,
                                                           letterSpacing: 0.5,
-                                                          color: tulisanColor))
+                                                          color: AppColors
+                                                              .textColor))
                                             ])),
                                           ],
                                         ),
@@ -210,7 +213,7 @@ class _TolakPageState extends State<TolakPage> {
                                         fontSize: 13.63,
                                         fontWeight: FontWeight.w400,
                                         letterSpacing: 0.5,
-                                        color: tulisanColor),
+                                        color: AppColors.textColor),
                                   ),
                                 ],
                               ),
@@ -222,7 +225,7 @@ class _TolakPageState extends State<TolakPage> {
                                         fontSize: 20.93,
                                         fontWeight: FontWeight.w700,
                                         letterSpacing: 0.5,
-                                        color: tulisanColor),
+                                        color: AppColors.textColor),
                                   ),
                                 ],
                               )

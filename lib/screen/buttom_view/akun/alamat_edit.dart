@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 
 import 'package:get_healt_2/widget/dropdown.dart';
 import 'package:get_healt_2/widget/submit_button.dart';
@@ -8,7 +9,6 @@ import 'package:get_healt_2/widget/submit_button.dart';
 import '../../../controller/edit_alamat_controller.dart';
 import '../../../controller/id_provinsi.dart';
 import '../../../data/models/alamat_user_model.dart';
-import '../../../util/colors.dart';
 import '../../../widget/button_login.dart';
 import '../../../widget/dropdown_districk.dart';
 import '../../../widget/dropdown_regency.dart';
@@ -48,7 +48,7 @@ class _AlamatEditState extends State<AlamatEdit> {
           leading: IconButton(
             icon: const Icon(
               Icons.west_outlined,
-              color: aksenColor,
+              color: AppColors.accentColor,
               size: 25,
             ),
             onPressed: () {
@@ -68,7 +68,7 @@ class _AlamatEditState extends State<AlamatEdit> {
                     style: Theme.of(context)
                         .textTheme
                         .headlineMedium
-                        ?.copyWith(color: primerColor),
+                        ?.copyWith(color: AppColors.primaryColor),
                   ),
                 ),
                 SizedBox(
@@ -78,8 +78,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Nama ALamat",
                           )
@@ -96,8 +96,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Nama Penerima",
                           )
@@ -115,8 +115,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Nomor Telephone Penerima",
                           )
@@ -133,8 +133,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Provinsi",
                           )
@@ -153,8 +153,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Kota/Kabupaten",
                           )
@@ -174,8 +174,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Kecamatan",
                           )
@@ -195,8 +195,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Kelurahan",
                           )
@@ -216,8 +216,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Kode Pos",
                           )
@@ -235,8 +235,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Detail Alamat",
                           )
@@ -253,8 +253,8 @@ class _AlamatEditState extends State<AlamatEdit> {
                       const SizedBox(
                         height: 7,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextSmall(
                             text: "Nama jalan, nomor rumah, rincian tambahan",
                           )

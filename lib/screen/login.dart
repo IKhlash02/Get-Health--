@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:get_healt_2/widget/button_login.dart';
 import 'package:get_healt_2/widget/submit_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/login_controller.dart';
-import '../util/colors.dart';
 import '../widget/text_norma.dart';
 import 'register.dart';
 
@@ -51,7 +51,10 @@ class _LoginState extends State<Login> {
                         shaderCallback: (bounds) => const LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: [primerColor, aksenColor],
+                          colors: [
+                            AppColors.primaryColor,
+                            AppColors.accentColor
+                          ],
                         ).createShader(bounds),
                         child: Text(
                           'GetHealth',
@@ -72,14 +75,15 @@ class _LoginState extends State<Login> {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            aksenColor,
-                            primerColor,
+                            AppColors.accentColor,
+                            AppColors.primaryColor,
                           ],
                         ).createShader(bounds),
                         child: Container(
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              border: Border.all(color: aksenColor, width: 3)),
+                              border: Border.all(
+                                  color: AppColors.accentColor, width: 3)),
                           child: Text(
                             '+',
                             style: GoogleFonts.montserrat(
@@ -119,13 +123,13 @@ class _LoginState extends State<Login> {
               style: Theme.of(context)
                   .textTheme
                   .titleMedium
-                  ?.copyWith(color: tulisanColor),
+                  ?.copyWith(color: AppColors.textColor),
             ),
             const SizedBox(
               height: 15,
             ),
-            Row(
-              children: const [
+            const Row(
+              children: [
                 TextNormal(
                   text: "Alamat Email",
                 )
@@ -142,8 +146,8 @@ class _LoginState extends State<Login> {
             const SizedBox(
               height: 20,
             ),
-            Row(
-              children: const [
+            const Row(
+              children: [
                 TextNormal(
                   text: "Kata Sandi",
                 )
@@ -155,7 +159,7 @@ class _LoginState extends State<Login> {
             TextField(
               obscureText: isShow,
               decoration: InputDecoration(
-                fillColor: kotakColor,
+                fillColor: AppColors.boxColor,
                 filled: true,
                 hintText: "********",
                 suffixIcon: IconButton(
@@ -170,7 +174,7 @@ class _LoginState extends State<Login> {
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                     letterSpacing: 0.5,
-                    color: tulisanColor),
+                    color: AppColors.textColor),
                 border: OutlineInputBorder(
                     borderSide: BorderSide.none,
                     borderRadius: BorderRadius.circular(12.47)),

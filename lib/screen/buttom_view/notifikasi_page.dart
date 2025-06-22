@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get_healt_2/config/assets.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 
 import '../../data/models/notifikasi_models.dart';
 import '../../data/repositories/notifikasi_data.dart';
-import '../../util/colors.dart';
 
 class NotifikasiPage extends StatefulWidget {
   const NotifikasiPage({super.key});
@@ -63,7 +64,7 @@ class _NotifikasiPageState extends State<NotifikasiPage> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 10),
                           decoration: BoxDecoration(
-                              color: kotakColor,
+                              color: AppColors.boxColor,
                               borderRadius: BorderRadius.circular(12)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,15 +74,15 @@ class _NotifikasiPageState extends State<NotifikasiPage> {
                                 child: Container(
                                   padding: const EdgeInsets.all(4),
                                   color: Colors.white,
-                                  child: Image.asset((notifikasiData![index]
-                                              .kode ==
-                                          0)
-                                      ? "images/dikemas.png"
-                                      : (notifikasiData[index].kode == 1)
-                                          ? "images/dikirim.png"
-                                          : (notifikasiData[index].kode == 2)
-                                              ? "images/diterima.png"
-                                              : "images/ditolak.png"),
+                                  child: Image.asset(
+                                    (notifikasiData![index].kode == 0)
+                                        ? Assets.processing
+                                        : (notifikasiData[index].kode == 1)
+                                            ? Assets.shipped
+                                            : (notifikasiData[index].kode == 2)
+                                                ? Assets.delivered
+                                                : Assets.rejected,
+                                  ),
                                 ),
                               ),
                               const SizedBox(

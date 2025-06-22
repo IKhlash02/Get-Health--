@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../controller/pesanan_langsung.dart';
@@ -9,7 +10,6 @@ import '../data/models/alamat_user_model.dart';
 import '../data/models/product_model.dart';
 import '../data/repositories/alamat_user_api.dart';
 import '../util/api_endpoint.dart';
-import '../util/colors.dart';
 
 class CheckoutLangsungPage extends StatefulWidget {
   final Produk produk;
@@ -56,7 +56,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                     padding: const EdgeInsets.all(0),
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: primerColor,
+                      color: AppColors.primaryColor,
                     ),
                     child: IconButton(
                       onPressed: () => Get.back(),
@@ -78,7 +78,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                 fontSize: 20,
                                 fontWeight: FontWeight.w700,
                                 letterSpacing: -0.5,
-                                color: tulisanColor),
+                                color: AppColors.textColor),
                           ),
                         )
                       ],
@@ -104,7 +104,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                         fontSize: 16.6,
                         fontWeight: FontWeight.w700,
                         letterSpacing: 0.5,
-                        color: tulisanColor),
+                        color: AppColors.textColor),
                   ),
                   const SizedBox(
                     height: 10,
@@ -123,7 +123,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 30, vertical: 15),
                           decoration: BoxDecoration(
-                              color: kotakColor,
+                              color: AppColors.boxColor,
                               borderRadius: BorderRadius.circular(12.47)),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,7 +134,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w700,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -145,7 +145,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -156,7 +156,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -167,7 +167,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -178,7 +178,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -189,7 +189,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -200,7 +200,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                             ],
                           ),
@@ -220,7 +220,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                         fontSize: 16.6,
                         fontWeight: FontWeight.w700,
                         letterSpacing: 0.5,
-                        color: tulisanColor),
+                        color: AppColors.textColor),
                   ),
                   const SizedBox(
                     height: 10,
@@ -230,7 +230,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 10),
                     decoration: BoxDecoration(
-                        color: kotakColor,
+                        color: AppColors.boxColor,
                         borderRadius: BorderRadius.circular(12)),
                     child: Expanded(
                         child: Column(
@@ -260,7 +260,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                             fontSize: 13,
                                             fontWeight: FontWeight.w400,
                                             letterSpacing: 0.5,
-                                            color: tulisanColor)),
+                                            color: AppColors.textColor)),
                                     const SizedBox(
                                       height: 10,
                                     ),
@@ -273,7 +273,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                               fontSize: 9.72,
                                               fontWeight: FontWeight.w700,
                                               letterSpacing: 0.5,
-                                              color: tulisanColor)),
+                                              color: AppColors.textColor)),
                                       TextSpan(
                                           text:
                                               "(${widget.jumlah} ${widget.produk.jenisSatuan} x Rp${widget.produk.hargaProduk})",
@@ -281,7 +281,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                               fontSize: 9.72,
                                               fontWeight: FontWeight.w400,
                                               letterSpacing: 0.5,
-                                              color: tulisanColor))
+                                              color: AppColors.textColor))
                                     ])),
                                     const SizedBox(
                                       height: 10,
@@ -311,7 +311,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                     children: [
                       const Icon(
                         Icons.receipt_long_outlined,
-                        color: aksenColor,
+                        color: AppColors.accentColor,
                         size: 33,
                       ),
                       const SizedBox(
@@ -322,7 +322,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                               fontSize: 18.0,
                               fontWeight: FontWeight.w400,
                               letterSpacing: 0.5,
-                              color: tulisanColor))
+                              color: AppColors.textColor))
                     ],
                   ),
                   const SizedBox(
@@ -338,7 +338,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       ),
                       Text(
                         "Rp${formatter.format(int.parse(widget.produk.hargaProduk) * int.parse(widget.jumlah))}",
@@ -346,7 +346,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       )
                     ],
                   ),
@@ -363,7 +363,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       ),
                       Text(
                         "Rp10.000",
@@ -371,7 +371,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       )
                     ],
                   ),
@@ -388,7 +388,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       ),
                       Text(
                         "Rp1000",
@@ -396,7 +396,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       )
                     ],
                   ),
@@ -417,7 +417,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                       fontSize: 22.0,
                                       fontWeight: FontWeight.w400,
                                       letterSpacing: 0.5,
-                                      color: tulisanColor),
+                                      color: AppColors.textColor),
                                 ),
                               ],
                             ),
@@ -429,7 +429,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                       fontSize: 26.24,
                                       fontWeight: FontWeight.w700,
                                       letterSpacing: 0.5,
-                                      color: tulisanColor),
+                                      color: AppColors.textColor),
                                 ),
                               ],
                             ),
@@ -447,7 +447,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 15, vertical: 20),
                           decoration: BoxDecoration(
-                              color: primerColor,
+                              color: AppColors.primaryColor,
                               borderRadius: BorderRadius.circular(13.49)),
                           child: Center(
                             child: Text(

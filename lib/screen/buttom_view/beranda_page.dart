@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -7,7 +8,6 @@ import '../../data/models/kategori_obat.dart';
 import '../../data/models/product_model.dart';
 import '../../data/repositories/product_api.dart';
 import '../../util/api_endpoint.dart';
-import '../../util/colors.dart';
 import '../detail_page.dart';
 import '../kategori_page.dart';
 
@@ -54,7 +54,7 @@ class _BerandaPageState extends State<BerandaPage> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleMedium
-                                      ?.copyWith(color: tulisanColor),
+                                      ?.copyWith(color: AppColors.textColor),
                                 ),
                               ),
                               InkWell(
@@ -66,7 +66,8 @@ class _BerandaPageState extends State<BerandaPage> {
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleSmall
-                                          ?.copyWith(color: tulisanColor),
+                                          ?.copyWith(
+                                              color: AppColors.textColor),
                                     ),
                                     const Icon(
                                       Icons.navigate_next,
@@ -111,7 +112,7 @@ class _BerandaPageState extends State<BerandaPage> {
                                             fontSize: 11.87,
                                             fontWeight: FontWeight.w700,
                                             letterSpacing: 0.5,
-                                            color: tulisanColor),
+                                            color: AppColors.textColor),
                                       ),
                                     )
                                   ]),
@@ -134,7 +135,7 @@ class _BerandaPageState extends State<BerandaPage> {
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleMedium
-                                        ?.copyWith(color: tulisanColor),
+                                        ?.copyWith(color: AppColors.textColor),
                                   ),
                                 ),
                               ]),
@@ -198,7 +199,7 @@ Widget _productBeranda(BuildContext context, Produk produk) {
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-            color: kotakColor,
+            color: AppColors.boxColor,
             borderRadius: BorderRadius.circular(14),
           ),
           child: Column(
@@ -234,7 +235,7 @@ Widget _productBeranda(BuildContext context, Produk produk) {
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 0.5,
-                          color: tulisanColor),
+                          color: AppColors.textColor),
                     ),
                     const SizedBox(
                       height: 5,
@@ -245,7 +246,7 @@ Widget _productBeranda(BuildContext context, Produk produk) {
                           fontSize: 10,
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.5,
-                          color: tulisanColor),
+                          color: AppColors.textColor),
                     ),
                     const SizedBox(
                       height: 10,

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../data/models/product_model.dart';
 
 import '../data/repositories/product_search.dart';
 import '../util/api_endpoint.dart';
-import '../util/colors.dart';
 
 import '../widget/search_second.dart';
 import 'detail_page.dart';
@@ -46,7 +46,7 @@ class _SearchPageState extends State<SearchPage> {
                       padding: const EdgeInsets.all(0),
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: primerColor,
+                        color: AppColors.primaryColor,
                       ),
                       child: IconButton(
                         onPressed: () => Navigator.of(context).pop(),
@@ -135,7 +135,7 @@ Widget _productBeranda(BuildContext context, Produk produk) {
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration(
-            color: kotakColor,
+            color: AppColors.boxColor,
             borderRadius: BorderRadius.circular(14),
           ),
           child: Column(
@@ -168,7 +168,7 @@ Widget _productBeranda(BuildContext context, Produk produk) {
                           fontSize: 11,
                           fontWeight: FontWeight.w700,
                           letterSpacing: 0.5,
-                          color: tulisanColor),
+                          color: AppColors.textColor),
                     ),
                     const SizedBox(
                       height: 5,
@@ -179,7 +179,7 @@ Widget _productBeranda(BuildContext context, Produk produk) {
                           fontSize: 10,
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.5,
-                          color: tulisanColor),
+                          color: AppColors.textColor),
                     ),
                     const SizedBox(
                       height: 10,

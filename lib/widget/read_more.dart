@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../util/colors.dart';
 
 class BuildText extends StatelessWidget {
   final String deskripsi;
@@ -38,7 +37,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 16.64,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n\n$deskripsi",
@@ -46,7 +45,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 12.73,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n\nINDIKASI",
@@ -54,7 +53,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 16.64,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n$indikasi",
@@ -62,7 +61,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 12.73,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n\nKOMPOSISI",
@@ -70,7 +69,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 16.64,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n$komposisi",
@@ -78,7 +77,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 12.73,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n\nKONTRAINDIKASI",
@@ -86,7 +85,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 16.64,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n$kontraindikasi",
@@ -94,7 +93,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 12.73,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n\nATURAN PAKAI",
@@ -102,7 +101,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 16.64,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n$aturanPakai",
@@ -110,7 +109,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 12.73,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n\nPERHATIAN",
@@ -118,7 +117,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 16.64,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n$perhatian",
@@ -126,7 +125,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 12.73,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n\nEFEK SAMPING",
@@ -134,7 +133,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 16.64,
                 fontWeight: FontWeight.w700,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
           TextSpan(
             text: "\n$efekSamping",
@@ -142,7 +141,7 @@ class BuildText extends StatelessWidget {
                 fontSize: 12.73,
                 fontWeight: FontWeight.w400,
                 letterSpacing: 0.5,
-                color: tulisanColor),
+                color: AppColors.textColor),
           ),
         ]));
   }

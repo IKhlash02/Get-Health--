@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 
 import 'package:get_healt_2/widget/submit_button.dart';
 
 import '../../../controller/edit_user_controller.dart';
 import '../../../data/models/user_model.dart';
-import '../../../util/colors.dart';
 import '../../../widget/button_login.dart';
 import '../../../widget/text_norma.dart';
 
@@ -40,7 +40,7 @@ class _UserEditState extends State<UserEdit> {
           leading: IconButton(
             icon: const Icon(
               Icons.west_outlined,
-              color: aksenColor,
+              color: AppColors.accentColor,
               size: 25,
             ),
             onPressed: () {
@@ -60,7 +60,7 @@ class _UserEditState extends State<UserEdit> {
                     style: Theme.of(context)
                         .textTheme
                         .headlineMedium
-                        ?.copyWith(color: primerColor),
+                        ?.copyWith(color: AppColors.primaryColor),
                   ),
                 ),
                 const SizedBox(
@@ -70,8 +70,8 @@ class _UserEditState extends State<UserEdit> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Nama Penerima",
                           )
@@ -88,16 +88,14 @@ class _UserEditState extends State<UserEdit> {
                       const SizedBox(
                         height: 7,
                       ),
-                      Row(
-                        children: const [
-                          TextSmall(text: "Maksimal 20 karakter")
-                        ],
+                      const Row(
+                        children: [TextSmall(text: "Maksimal 20 karakter")],
                       ),
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Alamat Email",
                           )
@@ -114,8 +112,8 @@ class _UserEditState extends State<UserEdit> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Nomor Telephon",
                           )
@@ -132,8 +130,8 @@ class _UserEditState extends State<UserEdit> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Kata Sandi",
                           )
@@ -150,10 +148,8 @@ class _UserEditState extends State<UserEdit> {
                       const SizedBox(
                         height: 7,
                       ),
-                      Row(
-                        children: const [
-                          TextSmall(text: "Maksimal 16 karakter")
-                        ],
+                      const Row(
+                        children: [TextSmall(text: "Maksimal 16 karakter")],
                       ),
                     ],
                   ),

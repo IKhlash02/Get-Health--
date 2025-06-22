@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:get_healt_2/screen/buttom_view/akun/user_edit.dart';
 import 'package:get_healt_2/screen/login.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,7 +11,6 @@ import '../../../data/models/user_model.dart';
 import '../../../data/repositories/alamat_user_api.dart';
 
 import '../../../util/api_endpoint.dart';
-import '../../../util/colors.dart';
 import 'alamat_edit.dart';
 
 class AkunPage extends StatefulWidget {
@@ -80,7 +80,7 @@ class _AkunPageState extends State<AkunPage> {
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       ),
                       const SizedBox(
                         height: 20,
@@ -97,7 +97,7 @@ class _AkunPageState extends State<AkunPage> {
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700,
                                   letterSpacing: 0.25,
-                                  color: tulisanColor),
+                                  color: AppColors.textColor),
                             ),
                             InkWell(
                               onTap: () {
@@ -108,7 +108,7 @@ class _AkunPageState extends State<AkunPage> {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 18, vertical: 7),
                                 decoration: BoxDecoration(
-                                    color: aksenColor,
+                                    color: AppColors.accentColor,
                                     borderRadius: BorderRadius.circular(8.47)),
                                 child: Row(
                                   children: [
@@ -118,7 +118,7 @@ class _AkunPageState extends State<AkunPage> {
                                           fontSize: 10.76,
                                           fontWeight: FontWeight.bold,
                                           letterSpacing: 0.25,
-                                          color: tulisanColor),
+                                          color: AppColors.textColor),
                                     ),
                                     const Icon(
                                       Icons.edit,
@@ -139,7 +139,7 @@ class _AkunPageState extends State<AkunPage> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 20),
                         decoration: BoxDecoration(
-                            color: kotakColor,
+                            color: AppColors.boxColor,
                             borderRadius: BorderRadius.circular(12.47)),
                         child: Column(
                           children: [
@@ -186,7 +186,7 @@ class _AkunPageState extends State<AkunPage> {
                                   fontSize: 16,
                                   fontWeight: FontWeight.w700,
                                   letterSpacing: 0.25,
-                                  color: tulisanColor),
+                                  color: AppColors.textColor),
                             ),
                             GestureDetector(
                               onTap: () {
@@ -199,7 +199,7 @@ class _AkunPageState extends State<AkunPage> {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 18, vertical: 7),
                                 decoration: BoxDecoration(
-                                    color: aksenColor,
+                                    color: AppColors.accentColor,
                                     borderRadius: BorderRadius.circular(8.47)),
                                 child: Row(
                                   children: [
@@ -209,7 +209,7 @@ class _AkunPageState extends State<AkunPage> {
                                           fontSize: 10.76,
                                           fontWeight: FontWeight.bold,
                                           letterSpacing: 0.25,
-                                          color: tulisanColor),
+                                          color: AppColors.textColor),
                                     ),
                                     const Icon(
                                       Icons.edit,
@@ -230,7 +230,7 @@ class _AkunPageState extends State<AkunPage> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 20),
                         decoration: BoxDecoration(
-                            color: kotakColor,
+                            color: AppColors.boxColor,
                             borderRadius: BorderRadius.circular(12.47)),
                         child: Column(
                           children: [
@@ -347,7 +347,7 @@ class AlamatUser extends StatelessWidget {
               fontSize: 13.76,
               fontWeight: FontWeight.w400,
               letterSpacing: 0.25,
-              color: tulisanColor),
+              color: AppColors.textColor),
         ),
         Text(
           text2,
@@ -355,7 +355,7 @@ class AlamatUser extends StatelessWidget {
               fontSize: 11.76,
               fontWeight: FontWeight.w400,
               letterSpacing: 0.25,
-              color: tulisanColor),
+              color: AppColors.textColor),
         )
       ],
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../util/colors.dart';
 
 class TextNormal extends StatelessWidget {
   final String text;
@@ -17,7 +16,7 @@ class TextNormal extends StatelessWidget {
             fontSize: 16.6,
             fontWeight: FontWeight.w400,
             letterSpacing: 0.5,
-            color: tulisanColor),
+            color: AppColors.textColor),
       ),
     );
   }
@@ -37,7 +36,7 @@ class TextSmall extends StatelessWidget {
             fontSize: 13.6,
             fontWeight: FontWeight.w300,
             letterSpacing: 0.5,
-            color: tulisanColor),
+            color: AppColors.textColor),
       ),
     );
   }

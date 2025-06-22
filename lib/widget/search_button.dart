@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_healt_2/util/colors.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../screen/search_page.dart';
@@ -23,13 +23,13 @@ class _SearchBarState extends State<SearchBarWidget> {
         decoration: InputDecoration(
           filled: true,
 
-          fillColor: kotakColor,
+          fillColor: AppColors.boxColor,
           hintText: 'Cari  nama produk atau gejala ...',
           hintStyle: GoogleFonts.plusJakartaSans(
               fontSize: 13,
               fontWeight: FontWeight.w400,
               letterSpacing: 0.5,
-              color: tulisanColor),
+              color: AppColors.textColor),
           // Add a clear button to the search bar
           suffixIcon: IconButton(
             icon: const Icon(Icons.clear),
@@ -39,7 +39,7 @@ class _SearchBarState extends State<SearchBarWidget> {
           prefixIcon: IconButton(
             icon: const Icon(
               Icons.search,
-              color: aksenColor,
+              color: AppColors.accentColor,
             ),
             onPressed: () {
               // Perform the search here

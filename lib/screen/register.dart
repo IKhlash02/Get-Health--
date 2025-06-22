@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get_healt_2/config/assets.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:get/get.dart';
 import 'package:get_healt_2/controller/register_controller.dart';
@@ -9,7 +11,6 @@ import 'package:get_healt_2/widget/dropdown.dart';
 import 'package:get_healt_2/widget/submit_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../util/colors.dart';
 import '../controller/id_provinsi.dart';
 
 import '../widget/button_login.dart';
@@ -53,7 +54,7 @@ class _RegisterState extends State<Register> {
           leading: IconButton(
             icon: const Icon(
               Icons.west_outlined,
-              color: aksenColor,
+              color: AppColors.accentColor,
               size: 25,
             ),
             onPressed: () {
@@ -73,7 +74,7 @@ class _RegisterState extends State<Register> {
                     style: Theme.of(context)
                         .textTheme
                         .headlineMedium
-                        ?.copyWith(color: primerColor),
+                        ?.copyWith(color: AppColors.primaryColor),
                   ),
                 ),
                 Container(
@@ -87,7 +88,7 @@ class _RegisterState extends State<Register> {
                     child: ClipOval(
                       child: (registerController.imageFile == null)
                           ? Image.asset(
-                              'images/profile.png',
+                              Assets.profileLogo,
                               fit: BoxFit.cover,
                             )
                           : Image.file(
@@ -111,14 +112,14 @@ class _RegisterState extends State<Register> {
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium
-                              ?.copyWith(color: tulisanColor),
+                              ?.copyWith(color: AppColors.textColor),
                         ),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Nama Lengkap",
                           )
@@ -135,8 +136,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Alamat Email",
                           )
@@ -153,8 +154,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Nomor Telephon",
                           )
@@ -171,8 +172,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Kata Sandi",
                           )
@@ -189,10 +190,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 7,
                       ),
-                      Row(
-                        children: const [
-                          TextSmall(text: "Maksimal 16 karakter")
-                        ],
+                      const Row(
+                        children: [TextSmall(text: "Maksimal 16 karakter")],
                       ),
                     ],
                   ),
@@ -210,14 +209,14 @@ class _RegisterState extends State<Register> {
                               fontSize: 16.6,
                               fontWeight: FontWeight.w700,
                               letterSpacing: 0.5,
-                              color: tulisanColor),
+                              color: AppColors.textColor),
                         ),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Nama ALamat",
                           )
@@ -234,8 +233,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Nama Penerima",
                           )
@@ -252,8 +251,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Nomor Telephone Penerima",
                           )
@@ -270,8 +269,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Provinsi",
                           )
@@ -290,8 +289,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Kota/Kabupaten",
                           )
@@ -311,8 +310,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Kecamatan",
                           )
@@ -332,8 +331,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Kelurahan",
                           )
@@ -353,8 +352,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Kode Pos",
                           )
@@ -371,8 +370,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextNormal(
                             text: "Detail Alamat",
                           )
@@ -389,8 +388,8 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 7,
                       ),
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           TextSmall(
                             text: "Nama jalan, nomor rumah, rincian tambahan",
                           )

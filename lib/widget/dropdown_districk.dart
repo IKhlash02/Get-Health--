@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:get/get.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 
 import '../controller/id_provinsi.dart';
 import '../data/models/provinsi_model.dart';
-import '../util/colors.dart';
 
 import 'package:dio/dio.dart';
 
@@ -24,13 +24,13 @@ class DropdownDistrict extends StatelessWidget {
   Widget build(BuildContext context) {
     return DropdownSearch<ProvinsiModel>(
         decoratorProps: DropDownDecoratorProps(
-            baseStyle: const TextStyle(color: tulisanColor),
+            baseStyle: const TextStyle(color: AppColors.textColor),
             decoration: InputDecoration(
-              labelStyle: const TextStyle(color: tulisanColor),
-              fillColor: kotakColor,
+              labelStyle: const TextStyle(color: AppColors.textColor),
+              fillColor: AppColors.boxColor,
               filled: true,
               hintText: hinText,
-              hintStyle: const TextStyle(color: tulisanColor),
+              hintStyle: const TextStyle(color: AppColors.textColor),
               border: OutlineInputBorder(
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.circular(12.47)),

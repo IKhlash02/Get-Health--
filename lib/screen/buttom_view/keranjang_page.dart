@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,7 +9,6 @@ import '../../data/models/keranjang_model.dart';
 import '../../data/repositories/keranjang_repo.dart';
 
 import '../../util/api_endpoint.dart';
-import '../../util/colors.dart';
 import '../checkout.dart';
 
 class KeranjangPage extends StatefulWidget {
@@ -35,7 +35,6 @@ class _KeranjangPageState extends State<KeranjangPage> {
                   if (snapshot.hasData) {
                     Keranjang? keranjangList = snapshot.data;
                     List<Datum> dataKeranjang = keranjangList!.data;
-                    List<String> produkCheckout = keranjangList.produkCheckout;
 
                     return ListView(
                       children: [
@@ -54,7 +53,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                     fontSize: 16,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.15,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                             ],
                           ),
@@ -120,8 +119,8 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                                                         .w400,
                                                                 letterSpacing:
                                                                     1.25,
-                                                                color:
-                                                                    tulisanColor),
+                                                                color: AppColors
+                                                                    .textColor),
                                                       ),
                                                     ),
                                                   ],
@@ -141,8 +140,8 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                                                       .w400,
                                                               letterSpacing:
                                                                   1.25,
-                                                              color:
-                                                                  tulisanColor),
+                                                              color: AppColors
+                                                                  .textColor),
                                                     ),
                                                     const Spacer(
                                                       flex: 1,
@@ -206,7 +205,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 10),
                             decoration: BoxDecoration(
-                                color: kotakColor,
+                                color: AppColors.boxColor,
                                 borderRadius: BorderRadius.circular(11)),
                             child: Row(
                               children: [
@@ -216,7 +215,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                       fontSize: 14.73,
                                       fontWeight: FontWeight.w400,
                                       letterSpacing: 1.25,
-                                      color: tulisanColor),
+                                      color: AppColors.textColor),
                                 ),
                                 const SizedBox(
                                   height: 5,
@@ -228,7 +227,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                         fontSize: 14.73,
                                         fontWeight: FontWeight.w700,
                                         letterSpacing: 1.25,
-                                        color: tulisanColor),
+                                        color: AppColors.textColor),
                                   ),
                                 ),
                                 InkWell(
@@ -243,7 +242,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 20, vertical: 10),
                                     decoration: BoxDecoration(
-                                        color: aksenColor,
+                                        color: AppColors.accentColor,
                                         borderRadius:
                                             BorderRadius.circular(12)),
                                     child: Text(
@@ -285,7 +284,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
                               letterSpacing: 0.15,
-                              color: tulisanColor),
+                              color: AppColors.textColor),
                         ),
                       ],
                     ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:get_healt_2/util/colors.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:get_healt_2/widget/review_item.dart';
 
 import '../data/models/ulasan_model.dart';
@@ -33,7 +33,7 @@ class DetailReview extends StatelessWidget {
                   padding: const EdgeInsets.all(0),
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: primerColor,
+                    color: AppColors.primaryColor,
                   ),
                   child: IconButton(
                     onPressed: () => Navigator.of(context).pop(),
@@ -66,15 +66,15 @@ class DetailReview extends StatelessWidget {
                         ratingWidget: RatingWidget(
                           full: const Icon(
                             Icons.star,
-                            color: aksenColor,
+                            color: AppColors.accentColor,
                           ),
                           half: const Icon(
                             Icons.star_half_outlined,
-                            color: aksenColor,
+                            color: AppColors.accentColor,
                           ),
                           empty: const Icon(
                             Icons.star_outline,
-                            color: aksenColor,
+                            color: AppColors.accentColor,
                           ),
                         ),
                       ),
@@ -89,14 +89,14 @@ class DetailReview extends StatelessWidget {
                             style: Theme.of(context)
                                 .textTheme
                                 .titleMedium
-                                ?.copyWith(color: tulisanColor),
+                                ?.copyWith(color: AppColors.textColor),
                           ),
                           Text(
                             "(12 ulasan)",
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall
-                                ?.copyWith(color: tulisanColor),
+                                ?.copyWith(color: AppColors.textColor),
                           ),
                         ],
                       ),

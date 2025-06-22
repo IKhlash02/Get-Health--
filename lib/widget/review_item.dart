@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
-import '../util/colors.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 
 class ReviewItem extends StatelessWidget {
   final String userName;
@@ -21,7 +20,7 @@ class ReviewItem extends StatelessWidget {
       margin: const EdgeInsets.all(0),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: BoxDecoration(
-          color: kotakColor, borderRadius: BorderRadius.circular(12)),
+          color: AppColors.boxColor, borderRadius: BorderRadius.circular(12)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -31,7 +30,7 @@ class ReviewItem extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .titleMedium
-                ?.copyWith(color: tulisanColor),
+                ?.copyWith(color: AppColors.textColor),
           ),
           const SizedBox(
             height: 10,
@@ -50,15 +49,15 @@ class ReviewItem extends StatelessWidget {
                 ratingWidget: RatingWidget(
                   full: const Icon(
                     Icons.star,
-                    color: aksenColor,
+                    color: AppColors.accentColor,
                   ),
                   half: const Icon(
                     Icons.star_half_outlined,
-                    color: aksenColor,
+                    color: AppColors.accentColor,
                   ),
                   empty: const Icon(
                     Icons.star_outline,
-                    color: aksenColor,
+                    color: AppColors.accentColor,
                   ),
                 ),
               ),
@@ -67,7 +66,7 @@ class ReviewItem extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall
-                    ?.copyWith(color: tulisanColor),
+                    ?.copyWith(color: AppColors.textColor),
               ),
             ],
           ),
@@ -80,7 +79,7 @@ class ReviewItem extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge
-                ?.copyWith(color: tulisanColor),
+                ?.copyWith(color: AppColors.textColor),
           ),
         ],
       ),

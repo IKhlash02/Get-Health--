@@ -27,7 +27,7 @@ class RegisterController extends GetxController {
 
   Future<void> registerUser() async {
     try {
-      final request = await http.MultipartRequest(
+      final request = http.MultipartRequest(
           'POST',
           Uri.parse(
             ApiEndpoint.formRegister,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:get_healt_2/screen/login.dart';
 
-import '../util/colors.dart';
 import '../widget/button_submit.dart';
 
 class SuccesRegister extends StatelessWidget {
@@ -20,7 +20,7 @@ class SuccesRegister extends StatelessWidget {
             const Icon(
               Icons.done_rounded,
               size: 150,
-              color: primerColor,
+              color: AppColors.primaryColor,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 28.0),

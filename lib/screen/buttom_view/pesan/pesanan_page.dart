@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:get_healt_2/screen/buttom_view/pesan/tolak.dart';
 import 'package:get_healt_2/screen/buttom_view/pesan/ulasan.dart';
-import 'package:get_healt_2/util/colors.dart';
 
 import 'item_kirim.dart';
 import 'item_proses.dart';
@@ -30,10 +30,10 @@ class _PesananPageState extends State<PesananPage> {
 
   void _updateButtonColors(int buttonIndex) {
     setState(() {
-      _button1Color = buttonIndex == 0 ? aksenColor : Colors.white;
-      _button2Color = buttonIndex == 1 ? aksenColor : Colors.white;
-      _button3Color = buttonIndex == 2 ? aksenColor : Colors.white;
-      _button4Color = buttonIndex == 3 ? aksenColor : Colors.white;
+      _button1Color = buttonIndex == 0 ? AppColors.accentColor : Colors.white;
+      _button2Color = buttonIndex == 1 ? AppColors.accentColor : Colors.white;
+      _button3Color = buttonIndex == 2 ? AppColors.accentColor : Colors.white;
+      _button4Color = buttonIndex == 3 ? AppColors.accentColor : Colors.white;
     });
   }
 

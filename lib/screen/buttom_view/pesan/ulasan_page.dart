@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:get_healt_2/util/colors.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/tambah_ulasan.dart';
@@ -45,7 +45,7 @@ class _UlasanItem extends State<UlasanItem> {
                       padding: const EdgeInsets.all(0),
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
-                        color: primerColor,
+                        color: AppColors.primaryColor,
                       ),
                       child: IconButton(
                         onPressed: () => Get.back(),
@@ -70,7 +70,7 @@ class _UlasanItem extends State<UlasanItem> {
                                   fontSize: 32,
                                   fontWeight: FontWeight.w700,
                                   letterSpacing: -0.5,
-                                  color: primerColor),
+                                  color: AppColors.primaryColor),
                             ),
                           )
                         ],
@@ -93,7 +93,8 @@ class _UlasanItem extends State<UlasanItem> {
                       height: 125,
                       width: 125,
                       decoration: BoxDecoration(
-                          border: Border.all(color: kotakColor, width: 5),
+                          border:
+                              Border.all(color: AppColors.boxColor, width: 5),
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(18)),
                       child: Image.network(
@@ -129,15 +130,15 @@ class _UlasanItem extends State<UlasanItem> {
                       ratingWidget: RatingWidget(
                         full: const Icon(
                           Icons.star,
-                          color: aksenColor,
+                          color: AppColors.accentColor,
                         ),
                         half: const Icon(
                           Icons.star_half_outlined,
-                          color: aksenColor,
+                          color: AppColors.accentColor,
                         ),
                         empty: const Icon(
                           Icons.star_outline,
-                          color: aksenColor,
+                          color: AppColors.accentColor,
                         ),
                       ),
                     ),
@@ -160,7 +161,7 @@ class _UlasanItem extends State<UlasanItem> {
                           fontWeight: FontWeight.w400,
                           letterSpacing: 1.5,
                         ),
-                        fillColor: kotakColor,
+                        fillColor: AppColors.boxColor,
                         filled: true,
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,

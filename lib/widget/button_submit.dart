@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../util/colors.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 
 class ButtonSubmit extends StatelessWidget {
   final String text;
@@ -17,7 +16,7 @@ class ButtonSubmit extends StatelessWidget {
           style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)),
-              backgroundColor: primerColor,
+              backgroundColor: AppColors.primaryColor,
               padding: const EdgeInsets.all(0)),
           onPressed: () {
             Navigator.push(

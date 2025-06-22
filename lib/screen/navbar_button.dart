@@ -1,5 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:get_healt_2/util/colors.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 
 import 'buttom_view/akun/akun_page.dart';
 import 'buttom_view/beranda_page.dart';
@@ -60,7 +61,7 @@ class _NavbarButtonState extends State<NavbarButton> {
           ),
         ],
         type: BottomNavigationBarType.fixed,
-        backgroundColor: primerColor,
+        backgroundColor: AppColors.primaryColor,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white.withOpacity(.60),
         currentIndex: widget.selectedNavbar,

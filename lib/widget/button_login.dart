@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get_healt_2/util/colors.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ButtonLogin extends StatelessWidget {
@@ -17,14 +17,14 @@ class ButtonLogin extends StatelessWidget {
     return TextField(
       obscureText: obscureText,
       decoration: InputDecoration(
-        fillColor: kotakColor,
+        fillColor: AppColors.boxColor,
         filled: true,
         hintText: hinText,
         hintStyle: GoogleFonts.inter(
             fontSize: 16,
             fontWeight: FontWeight.w400,
             letterSpacing: 0.5,
-            color: tulisanColor),
+            color: AppColors.textColor),
         border: OutlineInputBorder(
             borderSide: BorderSide.none,
             borderRadius: BorderRadius.circular(12.47)),

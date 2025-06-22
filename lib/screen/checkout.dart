@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../controller/tambah_pesanan.dart';
@@ -7,7 +8,6 @@ import '../data/models/alamat_user_model.dart';
 import '../data/models/keranjang_model.dart';
 import '../data/repositories/alamat_user_api.dart';
 import '../util/api_endpoint.dart';
-import '../util/colors.dart';
 
 class ChackOutPage extends StatefulWidget {
   final Keranjang keranjangList;
@@ -54,7 +54,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                     padding: const EdgeInsets.all(0),
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: primerColor,
+                      color: AppColors.primaryColor,
                     ),
                     child: IconButton(
                       onPressed: () => Get.back(),
@@ -76,7 +76,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                 fontSize: 20,
                                 fontWeight: FontWeight.w700,
                                 letterSpacing: -0.5,
-                                color: tulisanColor),
+                                color: AppColors.textColor),
                           ),
                         )
                       ],
@@ -102,7 +102,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                         fontSize: 16.6,
                         fontWeight: FontWeight.w700,
                         letterSpacing: 0.5,
-                        color: tulisanColor),
+                        color: AppColors.textColor),
                   ),
                   const SizedBox(
                     height: 10,
@@ -121,7 +121,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 30, vertical: 15),
                           decoration: BoxDecoration(
-                              color: kotakColor,
+                              color: AppColors.boxColor,
                               borderRadius: BorderRadius.circular(12.47)),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,7 +132,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w700,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -143,7 +143,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -154,7 +154,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -165,7 +165,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -176,7 +176,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -187,7 +187,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                               const SizedBox(
                                 height: 5,
@@ -198,7 +198,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                     fontSize: 14.64,
                                     fontWeight: FontWeight.w400,
                                     letterSpacing: 0.5,
-                                    color: tulisanColor),
+                                    color: AppColors.textColor),
                               ),
                             ],
                           ),
@@ -218,7 +218,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                         fontSize: 16.6,
                         fontWeight: FontWeight.w700,
                         letterSpacing: 0.5,
-                        color: tulisanColor),
+                        color: AppColors.textColor),
                   ),
                   const SizedBox(
                     height: 10,
@@ -228,7 +228,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 10),
                     decoration: BoxDecoration(
-                        color: kotakColor,
+                        color: AppColors.boxColor,
                         borderRadius: BorderRadius.circular(12)),
                     child: Expanded(
                         child: ListView.builder(
@@ -265,7 +265,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                                 fontSize: 13,
                                                 fontWeight: FontWeight.w400,
                                                 letterSpacing: 0.5,
-                                                color: tulisanColor)),
+                                                color: AppColors.textColor)),
                                         const SizedBox(
                                           height: 10,
                                         ),
@@ -280,7 +280,8 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                                       fontWeight:
                                                           FontWeight.w700,
                                                       letterSpacing: 0.5,
-                                                      color: tulisanColor)),
+                                                      color:
+                                                          AppColors.textColor)),
                                           TextSpan(
                                               text:
                                                   "(${widget.dataKeranjang[index].jumlah} ${widget.dataKeranjang[index].jenisSatuan} x Rp${int.parse(widget.dataKeranjang[index].totalHarga) / int.parse(widget.dataKeranjang[index].jumlah)})",
@@ -290,7 +291,8 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                                       fontWeight:
                                                           FontWeight.w400,
                                                       letterSpacing: 0.5,
-                                                      color: tulisanColor))
+                                                      color:
+                                                          AppColors.textColor))
                                         ])),
                                         const SizedBox(
                                           height: 10,
@@ -328,7 +330,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                     children: [
                       const Icon(
                         Icons.receipt_long_outlined,
-                        color: aksenColor,
+                        color: AppColors.accentColor,
                         size: 33,
                       ),
                       const SizedBox(
@@ -339,7 +341,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                               fontSize: 18.0,
                               fontWeight: FontWeight.w400,
                               letterSpacing: 0.5,
-                              color: tulisanColor))
+                              color: AppColors.textColor))
                     ],
                   ),
                   const SizedBox(
@@ -355,7 +357,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       ),
                       Text(
                         "Rp${formatter.format(widget.keranjangList.total)}",
@@ -363,7 +365,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       )
                     ],
                   ),
@@ -380,7 +382,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       ),
                       Text(
                         "Rp10.000",
@@ -388,7 +390,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       )
                     ],
                   ),
@@ -405,7 +407,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       ),
                       Text(
                         "Rp1000",
@@ -413,7 +415,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                             fontSize: 15.76,
                             fontWeight: FontWeight.w400,
                             letterSpacing: 0.25,
-                            color: tulisanColor),
+                            color: AppColors.textColor),
                       )
                     ],
                   ),
@@ -434,7 +436,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                       fontSize: 22.0,
                                       fontWeight: FontWeight.w400,
                                       letterSpacing: 0.5,
-                                      color: tulisanColor),
+                                      color: AppColors.textColor),
                                 ),
                               ],
                             ),
@@ -446,7 +448,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                       fontSize: 26.24,
                                       fontWeight: FontWeight.w700,
                                       letterSpacing: 0.5,
-                                      color: tulisanColor),
+                                      color: AppColors.textColor),
                                 ),
                               ],
                             ),
@@ -463,7 +465,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 15, vertical: 20),
                           decoration: BoxDecoration(
-                              color: primerColor,
+                              color: AppColors.primaryColor,
                               borderRadius: BorderRadius.circular(13.49)),
                           child: Center(
                             child: Text(
