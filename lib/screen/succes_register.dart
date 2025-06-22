@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
-import 'package:get_healt_2/screen/login.dart';
+import 'package:get_healt_2/modules/auth/views/login_view.dart';
 
 import '../widget/button_submit.dart';
 
@@ -38,7 +38,7 @@ class SuccesRegister extends StatelessWidget {
             ),
             const ButtonSubmit(
               text: "Ke Halaman Login",
-              route: Login(),
+              route: LoginView(),
             ),
           ]),
         ),

@@ -11,23 +11,23 @@ import 'package:get_healt_2/widget/dropdown.dart';
 import 'package:get_healt_2/widget/submit_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../controller/id_provinsi.dart';
+import '../../../controller/id_provinsi.dart';
 
-import '../widget/button_login.dart';
+import '../../../widget/button_login.dart';
 
-import '../widget/dropdown_districk.dart';
-import '../widget/dropdown_regency.dart';
-import '../widget/dropdown_village.dart';
-import '../widget/text_norma.dart';
+import '../../../widget/dropdown_districk.dart';
+import '../../../widget/dropdown_regency.dart';
+import '../../../widget/dropdown_village.dart';
+import '../../../widget/text_norma.dart';
 
-class Register extends StatefulWidget {
-  const Register({super.key});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
   @override
-  State<Register> createState() => _RegisterState();
+  State<RegisterView> createState() => _RegisterState();
 }
 
-class _RegisterState extends State<Register> {
+class _RegisterState extends State<RegisterView> {
   RegisterController registerController = Get.put(RegisterController());
   final idProv = Get.put(IdProvinsi());
   _pilihGalery() async {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:get_healt_2/screen/buttom_view/akun/user_edit.dart';
-import 'package:get_healt_2/screen/login.dart';
+import 'package:get_healt_2/modules/auth/views/login_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -296,7 +296,7 @@ class _AkunPageState extends State<AkunPage> {
                               padding: const EdgeInsets.all(12)),
                           onPressed: () {
                             removeId();
-                            Get.offAll((const Login()));
+                            Get.offAll((const LoginView()));
                           },
                           child: Center(
                             child: Text(

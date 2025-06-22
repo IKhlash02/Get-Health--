@@ -1,4 +1,4 @@
-class ApiEndpoint {
+abstract class ApiEndpoint {
   static const String baseUrl = "http://192.168.0.105/get_healt/gethealthplus/";
   static const String formLogin = "${baseUrl}form_login.php";
   static const String produk = "${baseUrl}produk.php";
