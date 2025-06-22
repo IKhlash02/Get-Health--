@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../data/models/product_model.dart';
 import '../data/repositories/product_kategori.dart';
 
-import '../widget/search_button.dart';
 import '../modules/products/views/product_detail_view.dart';
 
 class KategoriPage extends StatefulWidget {
@@ -53,7 +52,7 @@ class _KategoriPageState extends State<KategoriPage> {
                       iconSize: 18,
                     ),
                   ),
-                  const Expanded(child: SearchBarWidget()),
+                  const Expanded(child: SizedBox()),
                 ],
               ),
               Padding(

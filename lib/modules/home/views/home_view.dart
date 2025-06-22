@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:get_healt_2/data/models/product_model.dart';
 import 'package:get_healt_2/modules/home/controllers/home_controller.dart';
+import 'package:get_healt_2/widget/custom_search_bar.dart';
+import 'package:get_healt_2/widget/product_card.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,7 +29,13 @@ class HomeView extends GetView<HomeController> {
                   const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
               child: Column(
                 children: [
-                  const SearchBar(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CustomSearchBar(
+                        hintText: "Cari nama produk atau gejala...",
+                        onSubmitted: (query) =>
+                            controller.goToSearchPage(query)),
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5.0),
                     child: Column(
@@ -127,95 +135,11 @@ class HomeView extends GetView<HomeController> {
       itemBuilder: (context, index) {
         final product = controller.bestSellingProducts[index];
         // Gunakan widget ProductCard yang sudah dibuat
-        return productCard(
+        return ProductCard(
           product: product,
           onTap: () => controller.goToProductDetail(product),
         );
       },
     );
   }
-}
-
-Widget productCard(
-    {required ProductModel product, required VoidCallback onTap}) {
-  return Padding(
-    padding: const EdgeInsets.all(10.0),
-    child: InkWell(
-        onTap: onTap,
-        child: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            color: AppColors.boxColor,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
-                ),
-                child: Hero(
-                    tag: 'produk',
-                    child: Image.network(
-                      height: 150,
-                      width: double.infinity,
-                      product.gambar,
-                      fit: BoxFit.cover,
-                    )),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      product.namaProduk,
-                      textAlign: TextAlign.start,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.plusJakartaSans(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: 0.5,
-                          color: AppColors.textColor),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "Rp  ${product.hargaProduk}",
-                      style: GoogleFonts.plusJakartaSans(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 0.5,
-                          color: AppColors.textColor),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      (product.jumlahStok == "0")
-                          ? "Stok habis"
-                          : "Stok tersedia",
-                      style: GoogleFonts.plusJakartaSans(
-                          fontSize: 12.7,
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: 0.5,
-                          color: Color((product.jumlahStok == "0")
-                              ? 0xffCF6847
-                              : 0xff6BBD44)),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        )),
-  );
 }

@@ -47,6 +47,10 @@ class HomeController extends GetxController {
         parameters: {'id': category.id.toString(), 'name': category.title});
   }
 
+  void goToSearchPage(String query) {
+    Get.toNamed(Routes.search, arguments: query);
+  }
+
   void seeAllCategories() {
     Get.toNamed(Routes.categories);
   }
