@@ -1,4 +1,4 @@
-class Produk {
+class ProductModel {
   late String idProduk;
   late String gambar;
   late String idGolongan;
@@ -16,7 +16,7 @@ class Produk {
   late String jumlahStok;
   late String avgRating;
 
-  Produk({
+  ProductModel({
     required this.idProduk,
     required this.gambar,
     required this.idGolongan,
@@ -35,8 +35,8 @@ class Produk {
     required this.avgRating,
   });
 
-  factory Produk.fromJson(Map<String, dynamic> json) {
-    return Produk(
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    return ProductModel(
       idProduk: json['id_produk'],
       gambar: json['gambar'],
       idGolongan: json['id_golongan'],

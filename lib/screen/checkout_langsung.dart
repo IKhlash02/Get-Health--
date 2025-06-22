@@ -12,7 +12,7 @@ import '../data/repositories/alamat_user_api.dart';
 import '../util/api_endpoint.dart';
 
 class CheckoutLangsungPage extends StatefulWidget {
-  final Produk produk;
+  final ProductModel produk;
   final String jumlah;
   const CheckoutLangsungPage(
       {super.key, required this.produk, required this.jumlah});

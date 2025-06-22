@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../screen/navbar_button.dart';
+import '../screen/main_layout.dart';
 
 class EditAlamatController extends GetxController {
   TextEditingController namaAlamatController = TextEditingController();
@@ -52,7 +52,7 @@ class EditAlamatController extends GetxController {
           telpAlamatController.clear();
           kodePosAlamatController.clear();
           detailAlamatController.clear();
-          Get.to(NavbarButton(
+          Get.to(MainLayout(
             selectedNavbar: 4,
           ));
         } else {

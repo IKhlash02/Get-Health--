@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_healt_2/screen/navbar_button.dart';
+import 'package:get_healt_2/screen/main_layout.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
@@ -46,7 +46,7 @@ Future<void> pesananLangsung(String jumlah, String idProduk) async {
     final data = jsonDecode(response.body);
     if (response.statusCode == 200) {
       if (data['status'] == "success") {
-        Get.to(NavbarButton(
+        Get.to(MainLayout(
           selectedNavbar: 3,
         ));
         ScaffoldMessenger.of(Get.context!).showSnackBar(

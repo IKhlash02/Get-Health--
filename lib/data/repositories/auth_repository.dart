@@ -27,6 +27,9 @@ class AuthRepository {
       // } else {
       //   throw data['message'] ?? "Terjadi kesalahan yang tidak diketahui";
       // }
+
+      await Future.delayed(const Duration(seconds: 2));
+
       await _storageService.write('id_user', "12345"); // Simulasi ID user
       await _storageService.write('id_alamat', "67890"); // Simulasi ID alamat
     } catch (e) {

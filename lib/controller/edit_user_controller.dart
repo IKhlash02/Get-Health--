@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:get_healt_2/screen/navbar_button.dart';
+import 'package:get_healt_2/screen/main_layout.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -46,7 +46,7 @@ class EditUserController extends GetxController {
           passwordController.clear();
           passwordController.clear();
           telpUserController.clear();
-          Get.to(NavbarButton(
+          Get.to(MainLayout(
             selectedNavbar: 4,
           ));
         } else {

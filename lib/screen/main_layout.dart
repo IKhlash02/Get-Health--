@@ -3,22 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
 
 import 'buttom_view/akun/akun_page.dart';
-import 'buttom_view/beranda_page.dart';
+import '../modules/home/views/home_view.dart';
 import 'buttom_view/keranjang_page.dart';
 import 'buttom_view/notifikasi_page.dart';
 import 'buttom_view/pesan/pesanan_page.dart';
 
-class NavbarButton extends StatefulWidget {
+class MainLayout extends StatefulWidget {
   int selectedNavbar;
-  NavbarButton({super.key, this.selectedNavbar = 0});
+  MainLayout({super.key, this.selectedNavbar = 0});
 
   @override
-  State<NavbarButton> createState() => _NavbarButtonState();
+  State<MainLayout> createState() => _MainLayoutState();
 }
 
-class _NavbarButtonState extends State<NavbarButton> {
+class _MainLayoutState extends State<MainLayout> {
   final List<Widget> _widgetOptions = <Widget>[
-    const BerandaPage(),
+    const HomeView(),
     const NotifikasiPage(),
     const KeranjangPage(),
     const PesananPage(),

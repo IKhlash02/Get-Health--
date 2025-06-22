@@ -8,7 +8,7 @@ import '../data/repositories/product_search.dart';
 import '../util/api_endpoint.dart';
 
 import '../widget/search_second.dart';
-import 'detail_page.dart';
+import 'product_detail_view.dart';
 
 class SearchPage extends StatefulWidget {
   final String judul;
@@ -19,7 +19,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  late Future<List<Produk>> _futureProdukList;
+  late Future<List<ProductModel>> _futureProdukList;
 
   @override
   void initState() {
@@ -68,10 +68,10 @@ class _SearchPageState extends State<SearchPage> {
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        FutureBuilder<List<Produk>>(
+                        FutureBuilder<List<ProductModel>>(
                             future: _futureProdukList,
                             builder: (context, snapshot) {
-                              List<Produk>? produkList = snapshot.data;
+                              List<ProductModel>? produkList = snapshot.data;
 
                               if (snapshot.hasData) {
                                 return GridView.builder(
@@ -118,7 +118,7 @@ class _SearchPageState extends State<SearchPage> {
   }
 }
 
-Widget _productBeranda(BuildContext context, Produk produk) {
+Widget _productBeranda(BuildContext context, ProductModel produk) {
   return Padding(
     padding: const EdgeInsets.all(10.0),
     child: InkWell(
@@ -126,7 +126,7 @@ Widget _productBeranda(BuildContext context, Produk produk) {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => DetailPage(
+                builder: (context) => ProductDetailView(
                   produk: produk,
                 ),
               ));

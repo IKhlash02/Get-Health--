@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../models/product_model.dart';
 
-Future<List<Produk>> fetchsearch(String search) async {
+Future<List<ProductModel>> fetchsearch(String search) async {
   if (search.isNotEmpty) {
     final response = await http
         .post(Uri.parse(ApiEndpoint.search), body: {'katakunci': search});
@@ -12,8 +12,8 @@ Future<List<Produk>> fetchsearch(String search) async {
     if (response.statusCode == 200) {
       List<dynamic> jsonData = json.decode(response.body);
       if (jsonData.isNotEmpty) {
-        List<Produk> produkList =
-            jsonData.map((data) => Produk.fromJson(data)).toList();
+        List<ProductModel> produkList =
+            jsonData.map((data) => ProductModel.fromJson(data)).toList();
         return produkList;
       } else {
         throw Exception('Produk tidak ditemukan');

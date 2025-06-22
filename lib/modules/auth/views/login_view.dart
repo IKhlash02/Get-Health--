@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_healt_2/controller/auth_controller.dart';
+import 'package:get_healt_2/modules/auth/controllers/auth_controller.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:get_healt_2/routes/app_routes.dart';
 import 'package:get_healt_2/widget/button_login.dart';

@@ -20,16 +20,16 @@ import 'package:http/http.dart' as http;
 
 import 'checkout_langsung.dart';
 
-class DetailPage extends StatefulWidget {
-  final Produk produk;
+class ProductDetailView extends StatefulWidget {
+  final ProductModel produk;
 
-  const DetailPage({super.key, required this.produk});
+  const ProductDetailView({super.key, required this.produk});
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  State<ProductDetailView> createState() => _ProductDetailViewState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _ProductDetailViewState extends State<ProductDetailView> {
   Future<List<Ulasan>> fetchUlasanList() async {
     final response = await http
         .get(Uri.parse(ApiEndpoint.ulasanSatu + widget.produk.idProduk));
