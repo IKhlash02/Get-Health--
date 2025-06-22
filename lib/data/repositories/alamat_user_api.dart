@@ -4,7 +4,7 @@ import 'package:get_healt_2/data/providers/network/api_endpoint.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../models/alamat_user_model.dart';
+import '../models/address_model.dart';
 import '../models/user_model.dart';
 
 Future<List<dynamic>> fetchAlamatList() async {

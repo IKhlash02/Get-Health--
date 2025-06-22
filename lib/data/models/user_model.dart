@@ -23,4 +23,22 @@ class UserModel {
         telpUser: json["telp_user"],
         fotoUser: json["foto_user"],
       );
+
+  UserModel copyWith({
+    String? idUser,
+    String? namaUser,
+    String? emailUser,
+    String? passwordUser,
+    String? telpUser,
+    String? fotoUser,
+  }) {
+    return UserModel(
+      idUser: idUser ?? this.idUser,
+      namaUser: namaUser ?? this.namaUser,
+      emailUser: emailUser ?? this.emailUser,
+      passwordUser: passwordUser ?? this.passwordUser,
+      telpUser: telpUser ?? this.telpUser,
+      fotoUser: fotoUser ?? this.fotoUser,
+    );
+  }
 }

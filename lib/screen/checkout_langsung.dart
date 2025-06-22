@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
+import 'package:get_healt_2/data/models/address_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../controller/pesanan_langsung.dart';
-
-import '../data/models/alamat_user_model.dart';
 
 import '../data/models/product_model.dart';
 import '../data/repositories/alamat_user_api.dart';

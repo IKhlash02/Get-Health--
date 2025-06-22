@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:get_healt_2/data/models/alamat_user_model.dart';
+import 'package:get_healt_2/data/models/address_model.dart';
 import 'package:get_healt_2/data/models/user_model.dart';
 import 'package:get_healt_2/data/providers/local/json_provider.dart';
 import 'package:get_healt_2/data/providers/network/api_endpoint.dart';
@@ -48,6 +48,11 @@ class ProfileRepository {
 
   Future<void> updateAddress(AddressModel address) async {
     print("DUMMY: Mengupdate alamat ke ${address.detailAlamat}");
+    await Future.delayed(const Duration(seconds: 1));
+  }
+
+  Future<void> updateUser(UserModel userModel) async {
+    print("DUMMY: Mengupdate alamat ke ${userModel.namaUser}");
     await Future.delayed(const Duration(seconds: 1));
   }
 }

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:get_healt_2/data/models/alamat_user_model.dart';
+import 'package:get_healt_2/data/models/address_model.dart';
 import 'package:get_healt_2/data/models/user_model.dart';
 import 'package:get_healt_2/data/repositories/profile_repository.dart';
 import 'package:get_healt_2/routes/app_routes.dart';

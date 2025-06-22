@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
 import 'package:get_healt_2/data/providers/network/api_endpoint.dart';
 import 'package:get_healt_2/modules/profile/controllers/profile_controller.dart';
-import 'package:get_healt_2/screen/buttom_view/akun/user_edit.dart';
+import 'package:get_healt_2/modules/profile/views/user_edit_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProfilView extends GetView<ProfileController> {
@@ -81,9 +81,7 @@ class ProfilView extends GetView<ProfileController> {
                               color: AppColors.textColor),
                         ),
                         InkWell(
-                          onTap: () {
-                            Get.to(UserEdit(userList: user));
-                          },
+                          onTap: controller.goToEditProfile,
                           child: Container(
                             margin: const EdgeInsets.all(0),
                             padding: const EdgeInsets.symmetric(

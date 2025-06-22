@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_healt_2/data/models/alamat_user_model.dart';
+import 'package:get_healt_2/data/models/address_model.dart';
 import 'package:get_healt_2/data/repositories/profile_repository.dart';
 
 class EditAddressController extends GetxController {

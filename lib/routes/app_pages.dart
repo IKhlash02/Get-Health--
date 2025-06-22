@@ -8,7 +8,9 @@ import 'package:get_healt_2/modules/products/bindings/product_binding.dart';
 import 'package:get_healt_2/modules/products/bindings/search_binding.dart';
 import 'package:get_healt_2/modules/products/views/search_view.dart';
 import 'package:get_healt_2/modules/profile/binding/profile_binding.dart';
+import 'package:get_healt_2/modules/profile/views/edit_address_view.dart';
 import 'package:get_healt_2/modules/profile/views/profil_view.dart';
+import 'package:get_healt_2/modules/profile/views/user_edit_view.dart';
 import 'package:get_healt_2/screen/main_layout.dart';
 import 'package:get_healt_2/modules/products/views/product_detail_view.dart';
 
@@ -51,6 +53,16 @@ class AppPages {
         name: Routes.profile,
         page: () => const ProfilView(),
         transition: Transition.leftToRight,
+        binding: ProfileBinding()),
+    GetPage(
+        name: Routes.editUserAccount,
+        page: () => const UserEditView(),
+        transition: Transition.leftToRight,
+        binding: ProfileBinding()),
+    GetPage(
+        name: Routes.editAddress,
+        page: () => const EditAddressView(),
+        transition: Transition.rightToLeft,
         binding: ProfileBinding()),
   ];
 }

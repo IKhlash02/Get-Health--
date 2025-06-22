@@ -2,35 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
+import 'package:get_healt_2/modules/profile/controllers/edit_user_controller.dart';
 
 import 'package:get_healt_2/widget/submit_button.dart';
 
-import '../../../controller/edit_user_controller.dart';
-import '../../../data/models/user_model.dart';
 import '../../../widget/button_login.dart';
 import '../../../widget/text_norma.dart';
 
-class UserEdit extends StatefulWidget {
-  final UserModel userList;
-  const UserEdit({super.key, required this.userList});
-
-  @override
-  State<UserEdit> createState() => _UserEditState();
-}
-
-class _UserEditState extends State<UserEdit> {
-  EditUserController editUserController = Get.put(EditUserController());
+class UserEditView extends GetView<EditUserController> {
+  const UserEditView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    editUserController.emailController =
-        TextEditingController(text: widget.userList.emailUser);
-    editUserController.namaController =
-        TextEditingController(text: widget.userList.namaUser);
-    editUserController.passwordController =
-        TextEditingController(text: widget.userList.passwordUser);
-    editUserController.telpUserController =
-        TextEditingController(text: widget.userList.telpUser);
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -82,7 +65,7 @@ class _UserEditState extends State<UserEdit> {
                       ),
                       ButtonLogin(
                         hinText: "XXXXX",
-                        controller: editUserController.namaController,
+                        controller: controller.nameController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -106,7 +89,7 @@ class _UserEditState extends State<UserEdit> {
                       ),
                       ButtonLogin(
                         hinText: "adsdad@email.com",
-                        controller: editUserController.emailController,
+                        controller: controller.emailController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -124,7 +107,7 @@ class _UserEditState extends State<UserEdit> {
                       ),
                       ButtonLogin(
                         hinText: "XXXXX",
-                        controller: editUserController.telpUserController,
+                        controller: controller.phoneUserController,
                         obscureText: false,
                       ),
                       const SizedBox(
@@ -142,7 +125,7 @@ class _UserEditState extends State<UserEdit> {
                       ),
                       ButtonLogin(
                         hinText: "******",
-                        controller: editUserController.passwordController,
+                        controller: controller.passwordController,
                         obscureText: true,
                       ),
                       const SizedBox(
@@ -159,7 +142,7 @@ class _UserEditState extends State<UserEdit> {
                 ),
                 SubmitButton(
                   text: "Simpan",
-                  onPressed: () => editUserController.registerUser(),
+                  onPressed: controller.saveChanges,
                 ),
               ],
             ),
