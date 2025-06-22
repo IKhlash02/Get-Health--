@@ -7,8 +7,6 @@ import 'package:get_healt_2/screen/main_layout.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
-import '../util/api_endpoint.dart';
-
 Future<void> pesananLangsung(String jumlah, String idProduk) async {
   List<String> produkPesanan = [];
   List<String> jumlahPesanan = [];
@@ -39,7 +37,7 @@ Future<void> pesananLangsung(String jumlah, String idProduk) async {
   try {
     final response = await http.post(
         Uri.parse(
-          ApiEndpoint.tambahPesanLangsung,
+          "ApiEndpoint.tambahPesanLangsung",
         ),
         body: jsonEncode(requestData));
 

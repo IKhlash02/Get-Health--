@@ -4,8 +4,6 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:get_healt_2/util/api_endpoint.dart';
-
 import '../screen/succes_register.dart';
 
 class RegisterController extends GetxController {
@@ -30,7 +28,7 @@ class RegisterController extends GetxController {
       final request = http.MultipartRequest(
           'POST',
           Uri.parse(
-            ApiEndpoint.formRegister,
+            "ApiEndpoint.formRegister",
           ));
       request.fields.addAll({
         'nama_user': namaController.text.trim(),

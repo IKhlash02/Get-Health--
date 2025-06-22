@@ -6,7 +6,7 @@ import 'package:get_healt_2/widget/review_item.dart';
 import '../data/models/ulasan_model.dart';
 
 class DetailReview extends StatelessWidget {
-  final List<Ulasan>? ulasanList;
+  final List<ReviewModel>? ulasanList;
   final String averageRating;
   const DetailReview(
       {super.key, required this.ulasanList, required this.averageRating});
@@ -117,9 +117,9 @@ class DetailReview extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ReviewItem(
-                  date: ulasanList![index].timestampUlasan.toString(),
+                  date: ulasanList![index].timestamp.toString(),
                   rating: ulasanList![index].rating,
-                  userName: ulasanList![index].namaUser,
+                  userName: ulasanList![index].userName,
                   review: ulasanList![index].review,
                 ),
               );

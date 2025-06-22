@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
-import 'package:get_healt_2/util/api_endpoint.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/launc_browser.dart';
@@ -107,7 +106,7 @@ class _ItemKirimState extends State<ItemKirim> {
                                         width: 60,
                                         color: Colors.white,
                                         child: Image.network(
-                                          "${ApiEndpoint.baseUrl}${pesananList[index].rincianPesanan[nomor].gambar}",
+                                          "",
                                           fit: BoxFit.fitWidth,
                                         ),
                                       ),

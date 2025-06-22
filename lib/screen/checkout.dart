@@ -7,7 +7,6 @@ import '../controller/tambah_pesanan.dart';
 import '../data/models/alamat_user_model.dart';
 import '../data/models/keranjang_model.dart';
 import '../data/repositories/alamat_user_api.dart';
-import '../util/api_endpoint.dart';
 
 class ChackOutPage extends StatefulWidget {
   final Keranjang keranjangList;
@@ -246,7 +245,7 @@ class _ChackOutPageState extends State<ChackOutPage> {
                                     width: 60,
                                     color: Colors.white,
                                     child: Image.network(
-                                      "${ApiEndpoint.baseUrl}${widget.dataKeranjang[index].gambar}",
+                                      "",
                                       fit: BoxFit.fitWidth,
                                     ),
                                   ),

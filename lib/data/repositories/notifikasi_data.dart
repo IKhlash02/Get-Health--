@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:get_healt_2/util/api_endpoint.dart';
+import 'package:get_healt_2/data/providers/network/api_endpoint.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,7 +14,7 @@ Future<List<Notifikasi>> fetchNotifikasi() async {
   }
 
   String myData = await getId();
-  final response = await http.get(Uri.parse(ApiEndpoint.notifikasi + myData));
+  final response = await http.get(Uri.parse(ApiEndPoints.notifikasi + myData));
   if (response.statusCode == 200) {
     List<dynamic> jsonData = json.decode(response.body);
     if (jsonData.isNotEmpty) {

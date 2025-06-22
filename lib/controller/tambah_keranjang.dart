@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
-import '../util/api_endpoint.dart';
-
 Future<void> tambahKeranjang(int count, String idProduk) async {
   Future<String> getId() async {
     final prefs = await SharedPreferences.getInstance();
@@ -19,7 +17,7 @@ Future<void> tambahKeranjang(int count, String idProduk) async {
   try {
     final response = await http.post(
         Uri.parse(
-          "${ApiEndpoint.tambahKeranjang}$idProduk&id_user=$myData",
+          "",
         ),
         body: {'jumlah': count.toString()});
 

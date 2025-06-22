@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/tambah_ulasan.dart';
 import '../../../data/models/pesanan_model.dart';
-import '../../../util/api_endpoint.dart';
 import '../../../widget/submit_button.dart';
 
 class UlasanItem extends StatefulWidget {
@@ -98,7 +97,7 @@ class _UlasanItem extends State<UlasanItem> {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(18)),
                       child: Image.network(
-                        "${ApiEndpoint.baseUrl}${widget.pesanan.gambar}",
+                        "",
                         fit: BoxFit.fitWidth,
                       ),
                     ),

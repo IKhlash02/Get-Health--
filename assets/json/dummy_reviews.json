@@ -1,0 +1,18 @@
+[
+  {
+    "id_ulasan": "R001",
+    "id_user": "U123",
+    "nama_user": "Budi Santoso",
+    "rating": "5.0",
+    "review": "Produk original, pengiriman super cepat. Packing aman banget. Pasti beli di sini lagi!",
+    "timestamp_ulasan": "2023-10-27 10:30:00"
+  },
+  {
+    "id_ulasan": "R002",
+    "id_user": "U456",
+    "nama_user": "Siti Aminah",
+    "rating": "4.5",
+    "review": "Barang sesuai deskripsi, khasiatnya terasa. Hanya saja kurirnya sedikit terlambat.",
+    "timestamp_ulasan": "2023-10-26 15:00:00"
+  }
+]

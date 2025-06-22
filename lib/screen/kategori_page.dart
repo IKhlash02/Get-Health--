@@ -4,9 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../data/models/product_model.dart';
 import '../data/repositories/product_kategori.dart';
-import '../util/api_endpoint.dart';
+
 import '../widget/search_button.dart';
-import 'product_detail_view.dart';
+import '../modules/products/views/product_detail_view.dart';
 
 class KategoriPage extends StatefulWidget {
   final int nomor;
@@ -109,9 +109,7 @@ Widget _productBeranda(BuildContext context, ProductModel produk) {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ProductDetailView(
-                  produk: produk,
-                ),
+                builder: (context) => ProductDetailView(),
               ));
         },
         child: Container(
@@ -134,7 +132,7 @@ Widget _productBeranda(BuildContext context, ProductModel produk) {
                       topLeft: Radius.circular(14),
                       topRight: Radius.circular(14)),
                 ),
-                child: Image.network("${ApiEndpoint.baseUrl}${produk.gambar}"),
+                child: Image.network(""),
               ),
               const SizedBox(
                 height: 5,

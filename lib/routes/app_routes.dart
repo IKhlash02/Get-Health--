@@ -13,7 +13,7 @@ abstract class Routes {
 
   // Rute Produk
   static const products = '/products';
-  static const productDetail = '/products/:id';
+  static const productDetail = '/products/detail';
 
   static const categories = '/categories';
   static const categoryProduct = '/categories/:id';

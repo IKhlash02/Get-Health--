@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../controller/launc_browser.dart';
 import '../../../data/models/pesanan_model.dart';
 import '../../../data/repositories/pesanan_repo.dart';
-import '../../../util/api_endpoint.dart';
 
 class ItemProses extends StatefulWidget {
   const ItemProses({super.key});
@@ -106,7 +105,7 @@ class _ItemProsesState extends State<ItemProses> {
                                         width: 60,
                                         color: Colors.white,
                                         child: Image.network(
-                                          "${ApiEndpoint.baseUrl}${pesananList[index].rincianPesanan[nomor].gambar}",
+                                          "",
                                           fit: BoxFit.fitWidth,
                                         ),
                                       ),

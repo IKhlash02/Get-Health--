@@ -8,7 +8,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 import '../data/models/keranjang_model.dart';
-import '../util/api_endpoint.dart';
 
 Future<void> tambahPesanan(List<Datum> dataKeranjang) async {
   List<String> produkPesanan = [];
@@ -40,10 +39,7 @@ Future<void> tambahPesanan(List<Datum> dataKeranjang) async {
     "jumlah_produk": jumlahPesanan
   };
   try {
-    final response = await http.post(
-        Uri.parse(
-          ApiEndpoint.tambahPesan,
-        ),
+    final response = await http.post(Uri.parse(" ApiEndpoint.tambahPesan,"),
         body: jsonEncode(requestData));
 
     final data = jsonDecode(response.body);

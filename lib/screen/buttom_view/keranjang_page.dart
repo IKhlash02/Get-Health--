@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
+import 'package:get_healt_2/data/providers/network/api_endpoint.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,7 +9,6 @@ import '../../controller/delete_controller.dart';
 import '../../data/models/keranjang_model.dart';
 import '../../data/repositories/keranjang_repo.dart';
 
-import '../../util/api_endpoint.dart';
 import '../checkout.dart';
 
 class KeranjangPage extends StatefulWidget {
@@ -88,7 +88,7 @@ class _KeranjangPageState extends State<KeranjangPage> {
                                           width: 70,
                                           color: Colors.white,
                                           child: Image.network(
-                                            "${ApiEndpoint.baseUrl}${dataKeranjang[index].gambar}",
+                                            "${ApiEndPoints.baseUrl}${dataKeranjang[index].gambar}",
                                             fit: BoxFit.fitWidth,
                                           ),
                                         ),

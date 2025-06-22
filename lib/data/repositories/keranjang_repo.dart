@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:get_healt_2/util/api_endpoint.dart';
+import 'package:get_healt_2/data/providers/network/api_endpoint.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,7 +14,7 @@ Future<Keranjang?> fetchkeranjangList() async {
 
   String myData = await getId();
 
-  final response = await http.get(Uri.parse(ApiEndpoint.keranjang + myData));
+  final response = await http.get(Uri.parse(ApiEndPoints.keranjang + myData));
 
   if (response.statusCode == 200) {
     var jsonData = json.decode(response.body);

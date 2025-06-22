@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:get_healt_2/util/api_endpoint.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,7 +29,7 @@ class EditAlamatController extends GetxController {
     try {
       final response = await http.post(
           Uri.parse(
-            ApiEndpoint.editAlamat + myData,
+            " ApiEndpoint.editAlamat + myData",
           ),
           body: {
             'nama_alamat': namaAlamatController.text,

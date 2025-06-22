@@ -6,8 +6,6 @@ import 'package:get_healt_2/modules/home/controllers/home_controller.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../util/api_endpoint.dart';
-
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
 

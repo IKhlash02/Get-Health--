@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:get_healt_2/util/api_endpoint.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EditUserController extends GetxController {
@@ -29,7 +28,7 @@ class EditUserController extends GetxController {
     try {
       final response = await http.post(
           Uri.parse(
-            ApiEndpoint.editUser + myData,
+            " ApiEndpoint.editUser + myData",
           ),
           body: {
             'nama_user': namaController.text.trim(),

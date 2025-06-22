@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:get_healt_2/util/api_endpoint.dart';
+import 'package:get_healt_2/data/providers/network/api_endpoint.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -16,8 +16,8 @@ Future<List<dynamic>> fetchAlamatList() async {
 
   String myData = await getId();
 
-  final response1 = await http.get(Uri.parse(ApiEndpoint.alamatUser + myData));
-  final response2 = await http.get(Uri.parse(ApiEndpoint.userSatu + myData));
+  final response1 = await http.get(Uri.parse(ApiEndPoints.alamatUser + myData));
+  final response2 = await http.get(Uri.parse(ApiEndPoints.userSatu + myData));
 
   if (response1.statusCode == 200 && response2.statusCode == 200) {
     var jsonData1 = json.decode(response1.body);

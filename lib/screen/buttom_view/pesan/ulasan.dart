@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../data/models/pesanan_model.dart';
 import '../../../data/repositories/pesanan_repo.dart';
-import '../../../util/api_endpoint.dart';
 
 class UlasanPage extends StatefulWidget {
   const UlasanPage({
@@ -108,7 +107,7 @@ class _UlasanPageState extends State<UlasanPage> {
                                         width: 60,
                                         color: Colors.white,
                                         child: Image.network(
-                                          "${ApiEndpoint.baseUrl}${pesananList[index].rincianPesanan[nomor].gambar}",
+                                          "",
                                           fit: BoxFit.fitWidth,
                                         ),
                                       ),

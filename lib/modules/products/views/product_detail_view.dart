@@ -6,48 +6,20 @@ import 'package:get/get.dart';
 
 import 'package:get_healt_2/controller/tambah_keranjang.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
+import 'package:get_healt_2/modules/products/controllers/product_detail_controller.dart';
 import 'package:get_healt_2/screen/detail_review_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../controller/launc_browser.dart';
-import '../data/models/product_model.dart';
-import '../data/models/ulasan_model.dart';
-import '../util/api_endpoint.dart';
-import '../widget/read_more.dart';
-import '../widget/review_item.dart';
+import '../../../controller/launc_browser.dart';
+import '../../../data/models/ulasan_model.dart';
+import '../../../widget/read_more.dart';
+import '../../../widget/review_item.dart';
 
-import 'package:http/http.dart' as http;
+import '../../../screen/checkout_langsung.dart';
 
-import 'checkout_langsung.dart';
+class ProductDetailView extends GetView<ProductDetailController> {
+  const ProductDetailView({super.key});
 
-class ProductDetailView extends StatefulWidget {
-  final ProductModel produk;
-
-  const ProductDetailView({super.key, required this.produk});
-
-  @override
-  State<ProductDetailView> createState() => _ProductDetailViewState();
-}
-
-class _ProductDetailViewState extends State<ProductDetailView> {
-  Future<List<Ulasan>> fetchUlasanList() async {
-    final response = await http
-        .get(Uri.parse(ApiEndpoint.ulasanSatu + widget.produk.idProduk));
-    if (response.statusCode == 200) {
-      List<dynamic> jsonData = json.decode(response.body);
-      if (jsonData.isNotEmpty) {
-        List<Ulasan> ulasanList =
-            jsonData.map((data) => Ulasan.fromJson(data)).toList();
-        return ulasanList;
-      } else {
-        throw Exception("Ulasan Tidak Ada");
-      }
-    } else {
-      throw Exception('Failed to load ulasan');
-    }
-  }
-
-  bool isExpanded = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +27,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              Get.back();
             },
             icon: const Icon(
               Icons.arrow_back,
@@ -74,7 +46,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               child: Hero(
                 tag: 'produk',
                 child: Image.network(
-                  "${ApiEndpoint.baseUrl}${widget.produk.gambar}",
+                  controller.product.gambar,
                   fit: BoxFit.fitWidth,
                 ),
               ),
@@ -92,7 +64,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Text(
-                      widget.produk.namaProduk,
+                      controller.product.namaProduk,
                       style: GoogleFonts.plusJakartaSans(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
@@ -104,7 +76,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        'Rp. ${widget.produk.hargaProduk}',
+                        'Rp. ${controller.product.hargaProduk}',
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
@@ -114,7 +86,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                       Padding(
                         padding: const EdgeInsets.only(top: 6.0),
                         child: Text(
-                          '/${widget.produk.jenisSatuan}',
+                          '/${controller.product.jenisSatuan}',
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 11.89,
                             fontWeight: FontWeight.w400,
@@ -126,7 +98,8 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                         flex: 1,
                       ),
                       RatingBar(
-                        initialRating: double.parse(widget.produk.avgRating),
+                        initialRating:
+                            double.parse(controller.product.avgRating),
                         minRating: 0,
                         maxRating: 5,
                         itemSize: 25,
@@ -153,7 +126,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                       ),
                       Text(
                         maxLines: 2,
-                        "stok ${widget.produk.jumlahStok}",
+                        "stok ${controller.product.jumlahStok}",
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 10.73,
                           fontWeight: FontWeight.w400,
@@ -176,32 +149,28 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   BuildText(
-                    deskripsi: widget.produk.deskripsiProduk,
-                    indikasi: widget.produk.indikasi,
-                    isReadmore: isExpanded,
-                    aturanPakai: widget.produk.aturanPakai,
-                    efekSamping: widget.produk.efekSamping,
-                    komposisi: widget.produk.komposisi,
-                    kontraindikasi: widget.produk.kontraindikasi.isEmpty
+                    deskripsi: controller.product.deskripsiProduk,
+                    indikasi: controller.product.indikasi,
+                    isReadmore: controller.isDescriptionExpanded.value,
+                    aturanPakai: controller.product.aturanPakai,
+                    efekSamping: controller.product.efekSamping,
+                    komposisi: controller.product.komposisi,
+                    kontraindikasi: controller.product.kontraindikasi.isEmpty
                         ? "Tidak ada kontraindikasi pada produk ini"
-                        : widget.produk.kontraindikasi,
-                    perhatian: widget.produk.peringatanPerhatian,
+                        : controller.product.kontraindikasi,
+                    perhatian: controller.product.peringatanPerhatian,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   InkWell(
-                    onTap: () {
-                      setState(() {
-                        isExpanded = !isExpanded;
-                      });
-                    },
+                    onTap: controller.toggleDescription,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          (isExpanded)
+                          (controller.isDescriptionExpanded.value)
                               ? Icons.keyboard_arrow_up
                               : Icons.keyboard_arrow_down,
                           color: AppColors.accentColor,
@@ -226,171 +195,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             const SizedBox(
               height: 20,
             ),
-            FutureBuilder(
-                future: fetchUlasanList(),
-                builder: (context, snapshot) {
-                  List<Ulasan>? ulasanList = snapshot.data;
-                  if (snapshot.hasData) {
-                    return Container(
-                      padding: const EdgeInsets.all(20),
-                      color: Colors.white,
-                      width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Ulasan",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleLarge
-                                    ?.copyWith(color: AppColors.textColor),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  showModalBottomSheet(
-                                      context: context,
-                                      isScrollControlled: true,
-                                      builder: (BuildContext ctx) {
-                                        return DetailReview(
-                                          ulasanList: ulasanList,
-                                          averageRating: widget.produk.avgRating
-                                              .toString(),
-                                        );
-                                      });
-                                },
-                                child: Text(
-                                  "Lihat Semua Ulasan",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall
-                                      ?.copyWith(color: AppColors.textColor),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "${double.parse(widget.produk.avgRating)}/5",
-                                style: GoogleFonts.plusJakartaSans(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w700,
-                                    letterSpacing: 1.5,
-                                    color: AppColors.textColor),
-                              ),
-                              Text(
-                                "(12 ulasan)",
-                                style: GoogleFonts.plusJakartaSans(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w400,
-                                    letterSpacing: 1.5,
-                                    color: AppColors.textColor),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          ReviewItem(
-                            date: ulasanList![0].timestampUlasan.toString(),
-                            rating: ulasanList[0].rating,
-                            review: ulasanList[0].review,
-                            userName: ulasanList[0].namaUser,
-                          ),
-                        ],
-                      ),
-                    );
-                  } else if (snapshot.hasError) {
-                    return Container(
-                      padding: const EdgeInsets.all(20),
-                      color: Colors.white,
-                      width: MediaQuery.of(context).size.width,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Ulasan",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleLarge
-                                    ?.copyWith(color: AppColors.textColor),
-                              ),
-                              TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  "Lihat Semua Ulasan",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall
-                                      ?.copyWith(color: AppColors.textColor),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "0/5",
-                                style: GoogleFonts.plusJakartaSans(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w700,
-                                    letterSpacing: 1.5,
-                                    color: AppColors.textColor),
-                              ),
-                              Text(
-                                "(0 ulasan)",
-                                style: GoogleFonts.plusJakartaSans(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w400,
-                                    letterSpacing: 1.5,
-                                    color: AppColors.textColor),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Container(
-                            width: double.infinity,
-                            margin: const EdgeInsets.all(0),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 20),
-                            decoration: BoxDecoration(
-                                color: AppColors.boxColor,
-                                borderRadius: BorderRadius.circular(12)),
-                            child: Center(
-                                child: Text(
-                              "Belum ada ulasan",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge
-                                  ?.copyWith(color: AppColors.textColor),
-                            )),
-                          )
-                        ],
-                      ),
-                    );
-                  } else if (snapshot.connectionState ==
-                      ConnectionState.waiting) {
-                    return const Center(
-                        child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                    ));
-                  }
-                  return const Text("");
-                }),
+            _buildReviewSection(context),
             const SizedBox(
               height: 30,
             ),
@@ -486,7 +291,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                     width: 25,
                                   ),
                                   Text(
-                                    widget.produk.jenisSatuan,
+                                    controller.product.jenisSatuan,
                                     style: GoogleFonts.plusJakartaSans(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w400,
@@ -562,8 +367,8 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                                     BorderRadius.circular(
                                                         13.28))),
                                         onPressed: () {
-                                          tambahKeranjang(
-                                              count, widget.produk.idProduk);
+                                          tambahKeranjang(count,
+                                              controller.product.idProduk);
                                         },
                                         child: Text(
                                           "Masukkan",
@@ -664,7 +469,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                   width: 25,
                                 ),
                                 Text(
-                                  widget.produk.jenisSatuan,
+                                  controller.product.jenisSatuan,
                                   style: GoogleFonts.plusJakartaSans(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w400,
@@ -741,7 +546,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                                                       13.28))),
                                       onPressed: () {
                                         Get.to(CheckoutLangsungPage(
-                                          produk: widget.produk,
+                                          produk: controller.product,
                                           jumlah: count.toString(),
                                         ));
                                       },
@@ -785,5 +590,95 @@ class _ProductDetailViewState extends State<ProductDetailView> {
         ),
       ),
     );
+  }
+
+  Widget _buildReviewSection(BuildContext context) {
+    return Obx(() {
+      if (controller.isLoadingReviews.value) {
+        return const Center(child: CircularProgressIndicator());
+      }
+      if (controller.reviewsError.value.isNotEmpty) {
+        return Center(child: Text(controller.reviewsError.value));
+      }
+      if (controller.reviews.isEmpty) {
+        return const Center(child: Text("Belum ada ulasan untuk produk ini."));
+      }
+
+      List<ReviewModel>? ulasanList = controller.reviews;
+      return Container(
+        padding: const EdgeInsets.all(20),
+        color: Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Ulasan",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(color: AppColors.textColor),
+                ),
+                TextButton(
+                  onPressed: () {
+                    showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (BuildContext ctx) {
+                          return DetailReview(
+                            ulasanList: ulasanList,
+                            averageRating:
+                                controller.product.avgRating.toString(),
+                          );
+                        });
+                  },
+                  child: Text(
+                    "Lihat Semua Ulasan",
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(color: AppColors.textColor),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
+                Text(
+                  "${double.parse(controller.product.avgRating)}/5",
+                  style: GoogleFonts.plusJakartaSans(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 1.5,
+                      color: AppColors.textColor),
+                ),
+                Text(
+                  "(12 ulasan)",
+                  style: GoogleFonts.plusJakartaSans(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: 1.5,
+                      color: AppColors.textColor),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            ReviewItem(
+              date: ulasanList![0].timestamp.toString(),
+              rating: ulasanList[0].rating,
+              review: ulasanList[0].review,
+              userName: ulasanList[0].userName,
+            ),
+          ],
+        ),
+      );
+    });
   }
 }

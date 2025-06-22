@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:get_healt_2/util/api_endpoint.dart';
+import 'package:get_healt_2/data/providers/network/api_endpoint.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/product_model.dart';
@@ -7,7 +7,7 @@ import '../models/product_model.dart';
 Future<List<ProductModel>> fetchsearch(String search) async {
   if (search.isNotEmpty) {
     final response = await http
-        .post(Uri.parse(ApiEndpoint.search), body: {'katakunci': search});
+        .post(Uri.parse(ApiEndPoints.search), body: {'katakunci': search});
 
     if (response.statusCode == 200) {
       List<dynamic> jsonData = json.decode(response.body);

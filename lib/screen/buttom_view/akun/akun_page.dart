@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_healt_2/core/values/app_colors.dart';
+import 'package:get_healt_2/data/providers/network/api_endpoint.dart';
 import 'package:get_healt_2/screen/buttom_view/akun/user_edit.dart';
 import 'package:get_healt_2/modules/auth/views/login_view.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,7 +11,6 @@ import '../../../data/models/alamat_user_model.dart';
 import '../../../data/models/user_model.dart';
 import '../../../data/repositories/alamat_user_api.dart';
 
-import '../../../util/api_endpoint.dart';
 import 'alamat_edit.dart';
 
 class AkunPage extends StatefulWidget {
@@ -66,7 +66,7 @@ class _AkunPageState extends State<AkunPage> {
                               const BoxDecoration(shape: BoxShape.circle),
                           child: ClipOval(
                               child: Image.network(
-                            '${ApiEndpoint.baseUrl}${userlist!.fotoUser}',
+                            '${ApiEndPoints.baseUrl}${userlist!.fotoUser}',
                             fit: BoxFit.cover,
                           )),
                         ),

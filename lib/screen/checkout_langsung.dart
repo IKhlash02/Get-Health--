@@ -9,7 +9,6 @@ import '../data/models/alamat_user_model.dart';
 
 import '../data/models/product_model.dart';
 import '../data/repositories/alamat_user_api.dart';
-import '../util/api_endpoint.dart';
 
 class CheckoutLangsungPage extends StatefulWidget {
   final ProductModel produk;
@@ -244,7 +243,7 @@ class _CheckoutLangsungPageState extends State<CheckoutLangsungPage> {
                                 width: 60,
                                 color: Colors.white,
                                 child: Image.network(
-                                  "${ApiEndpoint.baseUrl}${widget.produk.gambar}",
+                                  "",
                                   fit: BoxFit.fitWidth,
                                 ),
                               ),

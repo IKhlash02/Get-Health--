@@ -5,10 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../data/models/product_model.dart';
 
 import '../data/repositories/product_search.dart';
-import '../util/api_endpoint.dart';
 
 import '../widget/search_second.dart';
-import 'product_detail_view.dart';
+import '../modules/products/views/product_detail_view.dart';
 
 class SearchPage extends StatefulWidget {
   final String judul;
@@ -126,9 +125,7 @@ Widget _productBeranda(BuildContext context, ProductModel produk) {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ProductDetailView(
-                  produk: produk,
-                ),
+                builder: (context) => ProductDetailView(),
               ));
         },
         child: Container(
@@ -151,7 +148,7 @@ Widget _productBeranda(BuildContext context, ProductModel produk) {
                       topLeft: Radius.circular(14),
                       topRight: Radius.circular(14)),
                 ),
-                child: Image.network("${ApiEndpoint.baseUrl}${produk.gambar}"),
+                child: Image.network(""),
               ),
               const SizedBox(
                 height: 5,
