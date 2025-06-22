@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:get_healt/util/colors.dart';
+import 'package:get_healt_2/util/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/tambah_ulasan.dart';

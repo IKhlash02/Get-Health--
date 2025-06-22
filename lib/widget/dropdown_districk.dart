@@ -23,9 +23,9 @@ class DropdownDistrict extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownSearch<ProvinsiModel>(
-        dropdownDecoratorProps: DropDownDecoratorProps(
+        decoratorProps: DropDownDecoratorProps(
             baseStyle: const TextStyle(color: tulisanColor),
-            dropdownSearchDecoration: InputDecoration(
+            decoration: InputDecoration(
               labelStyle: const TextStyle(color: tulisanColor),
               fillColor: kotakColor,
               filled: true,
@@ -35,7 +35,7 @@ class DropdownDistrict extends StatelessWidget {
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.circular(12.47)),
             )),
-        asyncItems: (String filter) async {
+        items: (String filter, _) async {
           var response = await Dio().get(
             "http://www.emsifa.com/api-wilayah-indonesia/api/districts/$id.json",
             queryParameters: {"filter": filter},

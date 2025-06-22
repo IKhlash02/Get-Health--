@@ -53,7 +53,7 @@ class _KategoriPageState extends State<KategoriPage> {
                       iconSize: 18,
                     ),
                   ),
-                  const Expanded(child: SearchBar()),
+                  const Expanded(child: SearchBarWidget()),
                 ],
               ),
               Padding(

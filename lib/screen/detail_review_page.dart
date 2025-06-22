@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:get_healt/util/colors.dart';
-import 'package:get_healt/widget/review_item.dart';
+import 'package:get_healt_2/util/colors.dart';
+import 'package:get_healt_2/widget/review_item.dart';
 
 import '../data/models/ulasan_model.dart';
 

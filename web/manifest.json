@@ -1,6 +1,6 @@
 {
-    "name": "get_healt",
-    "short_name": "get_healt",
+    "name": "get_healt_2",
+    "short_name": "get_healt_2",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

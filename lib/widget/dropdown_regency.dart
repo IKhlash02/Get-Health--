@@ -25,19 +25,20 @@ class DropDownRegency extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownSearch<ProvinsiModel>(
-        dropdownDecoratorProps: DropDownDecoratorProps(
-            baseStyle: const TextStyle(color: tulisanColor),
-            dropdownSearchDecoration: InputDecoration(
-              labelStyle: const TextStyle(color: tulisanColor),
-              fillColor: kotakColor,
-              filled: true,
-              hintText: hinText,
-              hintStyle: const TextStyle(color: tulisanColor),
-              border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(12.47)),
-            )),
-        asyncItems: (String filter) async {
+        decoratorProps: DropDownDecoratorProps(
+          baseStyle: const TextStyle(color: tulisanColor),
+          decoration: InputDecoration(
+            labelStyle: const TextStyle(color: tulisanColor),
+            fillColor: kotakColor,
+            filled: true,
+            hintText: hinText,
+            hintStyle: const TextStyle(color: tulisanColor),
+            border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(12.47)),
+          ),
+        ),
+        items: (String filter, _) async {
           var response = await Dio().get(
             "https://emsifa.github.io/api-wilayah-indonesia/api/regencies/$id.json",
             queryParameters: {"filter": filter},

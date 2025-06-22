@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:get/get.dart';
-import 'package:get_healt/controller/register_controller.dart';
+import 'package:get_healt_2/controller/register_controller.dart';
 
-import 'package:get_healt/widget/dropdown.dart';
-import 'package:get_healt/widget/submit_button.dart';
+import 'package:get_healt_2/widget/dropdown.dart';
+import 'package:get_healt_2/widget/submit_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../util/colors.dart';

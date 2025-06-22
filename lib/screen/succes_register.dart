@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get_healt/screen/login.dart';
+import 'package:get_healt_2/screen/login.dart';
 
 import '../util/colors.dart';
 import '../widget/button_submit.dart';

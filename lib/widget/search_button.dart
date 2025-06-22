@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_healt/util/colors.dart';
+import 'package:get_healt_2/util/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../screen/search_page.dart';
 
-class SearchBar extends StatefulWidget {
-  const SearchBar({super.key});
+class SearchBarWidget extends StatefulWidget {
+  const SearchBarWidget({super.key});
 
   @override
-  State<SearchBar> createState() => _SearchBarState();
+  State<SearchBarWidget> createState() => _SearchBarState();
 }
 
-class _SearchBarState extends State<SearchBar> {
+class _SearchBarState extends State<SearchBarWidget> {
   final TextEditingController _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {

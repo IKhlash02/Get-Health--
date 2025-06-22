@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_healt/widget/button_login.dart';
-import 'package:get_healt/widget/submit_button.dart';
+import 'package:get_healt_2/widget/button_login.dart';
+import 'package:get_healt_2/widget/submit_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/login_controller.dart';

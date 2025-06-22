@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
-import 'package:get_healt/controller/tambah_keranjang.dart';
-import 'package:get_healt/screen/detail_review_page.dart';
-import 'package:get_healt/util/colors.dart';
+import 'package:get_healt_2/controller/tambah_keranjang.dart';
+import 'package:get_healt_2/screen/detail_review_page.dart';
+import 'package:get_healt_2/util/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../controller/launc_browser.dart';

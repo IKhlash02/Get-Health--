@@ -3,8 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:get_healt/screen/navbar_button.dart';
-import 'package:get_healt/util/api_endpoint.dart';
+import 'package:get_healt_2/screen/navbar_button.dart';
+import 'package:get_healt_2/util/api_endpoint.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginController extends GetxController {

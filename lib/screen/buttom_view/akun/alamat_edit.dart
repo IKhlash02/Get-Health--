@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import 'package:get_healt/widget/dropdown.dart';
-import 'package:get_healt/widget/submit_button.dart';
+import 'package:get_healt_2/widget/dropdown.dart';
+import 'package:get_healt_2/widget/submit_button.dart';
 
 import '../../../controller/edit_alamat_controller.dart';
 import '../../../controller/id_provinsi.dart';

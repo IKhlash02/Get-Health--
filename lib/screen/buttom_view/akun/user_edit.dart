@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import 'package:get_healt/widget/submit_button.dart';
+import 'package:get_healt_2/widget/submit_button.dart';
 
 import '../../../controller/edit_user_controller.dart';
 import '../../../data/models/user_model.dart';

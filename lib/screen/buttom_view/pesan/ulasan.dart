@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_healt/screen/buttom_view/pesan/ulasan_page.dart';
+import 'package:get_healt_2/screen/buttom_view/pesan/ulasan_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../data/models/pesanan_model.dart';

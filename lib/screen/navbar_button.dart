@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get_healt/util/colors.dart';
+import 'package:get_healt_2/util/colors.dart';
 
 import 'buttom_view/akun/akun_page.dart';
 import 'buttom_view/beranda_page.dart';

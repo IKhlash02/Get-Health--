@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get_healt/util/api_endpoint.dart';
+import 'package:get_healt_2/util/api_endpoint.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../controller/launc_browser.dart';

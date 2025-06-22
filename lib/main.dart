@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:get_healt/screen/login.dart';
-import 'package:get_healt/util/colors.dart';
+import 'package:get_healt_2/screen/login.dart';
+import 'package:get_healt_2/util/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Get Healt +',
       theme: ThemeData(
           textTheme: TextTheme(
             displayLarge: GoogleFonts.montserrat(
@@ -83,10 +82,11 @@ class MyApp extends StatelessWidget {
               letterSpacing: 1.5,
             ),
           ),
-          colorScheme: ColorScheme.fromSwatch()
-              .copyWith(primary: const Color(0xff29AAD3))),
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+            primary: const Color(0xff29AAD3),
+          ),
+          useMaterial3: true),
       home: const Login(),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
